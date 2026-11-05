@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Boletín Digital</string>
+    <string name="hint_usuario">Usuario o email</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="iniciar_sesion">Iniciar sesión</string>
+    <string name="error_usuario">Ingresá tu usuario</string>
+    <string name="error_password">Ingresá tu contraseña</string>
+    <string name="bienvenido">Bienvenido %1$s</string>
+    <string name="error_conexion">No hubo respuesta. Revisá tu conexión a Internet.</string>
+    <string name="error_respuesta">No se pudo procesar la respuesta del servidor.</string>
+    <string name="cargando">Cargando...</string>
+    <string name="sin_alumnos">No se encontraron alumnos.</string>
+    <string name="lista_cargada">Listado de alumnos</string>
+    <string name="nuevo_alumno">Nuevo alumno</string>
+    <string name="error_id">ID de alumno inválido</string>
+    <string name="hint_dni">DNI</string>
+    <string name="hint_nombre">Nombre</string>
+    <string name="hint_apellido">Apellido</string>
+    <string name="hint_jurisdiccion">Jurisdicción</string>
+    <string name="hint_institucion">ID de institución</string>
+    <string name="hint_curso">Curso</string>
+    <string name="hint_seccion">Sección</string>
+    <string name="hint_tutor">Nombre del tutor</string>
+    <string name="guardar_alumno">Guardar alumno</string>
+    <string name="confirmar_alumno">Confirmar alumno</string>
+    <string name="confirmar">Confirmar</string>
+    <string name="corregir">Corregir</string>
+</resources>
