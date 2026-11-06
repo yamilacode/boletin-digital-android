@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Colores base -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Paleta institucional: azul escolar + celeste -->
+    <color name="azul_institucional">#FF1F4E8C</color>
+    <color name="azul_institucional_oscuro">#FF163A69</color>
+    <color name="azul_institucional_claro">#FF9DBDE8</color>
+    <color name="celeste_institucional">#FF4FA3D9</color>
+
+    <!-- Fondos y textos -->
+    <color name="fondo_claro">#FFF5F7FA</color>
+    <color name="fondo_oscuro">#FF121821</color>
+    <color name="superficie_oscura">#FF1C2430</color>
+    <color name="texto_principal">#FF1E2329</color>
+    <color name="texto_secundario">#FF5F6B7A</color>
+    <color name="texto_claro">#FFE6EAF0</color>
+
+    <!-- Estados -->
+    <color name="error">#FFC62828</color>
+    <color name="exito">#FF2E7D32</color>
+    <color name="deshabilitado">#FFB0B8C4</color>
 </resources>

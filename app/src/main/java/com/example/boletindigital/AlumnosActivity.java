@@ -31,6 +31,7 @@ public class AlumnosActivity extends AppCompatActivity {
 
     private String token;
     private String rol;
+    private boolean puedeCrear = false;
 
     private final ExecutorService executor =
             Executors.newSingleThreadExecutor();
@@ -70,13 +71,17 @@ public class AlumnosActivity extends AppCompatActivity {
                 });
 
         // Alta solo para roles autorizados
-        boolean puedeCrear = "preceptor".equals(rol)
+        puedeCrear = "preceptor".equals(rol)
                 || "administrador".equals(rol)
                 || "admin".equals(rol);
 
         btnNuevoAlumno.setEnabled(puedeCrear);
 
         btnNuevoAlumno.setOnClickListener(v -> {
+            // Bloqueo del botón para evitar abrir dos formularios
+            // con un doble toque accidental
+            btnNuevoAlumno.setEnabled(false);
+
             Intent intent = new Intent(
                     this, NuevoAlumnoActivity.class);
 
@@ -88,6 +93,11 @@ public class AlumnosActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        // Al volver del formulario se vuelve a habilitar
+        // (solo si el rol tiene permiso)
+        btnNuevoAlumno.setEnabled(puedeCrear);
+
         cargarAlumnos();
     }
 
@@ -109,8 +119,10 @@ public class AlumnosActivity extends AppCompatActivity {
                             respuesta.getJSONObject(i));
 
                     nuevos.add(alumno);
-                    textos.add(alumno.getNombreCompleto()
-                            + " - DNI: " + alumno.getDni());
+                    textos.add(getString(
+                            R.string.item_alumno,
+                            alumno.getNombreCompleto(),
+                            alumno.getDni()));
                 }
 
                 runOnUiThread(() -> {

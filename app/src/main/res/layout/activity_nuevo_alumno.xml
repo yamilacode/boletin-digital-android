@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground"
     android:fillViewport="true">
 
     <LinearLayout
@@ -11,11 +12,20 @@
         android:orientation="vertical"
         android:padding="24dp">
 
+        <TextView
+            android:id="@+id/tvTituloNuevo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/titulo_nuevo_alumno"
+            android:textAppearance="@style/Titulo.BoletinDigital" />
+
         <EditText
             android:id="@+id/etDni"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_dni"
+            android:importantForAutofill="no"
             android:inputType="number"
             android:maxLength="8" />
 
@@ -24,51 +34,62 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_nombre"
-            android:inputType="textPersonName" />
+            android:importantForAutofill="no"
+            android:inputType="textPersonName|textCapWords" />
 
         <EditText
             android:id="@+id/etApellido"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_apellido"
-            android:inputType="textPersonName" />
+            android:importantForAutofill="no"
+            android:inputType="textPersonName|textCapWords" />
 
         <EditText
             android:id="@+id/etJurisdiccion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_jurisdiccion" />
+            android:hint="@string/hint_jurisdiccion"
+            android:importantForAutofill="no"
+            android:inputType="textCapWords" />
 
         <EditText
             android:id="@+id/etInstitucion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_institucion"
+            android:importantForAutofill="no"
             android:inputType="number" />
 
         <EditText
             android:id="@+id/etCurso"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_curso" />
+            android:hint="@string/hint_curso"
+            android:importantForAutofill="no"
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/etSeccion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_seccion" />
+            android:hint="@string/hint_seccion"
+            android:importantForAutofill="no"
+            android:inputType="textCapCharacters" />
 
         <EditText
             android:id="@+id/etTutor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_tutor"
-            android:inputType="textPersonName" />
+            android:importantForAutofill="no"
+            android:inputType="textPersonName|textCapWords" />
 
         <Button
             android:id="@+id/btnGuardar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="@string/guardar_alumno" />
 
     </LinearLayout>

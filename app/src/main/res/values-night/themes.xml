@@ -1,7 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!-- Tema base de la aplicación (modo oscuro) -->
     <style name="Base.Theme.BoletinDigital" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/azul_institucional_claro</item>
+        <item name="colorOnPrimary">@color/azul_institucional_oscuro</item>
+        <item name="colorPrimaryContainer">@color/azul_institucional_oscuro</item>
+        <item name="colorOnPrimaryContainer">@color/azul_institucional_claro</item>
+        <item name="colorSecondary">@color/celeste_institucional</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorError">@color/error</item>
+        <item name="android:colorBackground">@color/fondo_oscuro</item>
+        <item name="colorSurface">@color/superficie_oscura</item>
+        <item name="colorOnSurface">@color/texto_claro</item>
+        <item name="android:statusBarColor">@color/fondo_oscuro</item>
     </style>
 </resources>
