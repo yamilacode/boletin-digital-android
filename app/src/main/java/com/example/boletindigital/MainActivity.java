@@ -1,4 +1,3 @@
-
 package com.example.boletindigital;
 
 import android.content.Intent;
@@ -7,6 +6,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONObject;
@@ -16,6 +16,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class MainActivity extends AppCompatActivity {
+
+    // Claves para guardar el estado al rotar la pantalla (R6)
+    private static final String KEY_USUARIO = "estado_usuario";
+    private static final String KEY_PASSWORD = "estado_password";
 
     private EditText etUsuario;
     private EditText etPassword;
@@ -39,6 +43,35 @@ public class MainActivity extends AppCompatActivity {
         btnIngresar.setOnClickListener(v -> iniciarSesion());
     }
 
+    // Se llama antes de que la Activity se destruya (por ejemplo, al girar)
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putString(KEY_USUARIO,
+                etUsuario.getText().toString());
+
+        outState.putString(KEY_PASSWORD,
+                etPassword.getText().toString());
+    }
+
+    // Se llama después de onStart() cuando la Activity se recrea
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        etUsuario.setText(
+                savedInstanceState.getString(KEY_USUARIO, ""));
+
+        etPassword.setText(
+                savedInstanceState.getString(KEY_PASSWORD, ""));
+
+        // Si la petición anterior quedó en la Activity vieja,
+        // se vuelve a habilitar el botón en la nueva
+        cargando = false;
+        btnIngresar.setEnabled(true);
+    }
+
     private void iniciarSesion() {
 
         if (cargando) {
@@ -51,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         String password =
                 etPassword.getText().toString();
 
-        // Validación antes de enviar
+        // Validaciones de campos requeridos antes de enviar
         if (usuario.isEmpty()) {
             etUsuario.setError(
                     getString(R.string.error_usuario));
@@ -59,7 +92,14 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        if (password.isEmpty()) {
+        if (usuario.contains(" ")) {
+            etUsuario.setError(
+                    getString(R.string.error_usuario_espacios));
+            etUsuario.requestFocus();
+            return;
+        }
+
+        if (password.trim().isEmpty()) {
             etPassword.setError(
                     getString(R.string.error_password));
             etPassword.requestFocus();
@@ -134,8 +174,10 @@ public class MainActivity extends AppCompatActivity {
                         ApiClient.ApiException error =
                                 (ApiClient.ApiException) e;
 
-                        mensaje = "API (" + error.getCodigo()
-                                + "): " + error.getMessage();
+                        mensaje = getString(
+                                R.string.error_api,
+                                error.getCodigo(),
+                                error.getMessage());
 
                     } else if (e instanceof IOException) {
                         mensaje = getString(

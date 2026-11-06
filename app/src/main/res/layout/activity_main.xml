@@ -3,13 +3,31 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground"
+    android:gravity="center_vertical"
     android:orientation="vertical"
     android:padding="24dp">
+
+    <TextView
+        android:id="@+id/tvTituloLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textAppearance="@style/Titulo.BoletinDigital" />
+
+    <TextView
+        android:id="@+id/tvSubtituloLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/subtitulo_login"
+        android:textAppearance="@style/Subtitulo.BoletinDigital" />
 
     <EditText
         android:id="@+id/etUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:autofillHints="username"
         android:hint="@string/hint_usuario"
         android:inputType="textEmailAddress" />
 
@@ -17,6 +35,7 @@
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:autofillHints="password"
         android:hint="@string/hint_password"
         android:inputType="textPassword" />
 
@@ -24,6 +43,7 @@
         android:id="@+id/btnIngresar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="@string/iniciar_sesion" />
 
 </LinearLayout>

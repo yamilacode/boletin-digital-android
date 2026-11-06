@@ -47,13 +47,15 @@ public class DetalleAlumnoActivity extends AppCompatActivity {
                 JSONObject respuesta = ApiClient.obtenerAlumno(id);
                 Alumno alumno = new Alumno(respuesta);
 
-                String informacion =
-                        "Nombre: " + alumno.getNombreCompleto()
-                                + "\nDNI: " + alumno.getDni()
-                                + "\nJurisdicción: " + alumno.getJurisdiccion()
-                                + "\nCurso: " + alumno.getCurso()
-                                + "\nSección: " + alumno.getSeccion()
-                                + "\nTutor: " + alumno.getNombreTutor();
+                // Texto tomado de strings.xml (sin hardcodear)
+                String informacion = getString(
+                        R.string.detalle_alumno,
+                        alumno.getNombreCompleto(),
+                        alumno.getDni(),
+                        alumno.getJurisdiccion(),
+                        alumno.getCurso(),
+                        alumno.getSeccion(),
+                        alumno.getNombreTutor());
 
                 runOnUiThread(() -> {
                     if (!isFinishing() && !isDestroyed()) {
