@@ -1,4 +1,3 @@
-
 package com.example.boletindigital;
 
 import android.content.Intent;
@@ -10,6 +9,7 @@ import android.widget.Toast;
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONObject;
@@ -19,6 +19,20 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class NuevoAlumnoActivity extends AppCompatActivity {
+
+    // Claves para guardar el estado al rotar la pantalla (R6)
+    private static final String KEY_DNI = "estado_dni";
+    private static final String KEY_NOMBRE = "estado_nombre";
+    private static final String KEY_APELLIDO = "estado_apellido";
+    private static final String KEY_JURISDICCION = "estado_jurisdiccion";
+    private static final String KEY_INSTITUCION = "estado_institucion";
+    private static final String KEY_CURSO = "estado_curso";
+    private static final String KEY_SECCION = "estado_seccion";
+    private static final String KEY_TUTOR = "estado_tutor";
+
+    // Expresiones regulares para validar
+    private static final String REGEX_DNI = "\\d{7,8}";
+    private static final String REGEX_SOLO_LETRAS = "[\\p{L} '.-]+";
 
     private EditText etDni, etNombre, etApellido;
     private EditText etJurisdiccion, etInstitucion;
@@ -57,6 +71,40 @@ public class NuevoAlumnoActivity extends AppCompatActivity {
         btnGuardar.setOnClickListener(v -> validarDatos());
     }
 
+    // Guarda lo que el usuario escribió antes de que se destruya la Activity
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putString(KEY_DNI, texto(etDni));
+        outState.putString(KEY_NOMBRE, texto(etNombre));
+        outState.putString(KEY_APELLIDO, texto(etApellido));
+        outState.putString(KEY_JURISDICCION, texto(etJurisdiccion));
+        outState.putString(KEY_INSTITUCION, texto(etInstitucion));
+        outState.putString(KEY_CURSO, texto(etCurso));
+        outState.putString(KEY_SECCION, texto(etSeccion));
+        outState.putString(KEY_TUTOR, texto(etTutor));
+    }
+
+    // Recupera los datos cuando la Activity se recrea (por ejemplo, al girar)
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        etDni.setText(savedInstanceState.getString(KEY_DNI, ""));
+        etNombre.setText(savedInstanceState.getString(KEY_NOMBRE, ""));
+        etApellido.setText(savedInstanceState.getString(KEY_APELLIDO, ""));
+        etJurisdiccion.setText(savedInstanceState.getString(KEY_JURISDICCION, ""));
+        etInstitucion.setText(savedInstanceState.getString(KEY_INSTITUCION, ""));
+        etCurso.setText(savedInstanceState.getString(KEY_CURSO, ""));
+        etSeccion.setText(savedInstanceState.getString(KEY_SECCION, ""));
+        etTutor.setText(savedInstanceState.getString(KEY_TUTOR, ""));
+    }
+
+    private String texto(EditText campo) {
+        return campo.getText().toString();
+    }
+
     private void validarDatos() {
 
         if (enviando) return;
@@ -67,22 +115,36 @@ public class NuevoAlumnoActivity extends AppCompatActivity {
                 etCurso, etSeccion, etTutor
         };
 
+        // Campos requeridos
         for (EditText campo : campos) {
             if (campo.getText().toString().trim().isEmpty()) {
-                campo.setError("Campo obligatorio");
+                campo.setError(getString(R.string.error_campo_obligatorio));
                 campo.requestFocus();
                 return;
             }
         }
 
+        // DNI numérico obligatorio (7 u 8 dígitos)
         String dni = etDni.getText().toString().trim();
 
-        if (!dni.matches("\\d{8}")) {
-            etDni.setError("El DNI debe tener 8 números");
+        if (!dni.matches(REGEX_DNI)) {
+            etDni.setError(getString(R.string.error_dni));
             etDni.requestFocus();
             return;
         }
 
+        // Nombre, apellido y tutor: solo letras
+        EditText[] camposTexto = {etNombre, etApellido, etTutor};
+
+        for (EditText campo : camposTexto) {
+            if (!campo.getText().toString().trim().matches(REGEX_SOLO_LETRAS)) {
+                campo.setError(getString(R.string.error_solo_letras));
+                campo.requestFocus();
+                return;
+            }
+        }
+
+        // ID de institución: número entero mayor a 0
         int institucion;
 
         try {
@@ -94,7 +156,8 @@ public class NuevoAlumnoActivity extends AppCompatActivity {
             }
 
         } catch (NumberFormatException e) {
-            etInstitucion.setError("Institución inválida");
+            etInstitucion.setError(getString(R.string.error_institucion));
+            etInstitucion.requestFocus();
             return;
         }
 
@@ -126,7 +189,7 @@ public class NuevoAlumnoActivity extends AppCompatActivity {
 
         if (token == null || token.isEmpty()) {
             Toast.makeText(this,
-                    "No hay sesión activa",
+                    R.string.error_sin_sesion,
                     Toast.LENGTH_LONG).show();
             return;
         }
@@ -155,7 +218,8 @@ public class NuevoAlumnoActivity extends AppCompatActivity {
                             ApiClient.crearAlumno(datos, token);
 
                     String mensaje = respuesta.optString(
-                            "mensaje", "Operación completada");
+                            "mensaje",
+                            getString(R.string.operacion_completada));
 
                     runOnUiThread(() -> {
                         if (isFinishing() || isDestroyed()) return;
@@ -193,7 +257,8 @@ public class NuevoAlumnoActivity extends AppCompatActivity {
             enviando = false;
             btnGuardar.setEnabled(true);
             Toast.makeText(this,
-                    "Datos inválidos", Toast.LENGTH_LONG).show();
+                    R.string.error_datos_invalidos,
+                    Toast.LENGTH_LONG).show();
         }
     }
 
