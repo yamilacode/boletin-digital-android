@@ -1,57 +1,74 @@
 <resources>
-    <!-- General -->
     <string name="app_name">Boletín Digital</string>
-    <string name="cargando">Cargando...</string>
+    <string name="subtitulo_app">Gestión Escolar Unificada</string>
+    <string name="pie_version">Sistema Escolar Provincial • v1.0</string>
 
-    <!-- Login (MainActivity) -->
-    <string name="subtitulo_login">Ingresá con tu usuario institucional</string>
-    <string name="hint_usuario">Usuario o email</string>
-    <string name="hint_password">Contraseña</string>
-    <string name="iniciar_sesion">Iniciar sesión</string>
-    <string name="bienvenido">Bienvenido %1$s</string>
+    <!-- Pestañas de Roles del Login -->
+    <string name="tab_tutor_alumno">Tutor / Alumno</string>
+    <string name="tab_docente_preceptor">Preceptor / Docente</string>
 
-    <!-- Listado de alumnos (AlumnosActivity) -->
-    <string name="titulo_alumnos">Alumnos</string>
-    <string name="sin_alumnos">No se encontraron alumnos.</string>
-    <string name="lista_cargada">Listado de alumnos</string>
-    <string name="nuevo_alumno">Nuevo alumno</string>
-    <string name="item_alumno">%1$s - DNI: %2$s</string>
+    <!-- Aviso Docente y Directivo -->
+    <string name="titulo_aviso_docente">Acceso Docente y Directivo</string>
+    <string name="subtitulo_aviso_docente">Ingreso oficial para carga de notas y planillas.</string>
 
-    <!-- Detalle del alumno (DetalleAlumnoActivity) -->
-    <string name="titulo_detalle">Ficha del alumno</string>
-    <string name="detalle_alumno">Nombre: %1$s\nDNI: %2$s\nJurisdicción: %3$s\nCurso: %4$s\nSección: %5$s\nTutor: %6$s</string>
+    <!-- Hints y Botones dinámicos según Rol -->
+    <string name="hint_usuario_alumno">Correo electrónico o DNI del alumno</string>
+    <string name="hint_usuario_docente">Usuario institucional / Legajo</string>
+    <string name="hint_password_alumno">Contraseña</string>
+    <string name="hint_password_docente">Contraseña institucional</string>
+    <string name="btn_login_alumno">Iniciar Sesión</string>
+    <string name="btn_login_docente">Acceder a Preceptoría</string>
 
-    <!-- Alta de alumno (NuevoAlumnoActivity) -->
-    <string name="titulo_nuevo_alumno">Registrar alumno</string>
-    <string name="hint_dni">DNI</string>
-    <string name="hint_nombre">Nombre</string>
-    <string name="hint_apellido">Apellido</string>
-    <string name="hint_jurisdiccion">Jurisdicción</string>
-    <string name="hint_institucion">ID de institución</string>
-    <string name="hint_curso">Curso</string>
-    <string name="hint_seccion">Sección</string>
-    <string name="hint_tutor">Nombre del tutor</string>
-    <string name="guardar_alumno">Guardar alumno</string>
-    <string name="operacion_completada">Operación completada</string>
+    <!-- Enlaces de Ayuda y Botones Secundarios -->
+    <string name="ayuda_tutor">¿Olvidaste tu contraseña o DNI?</string>
+    <string name="ayuda_docente">¿Problemas con tu clave institucional?</string>
+    <string name="btn_crear_cuenta">Crear cuenta nueva</string>
+    <string name="btn_solicitar_alta">Solicitar Alta Docente</string>
 
-    <!-- Confirmación (ConfirmarAlumnoActivity) -->
-    <string name="confirmar_alumno">Confirmar alumno</string>
-    <string name="confirmar_registro">¿Confirmás el registro?\n\n%1$s %2$s\nDNI: %3$s</string>
-    <string name="confirmar">Confirmar</string>
-    <string name="corregir">Corregir</string>
+    <!-- Botón Google y divisores -->
+    <string name="iniciar_con_google">Continuar con Google</string>
+    <string name="divisor_correo_dni">O INGRESÁ CON TU CORREO / DNI</string>
+    <string name="iniciando_sesion">Iniciando sesión...</string>
 
-    <!-- Errores y validaciones -->
-    <string name="error_usuario">Ingresá tu usuario</string>
+    <!-- Errores y Validaciones (Ale y Lucre) -->
+    <string name="error_usuario">Ingresá tu usuario, email o DNI</string>
     <string name="error_usuario_espacios">El usuario no puede tener espacios</string>
     <string name="error_password">Ingresá tu contraseña</string>
-    <string name="error_conexion">No hubo respuesta. Revisá tu conexión a Internet.</string>
-    <string name="error_respuesta">No se pudo procesar la respuesta del servidor.</string>
-    <string name="error_api">API (%1$d): %2$s</string>
-    <string name="error_id">ID de alumno inválido</string>
     <string name="error_campo_obligatorio">Campo obligatorio</string>
     <string name="error_dni">El DNI debe tener 7 u 8 números</string>
     <string name="error_solo_letras">Solo se permiten letras</string>
-    <string name="error_institucion">Institución inválida</string>
+    <string name="error_institucion">Institución inválida (número mayor a 0)</string>
     <string name="error_sin_sesion">No hay sesión activa</string>
     <string name="error_datos_invalidos">Datos inválidos</string>
+    <string name="operacion_completada">Operación completada</string>
+    <string name="error_api">API (%1$d): %2$s</string>
+    <string name="error_conexion">No hubo respuesta. Revisá tu conexión a Internet.</string>
+    <string name="error_respuesta">No se pudo procesar la respuesta del servidor.</string>
+    <string name="bienvenido">Bienvenido, %1$s</string>
+
+    <string name="cargando">Cargando...</string>
+    <string name="sin_alumnos">No se encontraron alumnos registrados.</string>
+    <string name="lista_cargada">Listado de Alumnos</string>
+    <string name="subtitulo_alumnos">Alumnos registrados en la institución</string>
+    <string name="nuevo_alumno">+ Nuevo Alumno</string>
+    <string name="error_id">ID de alumno inválido</string>
+
+    <string name="titulo_detalle">Ficha del Alumno</string>
+    <string name="seccion_datos_personales">Datos Personales</string>
+    <string name="seccion_datos_academicos">Datos Académicos</string>
+    <string name="seccion_tutor">Tutor Responsable</string>
+
+    <string name="titulo_nuevo_alumno">Registrar Nuevo Alumno</string>
+    <string name="hint_dni">Número de DNI</string>
+    <string name="hint_nombre">Nombres</string>
+    <string name="hint_apellido">Apellidos</string>
+    <string name="hint_jurisdiccion">Jurisdicción (ej: Formosa)</string>
+    <string name="hint_institucion">ID Institución</string>
+    <string name="hint_curso">Año / Curso (ej: 4°)</string>
+    <string name="hint_seccion">División / Sección (ej: I)</string>
+    <string name="hint_tutor">Nombre completo del tutor</string>
+    <string name="guardar_alumno">GUARDAR ALUMNO</string>
+    <string name="confirmar_alumno">Confirmar Alumno</string>
+    <string name="confirmar">Confirmar</string>
+    <string name="corregir">Corregir</string>
 </resources>

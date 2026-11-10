@@ -1,25 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Colores base -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- Paleta institucional: azul escolar + celeste -->
-    <color name="azul_institucional">#FF1F4E8C</color>
-    <color name="azul_institucional_oscuro">#FF163A69</color>
-    <color name="azul_institucional_claro">#FF9DBDE8</color>
-    <color name="celeste_institucional">#FF4FA3D9</color>
+    <!-- PALETA INSTITUCIONAL BOLETÍN DIGITAL (IGUAL A LA VERSIÓN WEB) -->
+    <!-- Fondos y Superficies -->
+    <color name="bg_body">#0C111D</color>
+    <color name="bg_card">#182030</color>
+    <color name="bg_header">#151B2A</color>
+    <color name="bg_surface">#111827</color>
+    <color name="bg_elevated">#1E293B</color>
 
-    <!-- Fondos y textos -->
-    <color name="fondo_claro">#FFF5F7FA</color>
-    <color name="fondo_oscuro">#FF121821</color>
-    <color name="superficie_oscura">#FF1C2430</color>
-    <color name="texto_principal">#FF1E2329</color>
-    <color name="texto_secundario">#FF5F6B7A</color>
-    <color name="texto_claro">#FFE6EAF0</color>
+    <!-- Bordes y Separadores -->
+    <color name="border_main">#334155</color>
+    <color name="border_subtle">#1E293B</color>
 
-    <!-- Estados -->
-    <color name="error">#FFC62828</color>
-    <color name="exito">#FF2E7D32</color>
-    <color name="deshabilitado">#FFB0B8C4</color>
+    <!-- Acentos Institucionales (Celeste Moderno) -->
+    <color name="color_primary">#38BDF8</color>
+    <color name="color_primary_dark">#0284C7</color>
+    <color name="color_primary_light">#67E8F9</color>
+
+    <!-- Tipografía y Textos -->
+    <color name="text_main">#F8FAFC</color>
+    <color name="text_secondary">#CBD5E1</color>
+    <color name="text_muted">#94A3B8</color>
+    <color name="text_dim">#64748B</color>
+
+    <!-- Colores de Estado -->
+    <color name="color_success">#22C55E</color>
+    <color name="color_warning">#FBBF24</color>
+    <color name="color_warning_bg">#251D0D</color>
+    <color name="color_warning_border">#5C4516</color>
+    <color name="color_danger">#EF4444</color>
+    <color name="color_danger_bg">#361214</color>
+
+    <!-- Badges de Calificación (TEA / TEP / TED) y Estados -->
+    <color name="color_tea_bg">#064E3B</color>
+    <color name="color_tea_text">#34D399</color>
+    <color name="color_tep_bg">#451A03</color>
+    <color name="color_tep_text">#FBBF24</color>
+    <color name="color_ted_bg">#450A0A</color>
+    <color name="color_ted_text">#F87171</color>
+    <color name="color_badge_blue_bg">#082F49</color>
+    <color name="color_badge_purple_bg">#3B0764</color>
+    <color name="color_badge_purple_text">#C084FC</color>
+
+    <!-- Tabs Activo / Inactivo -->
+    <color name="tab_active_bg">#1E293B</color>
+    <color name="tab_inactive_bg">#0F172A</color>
 </resources>

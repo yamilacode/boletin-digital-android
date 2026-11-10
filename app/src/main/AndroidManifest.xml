@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Permiso para conectarse al backend PHP -->
+    <!-- Permiso para conectarse al backend PHP en Railway -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -27,6 +27,11 @@
 
         </activity>
 
+        <!-- Pantalla: Panel Central / Dashboard de Gestión -->
+        <activity
+            android:name=".MenuPrincipalActivity"
+            android:exported="false" />
+
         <!-- Pantalla: listado de alumnos -->
         <activity
             android:name=".AlumnosActivity"
@@ -46,6 +51,21 @@
         <!-- Pantalla: confirmar registro -->
         <activity
             android:name=".ConfirmarAlumnoActivity"
+            android:exported="false" />
+
+        <!-- Pantalla: Portal Académico del Estudiante y Tutor (Boletín, Asistencia, Previas) -->
+        <activity
+            android:name=".BoletinAlumnoActivity"
+            android:exported="false" />
+
+        <!-- Pantalla: Previas y Mesas de Examen -->
+        <activity
+            android:name=".PreviasMesasActivity"
+            android:exported="false" />
+
+        <!-- Pantalla: Asistencia y Notificaciones -->
+        <activity
+            android:name=".AsistenciaAvisosActivity"
             android:exported="false" />
 
     </application>

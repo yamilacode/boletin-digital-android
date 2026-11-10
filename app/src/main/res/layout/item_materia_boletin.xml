@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    app:cardBackgroundColor="@color/bg_card"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="0dp"
+    app:strokeColor="@color/border_main"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Fila Principal (Siempre Visible) -->
+        <LinearLayout
+            android:id="@+id/layoutCabeceraMateria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="12dp">
+
+            <!-- Ícono Circular de Estudiante / Académico -->
+            <FrameLayout
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/bg_icon_circle"
+                android:backgroundTint="@color/bg_surface">
+
+                <ImageView
+                    android:id="@+id/ivIconoMateria"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_school"
+                    app:tint="@color/color_primary" />
+            </FrameLayout>
+
+            <!-- Título y Subtítulo de Materia -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvNombreMateria"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Matemática"
+                    android:textColor="@color/text_main"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvSubtituloMateria"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="4° Año • 1° Cuat."
+                    android:textColor="@color/text_muted"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- Badges de Estado y Nota -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <!-- Badge TEA / TEP / TED -->
+                <TextView
+                    android:id="@+id/tvBadgeValoracion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_badge_rounded"
+                    android:backgroundTint="@color/color_tea_bg"
+                    android:paddingStart="6dp"
+                    android:paddingTop="2dp"
+                    android:paddingEnd="6dp"
+                    android:paddingBottom="2dp"
+                    android:text="TEA"
+                    android:textColor="@color/color_tea_text"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <!-- Badge Nota Numérica -->
+                <FrameLayout
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_icon_circle"
+                    android:backgroundTint="@color/color_tea_bg">
+
+                    <TextView
+                        android:id="@+id/tvNotaNumerica"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="8"
+                        android:textColor="@color/color_tea_text"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </FrameLayout>
+
+                <!-- Badge Estado (En Curso) -->
+                <TextView
+                    android:id="@+id/tvBadgeEstado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_badge_rounded"
+                    android:backgroundTint="@color/color_danger_bg"
+                    android:paddingStart="6dp"
+                    android:paddingTop="2dp"
+                    android:paddingEnd="6dp"
+                    android:paddingBottom="2dp"
+                    android:text="En Curso"
+                    android:textColor="@color/color_danger"
+                    android:textSize="10sp" />
+
+                <!-- Ícono Expandir/Colapsar -->
+                <ImageView
+                    android:id="@+id/ivExpandir"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_expand_more"
+                    app:tint="@color/text_muted" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Acordeón Desplegable (Detalle por Cuatrimestre) -->
+        <LinearLayout
+            android:id="@+id/layoutDetalleCuatrimestre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_surface"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:visibility="gone">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/border_main" />
+
+            <!-- Fila Cuatrimestres -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1° Cuatrimestre"
+                        android:textColor="@color/text_muted"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/tvNotaCuat1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="TEA (8)"
+                        android:textColor="@color/text_main"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2° Cuatrimestre"
+                        android:textColor="@color/text_muted"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/tvNotaCuat2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="- / -"
+                        android:textColor="@color/text_dim"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Intensificación"
+                        android:textColor="@color/text_muted"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/tvNotaIntensif"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="-"
+                        android:textColor="@color/text_dim"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Observación pedagógica / R.I.T.E. -->
+            <TextView
+                android:id="@+id/tvObservacionMateria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Trayectoria pedagógica en curso según normativa R.I.T.E."
+                android:textColor="@color/text_muted"
+                android:textSize="11sp"
+                android:textStyle="italic" />
+        </LinearLayout>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
+

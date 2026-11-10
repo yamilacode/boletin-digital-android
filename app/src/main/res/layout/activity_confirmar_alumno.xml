@@ -1,39 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?android:attr/colorBackground"
-    android:orientation="vertical"
-    android:padding="24dp">
+    android:background="@color/bg_body"
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/tvTituloConfirmar"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="@string/confirmar_alumno"
-        android:textAppearance="@style/Titulo.BoletinDigital" />
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp">
 
-    <TextView
-        android:id="@+id/tvConfirmacion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="@string/confirmar_alumno"
-        android:textAppearance="?attr/textAppearanceBodyLarge" />
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/bg_card"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/border_main"
+            app:strokeWidth="1dp">
 
-    <Button
-        android:id="@+id/btnConfirmar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/confirmar" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="24dp">
 
-    <Button
-        android:id="@+id/btnCorregir"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/corregir" />
+                <FrameLayout
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_icon_circle">
 
-</LinearLayout>
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_school" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/confirmar_alumno"
+                    android:textColor="@color/text_main"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:text="Verificá la información antes de guardar en la base de datos"
+                    android:textColor="@color/text_muted"
+                    android:textSize="12sp" />
+
+                <!-- Resumen de Datos -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    app:cardBackgroundColor="@color/bg_surface"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/border_main"
+                    app:strokeWidth="1dp">
+
+                    <TextView
+                        android:id="@+id/tvConfirmacion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingExtra="4dp"
+                        android:padding="16dp"
+                        android:textColor="@color/text_main"
+                        android:textSize="13sp" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Botón Confirmar -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnConfirmar"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="10dp"
+                    android:backgroundTint="@color/color_primary"
+                    android:text="@string/confirmar"
+                    android:textColor="@color/bg_body"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="10dp" />
+
+                <!-- Botón Corregir -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCorregir"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:backgroundTint="@color/bg_card"
+                    android:text="@string/corregir"
+                    android:textColor="@color/text_muted"
+                    android:textSize="13sp"
+                    app:cornerRadius="10dp"
+                    app:strokeColor="@color/border_main"
+                    app:strokeWidth="1dp" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>
