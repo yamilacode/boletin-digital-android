@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- Permiso para conectarse al backend PHP en Railway -->
@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BoletinDigital">
 
-        <!-- Pantalla principal: inicio de sesión -->
+        <!-- Pantalla principal: inicio de sesiÃ³n -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -27,7 +27,7 @@
 
         </activity>
 
-        <!-- Pantalla: Panel Central / Dashboard de Gestión -->
+        <!-- Pantalla: Panel Central / Dashboard de GestiÃ³n -->
         <activity
             android:name=".MenuPrincipalActivity"
             android:exported="false" />
@@ -53,7 +53,12 @@
             android:name=".ConfirmarAlumnoActivity"
             android:exported="false" />
 
-        <!-- Pantalla: Portal Académico del Estudiante y Tutor (Boletín, Asistencia, Previas) -->
+        <!-- Pantalla: Carga de Calificaciones (Planilla escolar docente/preceptor) -->
+        <activity
+            android:name=".CargarNotasActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <!-- Pantalla: Portal AcadÃ©mico del Estudiante y Tutor (BoletÃ­n, Asistencia, Previas) -->
         <activity
             android:name=".BoletinAlumnoActivity"
             android:exported="false" />

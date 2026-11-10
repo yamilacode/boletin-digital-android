@@ -39,7 +39,7 @@ public class ApiClient {
     private static String solicitar(
             String metodo,
             String ruta,
-            JSONObject datos,
+            Object datos,
             String token
     ) throws Exception {
 
@@ -222,6 +222,22 @@ public class ApiClient {
                 "boletin.php?dni=" + dni,
                 null,
                 null
+        );
+
+        return new JSONObject(respuesta);
+    }
+
+    // POST: guardar calificaciones en lote (Docente / Preceptor)
+    public static JSONObject guardarNotas(
+            JSONArray listaNotas,
+            String token
+    ) throws Exception {
+
+        String respuesta = solicitar(
+                "POST",
+                "notas.php",
+                listaNotas,
+                token
         );
 
         return new JSONObject(respuesta);

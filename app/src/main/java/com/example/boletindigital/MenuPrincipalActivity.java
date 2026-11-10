@@ -26,23 +26,35 @@ public class MenuPrincipalActivity extends AppCompatActivity {
 
         TextView tvSaludoRol = findViewById(R.id.tvSaludoRol);
         if (tvSaludoRol != null && rol != null) {
-            String etiqueta = (nombre != null ? nombre : "USUARIO") + " • ROL: " + rol.toUpperCase();
+            String etiqueta = (nombre != null ? nombre : "USUARIO") + " â€¢ ROL: " + rol.toUpperCase();
             tvSaludoRol.setText(etiqueta);
         }
 
-        // Módulo 1: Alumnos (Abre el listado desarrollado por Pochy y rediseñado)
+                // MÃ³dulo Principal: Carga de Calificaciones (Planilla escolar RITE)
+        View cardModuloCargaNotas = findViewById(R.id.cardModuloCargaNotas);
+        if (cardModuloCargaNotas != null) {
+            cardModuloCargaNotas.setOnClickListener(v -> {
+                Intent intent = new Intent(this, CargarNotasActivity.class);
+                intent.putExtra("token", token);
+                intent.putExtra("rol", rol);
+                intent.putExtra("nombre", nombre);
+                startActivity(intent);
+            });
+        }
+
+        // MÃ³dulo 1: Alumnos (Abre el listado desarrollado por Pochy y rediseÃ±ado)
         View cardModuloAlumnos = findViewById(R.id.cardModuloAlumnos);
         if (cardModuloAlumnos != null) {
             cardModuloAlumnos.setOnClickListener(v -> abrirAlumnos());
         }
 
-        // Barra de búsqueda directa hacia Alumnos
+        // Barra de bÃºsqueda directa hacia Alumnos
         View cardBuscador = findViewById(R.id.cardBuscador);
         if (cardBuscador != null) {
             cardBuscador.setOnClickListener(v -> abrirAlumnos());
         }
 
-        // Módulo 2: Asistencia
+        // MÃ³dulo 2: Asistencia
         View cardModuloAsistencia = findViewById(R.id.cardModuloAsistencia);
         if (cardModuloAsistencia != null) {
             cardModuloAsistencia.setOnClickListener(v -> {
@@ -51,7 +63,7 @@ public class MenuPrincipalActivity extends AppCompatActivity {
             });
         }
 
-        // Módulo 3: Mesas de Examen
+        // MÃ³dulo 3: Mesas de Examen
         View cardModuloMesas = findViewById(R.id.cardModuloMesas);
         if (cardModuloMesas != null) {
             cardModuloMesas.setOnClickListener(v -> {
@@ -60,15 +72,15 @@ public class MenuPrincipalActivity extends AppCompatActivity {
             });
         }
 
-        // Módulo 4: Institución
+        // MÃ³dulo 4: InstituciÃ³n
         View cardModuloInstitucion = findViewById(R.id.cardModuloInstitucion);
         if (cardModuloInstitucion != null) {
             cardModuloInstitucion.setOnClickListener(v ->
-                    Toast.makeText(this, "Institución Escolar: E.E.S. N° 5 • R.I.T.E.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "InstituciÃ³n Escolar: E.E.S. NÂ° 5 â€¢ R.I.T.E.", Toast.LENGTH_SHORT).show()
             );
         }
 
-        // Pestaña Avisos (Firebase Cloud)
+        // PestaÃ±a Avisos (Firebase Cloud)
         View tabAvisos = findViewById(R.id.tabAvisos);
         if (tabAvisos != null) {
             tabAvisos.setOnClickListener(v -> {
@@ -77,7 +89,7 @@ public class MenuPrincipalActivity extends AppCompatActivity {
             });
         }
 
-        // Pestaña Perfil y Ajustes
+        // PestaÃ±a Perfil y Ajustes
         View tabPerfil = findViewById(R.id.tabPerfil);
         View btnAjustes = findViewById(R.id.btnAjustes);
 
@@ -97,11 +109,11 @@ public class MenuPrincipalActivity extends AppCompatActivity {
 
     private void mostrarMenuPerfil() {
         new AlertDialog.Builder(this)
-                .setTitle("Sesión Activa")
+                .setTitle("SesiÃ³n Activa")
                 .setMessage("Usuario: " + (nombre != null ? nombre : "Institucional")
                         + "\nRol: " + (rol != null ? rol : "Sin definir")
                         + "\nServidor: Railway Cloud API")
-                .setPositiveButton("Cerrar Sesión", (dialog, which) -> {
+                .setPositiveButton("Cerrar SesiÃ³n", (dialog, which) -> {
                     Intent intent = new Intent(this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
