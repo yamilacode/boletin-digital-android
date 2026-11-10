@@ -1,28 +1,21 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Tema base de la aplicación (modo claro) -->
-    <style name="Base.Theme.BoletinDigital" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/azul_institucional</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <item name="colorPrimaryContainer">@color/azul_institucional_claro</item>
-        <item name="colorOnPrimaryContainer">@color/azul_institucional_oscuro</item>
-        <item name="colorSecondary">@color/celeste_institucional</item>
-        <item name="colorOnSecondary">@color/white</item>
-        <item name="colorError">@color/error</item>
-        <item name="android:colorBackground">@color/fondo_claro</item>
-        <item name="colorSurface">@color/white</item>
-        <item name="colorOnSurface">@color/texto_principal</item>
-        <item name="android:statusBarColor">@color/azul_institucional_oscuro</item>
+    <!-- Base application theme configurado con la paleta de Boletín Digital Web -->
+    <style name="Base.Theme.BoletinDigital" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorOnPrimary">@color/bg_body</item>
+        <item name="colorPrimaryContainer">@color/border_main</item>
+        <item name="colorOnPrimaryContainer">@color/text_main</item>
+
+        <item name="android:windowBackground">@color/bg_body</item>
+        <item name="colorSurface">@color/bg_card</item>
+        <item name="colorOnSurface">@color/text_main</item>
+        <item name="colorOutline">@color/border_main</item>
+
+        <!-- Status bar y barra de navegación integradas -->
+        <item name="android:statusBarColor">@color/bg_body</item>
+        <item name="android:navigationBarColor">@color/bg_body</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 
     <style name="Theme.BoletinDigital" parent="Base.Theme.BoletinDigital" />
-
-    <!-- Estilos reutilizables para los layouts -->
-    <style name="Titulo.BoletinDigital" parent="TextAppearance.Material3.HeadlineSmall">
-        <item name="android:textColor">?attr/colorPrimary</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="Subtitulo.BoletinDigital" parent="TextAppearance.Material3.BodyMedium">
-        <item name="android:textColor">?android:attr/textColorSecondary</item>
-    </style>
 </resources>

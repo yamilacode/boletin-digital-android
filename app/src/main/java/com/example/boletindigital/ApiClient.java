@@ -211,5 +211,20 @@ public class ApiClient {
 
         return new JSONObject(respuesta);
     }
+
+    // GET: consultar el boletín académico oficial por DNI
+    public static JSONObject obtenerBoletin(
+            String dni
+    ) throws Exception {
+
+        String respuesta = solicitar(
+                "GET",
+                "boletin.php?dni=" + dni,
+                null,
+                null
+        );
+
+        return new JSONObject(respuesta);
+    }
 }
 
