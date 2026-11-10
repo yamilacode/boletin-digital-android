@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- Permiso para conectarse al backend PHP en Railway -->
@@ -58,6 +58,11 @@
             android:name=".CargarNotasActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+
+        <!-- Pantalla: GestiÃ³n Institucional de Escuelas y Sedes -->
+        <activity
+            android:name=".InstitucionActivity"
+            android:exported="false" />
         <!-- Pantalla: Portal AcadÃ©mico del Estudiante y Tutor (BoletÃ­n, Asistencia, Previas) -->
         <activity
             android:name=".BoletinAlumnoActivity"

@@ -242,5 +242,14 @@ public class ApiClient {
 
         return new JSONObject(respuesta);
     }
+    // GET: consultar datos de instituciones y sedes
+    public static JSONArray obtenerInstituciones() throws Exception {
+        String respuesta = solicitar(
+                "GET",
+                "instituciones.php",
+                null,
+                null
+        );
+        return new JSONArray(respuesta);
+    }
 }
-
