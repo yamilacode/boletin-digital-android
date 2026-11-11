@@ -8,7 +8,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONObject;
 
@@ -24,6 +27,7 @@ public class AsistenciaAvisosActivity extends AppCompatActivity {
 
     private View tabNavBoletin;
     private View tabNavPrevias;
+    private View btnProbarNotificacion;
 
     private String dni = "48763736";
     private final ExecutorService executor = Executors.newSingleThreadExecutor();
@@ -40,6 +44,7 @@ public class AsistenciaAvisosActivity extends AppCompatActivity {
 
         tabNavBoletin = findViewById(R.id.tabNavBoletin);
         tabNavPrevias = findViewById(R.id.tabNavPrevias);
+        btnProbarNotificacion = findViewById(R.id.btnProbarNotificacion);
 
         if (getIntent().hasExtra("dni")) {
             dni = getIntent().getStringExtra("dni");
@@ -49,7 +54,20 @@ public class AsistenciaAvisosActivity extends AppCompatActivity {
             ivVolver.setOnClickListener(v -> finish());
         }
 
-        // Navegación inferior
+        // Suscripcion automatica a topicos de Firebase Cloud Messaging (FCM - R4)
+        try {
+            FirebaseMessaging.getInstance().subscribeToTopic("avisos_generales");
+            FirebaseMessaging.getInstance().subscribeToTopic("mesas_examen");
+            FirebaseMessaging.getInstance().subscribeToTopic("inasistencias");
+        } catch (Exception ignored) {
+        }
+
+        // Boton interactivo para probar la notificacion en el celular
+        if (btnProbarNotificacion != null) {
+            btnProbarNotificacion.setOnClickListener(v -> mostrarDialogoPruebaNotificacion());
+        }
+
+        // Navegacion inferior
         if (tabNavBoletin != null) {
             tabNavBoletin.setOnClickListener(v -> {
                 Intent intent = new Intent(this, BoletinAlumnoActivity.class);
@@ -72,6 +90,46 @@ public class AsistenciaAvisosActivity extends AppCompatActivity {
         cargarDatosAsistencia();
     }
 
+    private void mostrarDialogoPruebaNotificacion() {
+        String[] opciones = {
+                "Alerta de Inasistencias (17 de 20 faltas)",
+                "Mesas de Examen y Previas (Diciembre 2026)",
+                "Boletin y Calificaciones (1Â° Cuatrimestre)"
+        };
+
+        new AlertDialog.Builder(this)
+                .setTitle("Lanzar Notificacion al Celular")
+                .setItems(opciones, (dialog, which) -> {
+                    if (which == 0) {
+                        BoletinFirebaseMessagingService.lanzarNotificacion(
+                                this,
+                                "Alerta de Inasistencias",
+                                "El estudiante registra 17 inasistencias sobre un limite institucional de 20.",
+                                "asistencia"
+                        );
+                        Toast.makeText(this, "Notificacion enviada a la barra de estado", Toast.LENGTH_SHORT).show();
+                    } else if (which == 1) {
+                        BoletinFirebaseMessagingService.lanzarNotificacion(
+                                this,
+                                "Mesas Evaluadoras Habilitadas",
+                                "Se encuentra abierta la inscripcion para materias previas (Fisico-Quimica y Geografia).",
+                                "mesas"
+                        );
+                        Toast.makeText(this, "Notificacion de examen enviada", Toast.LENGTH_SHORT).show();
+                    } else {
+                        BoletinFirebaseMessagingService.lanzarNotificacion(
+                                this,
+                                "Boletin de Calificaciones Publicado",
+                                "Ya estan disponibles las valoraciones conceptuales (TEA/TEP/TED) oficiales.",
+                                "boletin"
+                        );
+                        Toast.makeText(this, "Notificacion de boletin enviada", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButton("Cancelar", null)
+                .show();
+    }
+
     private void cargarDatosAsistencia() {
         executor.execute(() -> {
             try {
@@ -85,7 +143,7 @@ public class AsistenciaAvisosActivity extends AppCompatActivity {
                     runOnUiThread(() -> {
                         if (isFinishing() || isDestroyed()) return;
                         tvBadgeTotalFaltas.setText("Total: " + inasistencias);
-                        tvResumenAsistencia.setText("Días Hábiles: " + totalClases + " • Asistencias: " + presentu + " • Inasistencias: " + inasistencias);
+                        tvResumenAsistencia.setText("Dias Habiles: " + totalClases + " â€¢ Asistencias: " + presentu + " â€¢ Inasistencias: " + inasistencias);
                         pbInasistencias.setProgress(inasistencias);
                     });
                 }
@@ -101,4 +159,3 @@ public class AsistenciaAvisosActivity extends AppCompatActivity {
         executor.shutdown();
     }
 }
-

@@ -398,7 +398,28 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-        </LinearLayout>
+        
+            <!-- BOTON INTERACTIVO: PROBAR NOTIFICACION PUSH EN EL CELULAR (FCM - R4) -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnProbarNotificacion"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="12dp"
+                android:backgroundTint="@color/bg_surface"
+                android:text="PROBAR NOTIFICACION EN ESTE CELULAR"
+                android:textColor="@color/color_primary"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:cornerRadius="10dp"
+                app:icon="@drawable/ic_notifications"
+                app:iconGravity="textStart"
+                app:iconPadding="8dp"
+                app:iconTint="@color/color_primary"
+                app:strokeColor="@color/color_primary"
+                app:strokeWidth="1dp" />
+</LinearLayout>
     </ScrollView>
 
     <!-- BARRA DE NAVEGACIÓN INFERIOR (BOTTOM NAVIGATION) -->
