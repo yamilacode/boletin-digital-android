@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "267083290637",
+    "project_id": "boletin-digital-escolar",
+    "storage_bucket": "boletin-digital-escolar.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267083290637:android:5b1dc1f9969fb5ff6cdd44",
+        "android_client_info": {
+          "package_name": "com.example.boletindigital"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "267083290637-f6pdt1iittin131spvpjip9ckdd56hp4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD05wJ0D63F-YerqMTgRsGKzxCwGzU83vA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "267083290637-f6pdt1iittin131spvpjip9ckdd56hp4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
