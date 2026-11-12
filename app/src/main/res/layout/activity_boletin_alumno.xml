@@ -56,13 +56,16 @@
                 android:textSize="11sp" />
         </LinearLayout>
 
-        <!-- Badge Rol con Ícono de Estudiante -->
+        <!-- Badge Rol con Ícono de Estudiante / Tutor (Botón a Perfil) -->
         <LinearLayout
+            android:id="@+id/btnBadgePerfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/bg_badge_rounded"
             android:backgroundTint="@color/color_tea_bg"
+            android:clickable="true"
+            android:focusable="true"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="8dp"
@@ -71,6 +74,7 @@
             android:paddingBottom="4dp">
 
             <ImageView
+                android:id="@+id/ivBadgeRolIcon"
                 android:layout_width="14dp"
                 android:layout_height="14dp"
                 android:layout_marginEnd="5dp"
@@ -82,23 +86,30 @@
                 android:id="@+id/tvBadgeRol"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Estudiante"
+                android:text="Alumno"
                 android:textColor="@color/color_tea_text"
                 android:textSize="11sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <!-- Botón Salir -->
-        <ImageView
-            android:id="@+id/ivCerrarSesion"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:contentDescription="@null"
-            android:focusable="true"
-            android:src="@drawable/ic_arrow_back"
-            app:tint="@color/text_muted" />
+        <!-- Botón Perfil Superior (Ícono de Perfil en lugar de la flecha) -->
+        <FrameLayout
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:background="@drawable/bg_icon_circle">
+
+            <ImageView
+                android:id="@+id/ivCerrarSesion"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:contentDescription="Perfil de Usuario"
+                android:focusable="true"
+                android:src="@drawable/ic_person"
+                app:tint="@color/text_main" />
+        </FrameLayout>
     </LinearLayout>
 
     <View
@@ -106,8 +117,9 @@
         android:layout_height="1dp"
         android:background="@color/border_main" />
 
-    <!-- CONTENIDO SCROLLABLE -->
-    <ScrollView
+    <!-- CONTENIDO SCROLLABLE (NestedScrollView para scroll fluido con RecyclerView) -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollViewBoletin"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -119,7 +131,7 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- TARJETA DEL ESTUDIANTE E INSTITUCIÓN -->
+            <!-- TARJETA DEL ESTUDIANTE E INSTITUCIÓN (Acceso directo 1-a-1 sin cambio de escuela/alumno) -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -204,129 +216,6 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- FILA DE ESTADÍSTICAS RÁPIDAS DE ASISTENCIA (3 TARJETAS) -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="14dp"
-                android:orientation="horizontal">
-
-                <!-- Días Hábiles -->
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="4dp"
-                    android:layout_weight="1"
-                    app:cardBackgroundColor="@color/bg_card"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="0dp"
-                    app:strokeColor="@color/border_main"
-                    app:strokeWidth="1dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="10dp">
-
-                        <TextView
-                            android:id="@+id/tvDiasHabiles"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="82"
-                            android:textColor="@color/text_main"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="Días Hábiles"
-                            android:textColor="@color/text_muted"
-                            android:textSize="10sp" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- Asistencias -->
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
-                    android:layout_marginEnd="2dp"
-                    android:layout_weight="1"
-                    app:cardBackgroundColor="@color/bg_card"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="0dp"
-                    app:strokeColor="@color/border_main"
-                    app:strokeWidth="1dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="10dp">
-
-                        <TextView
-                            android:id="@+id/tvAsistencias"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="65"
-                            android:textColor="@color/color_primary"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="Asistencias"
-                            android:textColor="@color/text_muted"
-                            android:textSize="10sp" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- Inasistencias (Alerta) -->
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_weight="1"
-                    app:cardBackgroundColor="@color/color_warning_bg"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="0dp"
-                    app:strokeColor="@color/color_warning_border"
-                    app:strokeWidth="1dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="10dp">
-
-                        <TextView
-                            android:id="@+id/tvInasistencias"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="17 / 20"
-                            android:textColor="@color/color_warning"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="Inasistencias"
-                            android:textColor="@color/color_warning"
-                            android:textSize="10sp" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-            </LinearLayout>
-
             <!-- BARRA DE CARGA -->
             <ProgressBar
                 android:id="@+id/pbCargandoBoletin"
@@ -334,13 +223,13 @@
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
                 android:indeterminateTint="@color/color_primary"
                 android:visibility="gone" />
 
             <!-- ============================================== -->
-            <!-- SECCIÓN 1: BOLETÍN / MATERIAS                 -->
+            <!-- SECCIÓN 1: BOLETÍN / ASISTENCIA + MATERIAS    -->
             <!-- ============================================== -->
             <LinearLayout
                 android:id="@+id/layoutSeccionBoletin"
@@ -349,6 +238,7 @@
                 android:orientation="vertical"
                 android:visibility="visible">
 
+                <!-- Encabezado Calificaciones -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -382,7 +272,7 @@
             </LinearLayout>
 
             <!-- ============================================== -->
-            <!-- SECCIÓN 2: ASISTENCIA Y NOTIFICACIONES        -->
+            <!-- SECCIÓN 2: ASISTENCIA COMPLETA DEL ESTUDIANTE  -->
             <!-- ============================================== -->
             <LinearLayout
                 android:id="@+id/layoutSeccionAsistencia"
@@ -391,20 +281,376 @@
                 android:orientation="vertical"
                 android:visibility="gone">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:text="Estado de Presentismo"
-                    android:textColor="@color/text_main"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <!-- Banner de Alerta por Inasistencias -->
-                <com.google.android.material.card.MaterialCardView
+                <!-- Encabezado de Sección -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Registro de Asistencia del Estudiante"
+                            android:textColor="@color/text_main"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Seguimiento pedagógico de presentismo y regularidad"
+                            android:textColor="@color/text_muted"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvSecAsisBadgeEstado"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_badge_rounded"
+                        android:backgroundTint="@color/color_warning_bg"
+                        android:paddingStart="8dp"
+                        android:paddingTop="3dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="3dp"
+                        android:text="Alerta Preventiva"
+                        android:textColor="@color/color_warning"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Tarjeta Feriados Nacionales (Igual a la web) -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="14dp"
+                    app:cardBackgroundColor="@color/bg_card"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/border_main"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Feriados Nacionales y Días Sin Clases (2026)"
+                            android:textColor="@color/color_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="4dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_badge_rounded"
+                                android:backgroundTint="@color/bg_surface"
+                                android:padding="6dp"
+                                android:text="09/11 • Visita Papal (Sin Clases)"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_badge_rounded"
+                                android:backgroundTint="@color/bg_surface"
+                                android:padding="6dp"
+                                android:text="23/11 • Soberanía Nacional"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Cuadrícula 2x2 de Métricas Principales -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <!-- Métrica 1: Días Hábiles -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="1"
+                        app:cardBackgroundColor="@color/bg_card"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/border_main"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="12dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="DÍAS HÁBILES"
+                                android:textColor="@color/text_muted"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvSecAsisDiasHabiles"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="82 Días"
+                                android:textColor="@color/text_main"
+                                android:textSize="17sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Métrica 2: Asistencias (Presentes) -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_weight="1"
+                        app:cardBackgroundColor="@color/bg_card"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/border_main"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="12dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="PRESENTES"
+                                android:textColor="@color/text_muted"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvSecAsisPresentes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="65 Días"
+                                android:textColor="@color/color_success"
+                                android:textSize="17sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="14dp"
+                    android:orientation="horizontal">
+
+                    <!-- Métrica 3: Faltas Justificadas -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="1"
+                        app:cardBackgroundColor="@color/bg_card"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/border_main"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="12dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="JUSTIFICADAS"
+                                android:textColor="@color/text_muted"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvSecAsisJustificadas"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="0 Faltas"
+                                android:textColor="@color/color_primary"
+                                android:textSize="17sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Métrica 4: Faltas Injustificadas -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_weight="1"
+                        app:cardBackgroundColor="@color/bg_card"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/border_main"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="12dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="INJUSTIFICADAS"
+                                android:textColor="@color/text_muted"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvSecAsisInjustificadas"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="17 Faltas"
+                                android:textColor="@color/color_danger"
+                                android:textSize="17sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+
+                <!-- Tarjeta Porcentaje de Asistencia Acumulada -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="14dp"
+                    app:cardBackgroundColor="@color/bg_card"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/border_main"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="14dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Porcentaje de Asistencia Acumulada"
+                                android:textColor="@color/text_main"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvSecAsisPorcentaje"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="79%"
+                                android:textColor="@color/color_primary"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <ProgressBar
+                            android:id="@+id/pbSecAsisPorcentaje"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp"
+                            android:layout_marginTop="10dp"
+                            android:max="100"
+                            android:progress="79"
+                            android:progressTint="@color/color_primary" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="0%"
+                                android:textColor="@color/text_muted"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="14dp"
+                                android:text="● Límite (20)"
+                                android:textColor="@color/color_danger"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="14dp"
+                                android:text="▲ Alerta (15)"
+                                android:textColor="@color/color_warning"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="100% Óptimo"
+                                android:textColor="@color/color_success"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Banner Dinámico de Alerta / Regularidad de Faltas -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardSecAsisAlerta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="14dp"
                     app:cardBackgroundColor="@color/color_warning_bg"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="0dp"
@@ -419,6 +665,7 @@
                         android:padding="12dp">
 
                         <ImageView
+                            android:id="@+id/ivSecAsisAlertaIcon"
                             android:layout_width="22dp"
                             android:layout_height="22dp"
                             android:layout_marginEnd="10dp"
@@ -427,17 +674,18 @@
                             app:tint="@color/color_warning" />
 
                         <TextView
+                            android:id="@+id/tvSecAsisAlertaMensaje"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Atención: A 3 inasistencias del límite institucional permitido (20)."
+                            android:text="¡Atención! El estudiante acumula 17 faltas (zona de alerta). Restan 3 falta(s) antes del límite de reincorporación (20 faltas)."
                             android:textColor="@color/color_warning"
                             android:textSize="12sp"
                             android:textStyle="bold" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- Tarjeta Detalle de Asistencia -->
+                <!-- Pautas de Asistencia y Justificación -->
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -454,26 +702,31 @@
                         android:padding="14dp">
 
                         <TextView
-                            android:id="@+id/tvDetallePresentismo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Días Hábiles: 82 • Asistencias: 65 • Inasistencias: 17"
+                            android:text="Pautas de Asistencia y Justificación"
                             android:textColor="@color/text_main"
-                            android:textSize="13sp" />
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="6dp"
-                            android:text="Límite Institucional: 20 faltas anuales"
-                            android:textColor="@color/text_muted"
+                            android:layout_marginTop="8dp"
+                            android:lineSpacingExtra="3dp"
+                            android:text="• Plazo reglamentario: Los certificados médicos deben presentarse en la preceptoría dentro de las 48 horas hábiles de producida la inasistencia.
+
+• Límite preventivo de faltas: Al acumular 15 inasistencias se emite el primer informe preventivo a las familias.
+
+• Reincorporación: Con 20 inasistencias se requiere solicitud formal de reincorporación suscripta por el tutor ante la Dirección."
+                            android:textColor="@color/text_secondary"
                             android:textSize="12sp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
 
             <!-- ============================================== -->
-            <!-- SECCIÓN 3: PREVIAS Y MESAS DE EXAMEN          -->
+            <!-- SECCIÓN 3: PREVIAS Y MESAS DE EXAMEN           -->
             <!-- ============================================== -->
             <LinearLayout
                 android:id="@+id/layoutSeccionPrevias"
@@ -508,189 +761,33 @@
                         android:paddingTop="3dp"
                         android:paddingEnd="8dp"
                         android:paddingBottom="3dp"
-                        android:text="2 Materias"
+                        android:text="0 Materias"
                         android:textColor="@color/color_badge_purple_text"
                         android:textSize="11sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
-                <!-- Previa 1 -->
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    app:cardBackgroundColor="@color/bg_card"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="0dp"
-                    app:strokeColor="@color/border_main"
-                    app:strokeWidth="1dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="12dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Previa • #1"
-                                android:textColor="@color/color_primary"
-                                android:textSize="11sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/bg_badge_rounded"
-                                android:backgroundTint="@color/color_tep_bg"
-                                android:paddingStart="6dp"
-                                android:paddingTop="2dp"
-                                android:paddingEnd="6dp"
-                                android:paddingBottom="2dp"
-                                android:text="Pendiente"
-                                android:textColor="@color/color_tep_text"
-                                android:textSize="10sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="Físico-Química"
-                            android:textColor="@color/text_main"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="Curso Origen: 3° Año • Régimen: Intensificación"
-                            android:textColor="@color/text_muted"
-                            android:textSize="11sp" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- Previa 2 -->
-                <com.google.android.material.card.MaterialCardView
+                <TextView
+                    android:id="@+id/tvSinPreviasEstudiante"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
-                    app:cardBackgroundColor="@color/bg_card"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="0dp"
-                    app:strokeColor="@color/border_main"
-                    app:strokeWidth="1dp">
+                    android:background="@drawable/bg_badge_rounded"
+                    android:backgroundTint="@color/bg_card"
+                    android:padding="14dp"
+                    android:text="No registrás materias previas adeudadas."
+                    android:textColor="@color/text_muted"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="12dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Previa • #2"
-                                android:textColor="@color/color_primary"
-                                android:textSize="11sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/bg_badge_rounded"
-                                android:backgroundTint="@color/color_tep_bg"
-                                android:paddingStart="6dp"
-                                android:paddingTop="2dp"
-                                android:paddingEnd="6dp"
-                                android:paddingBottom="2dp"
-                                android:text="Pendiente"
-                                android:textColor="@color/color_tep_text"
-                                android:textSize="10sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="Geografía"
-                            android:textColor="@color/text_main"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="Curso Origen: 2° Año • Régimen: Intensificación"
-                            android:textColor="@color/text_muted"
-                            android:textSize="11sp" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- Tarjeta Próximas Mesas -->
-                <com.google.android.material.card.MaterialCardView
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvPreviasEstudiante"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardBackgroundColor="@color/bg_surface"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="0dp"
-                    app:strokeColor="@color/border_main"
-                    app:strokeWidth="1dp">
+                    android:layout_marginBottom="14dp"
+                    android:nestedScrollingEnabled="false" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="14dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Próximas Mesas Evaluadoras"
-                            android:textColor="@color/color_primary"
-                            android:textSize="13sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="Período Diciembre 2026\nComisiones evaluadoras disponibles a partir del 14/12."
-                            android:textColor="@color/text_secondary"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-            </LinearLayout>
-
-            <!-- ============================================== -->
-            <!-- SECCIÓN 4: AVISOS Y NOTIFICACIONES            -->
-            <!-- ============================================== -->
-            <LinearLayout
-                android:id="@+id/layoutSeccionAvisos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
-
+                <!-- Encabezado Mesas Evaluadoras Disponibles -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -702,68 +799,522 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Notificaciones Recibidas"
+                        android:text="Mesas Evaluadoras Disponibles"
                         android:textColor="@color/text_main"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/tvCantidadMesasEstudiante"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/bg_badge_rounded"
-                        android:backgroundTint="@color/color_danger_bg"
+                        android:backgroundTint="@color/color_badge_blue_bg"
                         android:paddingStart="8dp"
                         android:paddingTop="3dp"
                         android:paddingEnd="8dp"
                         android:paddingBottom="3dp"
-                        android:text="3 Nuevas"
-                        android:textColor="@color/color_danger"
+                        android:text="0 Mesas"
+                        android:textColor="@color/color_primary"
                         android:textSize="11sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
-                <!-- Aviso 1 -->
-                <com.google.android.material.card.MaterialCardView
+                <ProgressBar
+                    android:id="@+id/pbCargandoMesasEst"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:indeterminateTint="@color/color_primary"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tvSinMesasEstudiante"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    app:cardBackgroundColor="@color/bg_card"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="0dp"
-                    app:strokeColor="@color/border_main"
-                    app:strokeWidth="1dp">
+                    android:background="@drawable/bg_badge_rounded"
+                    android:backgroundTint="@color/bg_card"
+                    android:padding="14dp"
+                    android:text="No hay mesas de examen publicadas para tu escuela en este momento."
+                    android:textColor="@color/text_muted"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvMesasEstudiante"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false" />
+            </LinearLayout>
+
+            <!-- ============================================== -->
+            <!-- SECCIÓN 4: COMUNICACIONES OFICIALES Y AVISOS   -->
+            <!-- ============================================== -->
+            <LinearLayout
+                android:id="@+id/layoutSeccionAvisos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- Encabezado de Avisos -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="12dp">
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Alerta de Inasistencias • Hoy"
-                            android:textColor="@color/color_warning"
-                            android:textSize="12sp"
+                            android:text="Comunicaciones Oficiales para Familias"
+                            android:textColor="@color/text_main"
+                            android:textSize="15sp"
                             android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="3dp"
-                            android:text="El estudiante registra 17 inasistencias sobre un límite institucional de 20."
-                            android:textColor="@color/text_secondary"
-                            android:textSize="12sp" />
+                            android:layout_marginTop="2dp"
+                            android:text="Avisos institucionales, reuniones de tutores y comunicados"
+                            android:textColor="@color/text_muted"
+                            android:textSize="11sp" />
                     </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
 
-                <!-- Aviso 2 -->
+                    <TextView
+                        android:id="@+id/tvBadgeCantAvisosEst"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_badge_rounded"
+                        android:backgroundTint="@color/color_warning_bg"
+                        android:paddingStart="8dp"
+                        android:paddingTop="3dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="3dp"
+                        android:text="3 Avisos"
+                        android:textColor="@color/color_warning"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Botón Probar Notificación Push (Firebase FCM - R4) -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnProbarNotificacionBoletin"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginBottom="14dp"
+                    android:backgroundTint="@color/bg_card"
+                    android:letterSpacing="0.04"
+                    android:text="PROBAR NOTIFICACIÓN EN ESTE CELULAR"
+                    android:textColor="@color/color_primary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="10dp"
+                    app:icon="@drawable/ic_notifications"
+                    app:iconGravity="textStart"
+                    app:iconTint="@color/color_primary"
+                    app:strokeColor="@color/color_primary"
+                    app:strokeWidth="1dp" />
+
+                <!-- LISTADO DINÁMICO DE COMUNICADOS DESDE API RAILWAY -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvAvisosEstudiante"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:visibility="gone" />
+
+                <!-- AVISOS DE RESPALDO OFFLINE -->
+                <LinearLayout
+                    android:id="@+id/layoutAvisosFallback"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- AVISO 1 -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        app:cardBackgroundColor="@color/bg_card"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/color_primary"
+                        app:strokeWidth="1.5dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="14dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/bg_badge_rounded"
+                                    android:backgroundTint="@color/color_badge_blue_bg"
+                                    android:paddingStart="8dp"
+                                    android:paddingTop="2dp"
+                                    android:paddingEnd="8dp"
+                                    android:paddingBottom="2dp"
+                                    android:text="Atención y Preceptoría"
+                                    android:textColor="@color/color_primary"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="6dp"
+                                    android:background="@drawable/bg_badge_rounded"
+                                    android:backgroundTint="@color/color_warning_bg"
+                                    android:paddingStart="6dp"
+                                    android:paddingTop="2dp"
+                                    android:paddingEnd="6dp"
+                                    android:paddingBottom="2dp"
+                                    android:text="Sin leer"
+                                    android:textColor="@color/color_warning"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="1dp"
+                                    android:layout_weight="1" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="12/10/2026 • Secretaría"
+                                    android:textColor="@color/text_muted"
+                                    android:textSize="10sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="Canales de Contacto y Horarios de Atención Institucional"
+                                android:textColor="@color/text_main"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:lineSpacingExtra="2dp"
+                                android:text="Recordamos que el horario de atención para consultas y trámites de reincorporación es de 07:30 a 12:30 hs (Mañana) y 13:00 a 18:00 hs (Tarde)."
+                                android:textColor="@color/text_secondary"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="• Dirigido a: Comunidad Educativa EPES N° 19"
+                                android:textColor="@color/text_muted"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- AVISO 2 -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        app:cardBackgroundColor="@color/bg_card"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/color_warning"
+                        app:strokeWidth="1.5dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="14dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/bg_badge_rounded"
+                                    android:backgroundTint="@color/color_tea_bg"
+                                    android:paddingStart="8dp"
+                                    android:paddingTop="2dp"
+                                    android:paddingEnd="8dp"
+                                    android:paddingBottom="2dp"
+                                    android:text="Reunión de Familias"
+                                    android:textColor="@color/color_tea_text"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="6dp"
+                                    android:background="@drawable/bg_badge_rounded"
+                                    android:backgroundTint="@color/color_warning_bg"
+                                    android:paddingStart="6dp"
+                                    android:paddingTop="2dp"
+                                    android:paddingEnd="6dp"
+                                    android:paddingBottom="2dp"
+                                    android:text="Importante"
+                                    android:textColor="@color/color_warning"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="1dp"
+                                    android:layout_weight="1" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="24/10/2026 • Preceptoría"
+                                    android:textColor="@color/text_muted"
+                                    android:textSize="10sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="Convocatoria a Encuentro de Familias y Diálogo Pedagógico"
+                                android:textColor="@color/text_main"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:lineSpacingExtra="2dp"
+                                android:text="Invitamos a las familias a la reunión presencial de seguimiento pedagógico en el SUM de la institución para tratar el cierre del período lectivo."
+                                android:textColor="@color/text_secondary"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="• Dirigido a: Familias EPES N° 19 (Laguna Naineck)"
+                                android:textColor="@color/text_muted"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- AVISO 3 -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        app:cardBackgroundColor="@color/bg_card"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/border_main"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="14dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/bg_badge_rounded"
+                                    android:backgroundTint="@color/color_badge_blue_bg"
+                                    android:paddingStart="8dp"
+                                    android:paddingTop="2dp"
+                                    android:paddingEnd="8dp"
+                                    android:paddingBottom="2dp"
+                                    android:text="Boletines y Calificaciones"
+                                    android:textColor="@color/color_primary"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="1dp"
+                                    android:layout_weight="1" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="20/10/2026 • Dirección"
+                                    android:textColor="@color/text_muted"
+                                    android:textSize="10sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="Cierre de Calificaciones y Descarga del Reporte Digital"
+                                android:textColor="@color/text_main"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:lineSpacingExtra="2dp"
+                                android:text="Estimados tutores: Ya se encuentran registradas y visadas las calificaciones del presente período lectivo. Pueden acceder a la pestaña Boletín Oficial para consultar notas."
+                                android:textColor="@color/text_secondary"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="• Dirigido a: Ciclo Básico (1° a 3° Año)"
+                                android:textColor="@color/text_muted"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ======================================================== -->
+            <!-- SECCIÓN 5: PERFIL OFICIAL DE USUARIO Y CIERRE DE SESIÓN  -->
+            <!-- ======================================================== -->
+            <LinearLayout
+                android:id="@+id/layoutSeccionPerfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- TARJETA 1: IDENTIDAD Y ROL VERIFICADO -->
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginBottom="16dp"
                     app:cardBackgroundColor="@color/bg_card"
-                    app:cardCornerRadius="12dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/border_main"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <FrameLayout
+                            android:layout_width="72dp"
+                            android:layout_height="72dp"
+                            android:layout_marginBottom="12dp">
+
+                            <View
+                                android:layout_width="72dp"
+                                android:layout_height="72dp"
+                                android:background="@drawable/bg_icon_circle"
+                                android:backgroundTint="@color/bg_elevated" />
+
+                            <ImageView
+                                android:id="@+id/ivPerfilAvatar"
+                                android:layout_width="38dp"
+                                android:layout_height="38dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_school"
+                                app:tint="@color/color_primary" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:id="@+id/tvPerfilNombreUsuario"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Uriel Luciano Pleininger"
+                            android:textColor="@color/text_main"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvPerfilIdentificador"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="DNI: 48763736"
+                            android:textColor="@color/text_muted"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/badgePerfilRol"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/bg_badge_rounded"
+                            android:backgroundTint="@color/color_tea_bg"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingStart="12dp"
+                            android:paddingTop="5dp"
+                            android:paddingEnd="12dp"
+                            android:paddingBottom="5dp">
+
+                            <ImageView
+                                android:id="@+id/ivPerfilRolBadgeIcon"
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:layout_marginEnd="6dp"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_person"
+                                app:tint="@color/color_tea_text" />
+
+                            <TextView
+                                android:id="@+id/tvPerfilBadgeRolTexto"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="ALUMNO REGULAR"
+                                android:textColor="@color/color_tea_text"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- TARJETA 2: DATOS DETALLADOS DEL EXPEDIENTE ESCOLAR -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardBackgroundColor="@color/bg_card"
+                    app:cardCornerRadius="14dp"
                     app:cardElevation="0dp"
                     app:strokeColor="@color/border_main"
                     app:strokeWidth="1dp">
@@ -772,65 +1323,146 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="12dp">
+                        android:padding="16dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Boletín 1° Cuatrimestre • Ayer"
+                            android:text="EXPEDIENTE ESCOLAR OFICIAL"
                             android:textColor="@color/color_primary"
                             android:textSize="12sp"
                             android:textStyle="bold" />
 
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="12dp"
+                            android:background="@color/border_main" />
+
+                        <!-- Fila 1: Estudiante -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="3dp"
-                            android:text="Ya están disponibles las valoraciones (TEA) y notas del 1° Cuatrimestre."
-                            android:textColor="@color/text_secondary"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- Aviso 3 -->
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:cardBackgroundColor="@color/bg_card"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="0dp"
-                    app:strokeColor="@color/border_main"
-                    app:strokeWidth="1dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="12dp">
-
+                            android:text="Alumno / Estudiante:"
+                            android:textColor="@color/text_muted"
+                            android:textSize="11sp" />
                         <TextView
+                            android:id="@+id/tvPerfilDetalleAlumno"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Materias Previas • 03/11"
-                            android:textColor="@color/color_badge_purple_text"
-                            android:textSize="12sp"
+                            android:layout_marginBottom="10dp"
+                            android:text="Pleininger, Uriel Luciano (DNI 48763736)"
+                            android:textColor="@color/text_main"
+                            android:textSize="14sp"
                             android:textStyle="bold" />
 
+                        <!-- Fila 2: Institución -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="3dp"
-                            android:text="Recordatorio de intensificación para Físico-Química (3°) y Geografía (2°)."
-                            android:textColor="@color/text_secondary"
-                            android:textSize="12sp" />
+                            android:text="Institución Escolar:"
+                            android:textColor="@color/text_muted"
+                            android:textSize="11sp" />
+                        <TextView
+                            android:id="@+id/tvPerfilDetalleEscuela"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="E.E.S. N° 5 (Buenos Aires)"
+                            android:textColor="@color/text_main"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <!-- Fila 3: Curso y División -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Curso y División:"
+                            android:textColor="@color/text_muted"
+                            android:textSize="11sp" />
+                        <TextView
+                            android:id="@+id/tvPerfilDetalleCurso"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="4° Año • División Única"
+                            android:textColor="@color/text_main"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <!-- Fila 4: Régimen -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Régimen de Acreditación:"
+                            android:textColor="@color/text_muted"
+                            android:textSize="11sp" />
+                        <TextView
+                            android:id="@+id/tvPerfilDetalleRegimen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="Secundaria Cuatrimestral (R.I.T.E.)"
+                            android:textColor="@color/text_main"
+                            android:textSize="13sp" />
+
+                        <!-- Fila 5: Tutor Responsable -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tutor / Familiar Responsable:"
+                            android:textColor="@color/text_muted"
+                            android:textSize="11sp" />
+                        <TextView
+                            android:id="@+id/tvPerfilDetalleTutor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pleininger Cristian"
+                            android:textColor="@color/text_main"
+                            android:textSize="13sp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
+
+                <!-- BOTÓN CERRAR SESIÓN (CLARO Y DESTACADO) -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnPerfilCerrarSesion"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginBottom="10dp"
+                    android:backgroundTint="@color/color_danger"
+                    android:text="Cerrar Sesión"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="12dp"
+                    app:icon="@drawable/ic_close"
+                    app:iconGravity="textStart"
+                    app:iconTint="@color/white" />
+
+                <!-- BOTÓN VOLVER -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnPerfilVolverBoletin"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="24dp"
+                    android:text="Volver a Calificaciones"
+                    android:textColor="@color/color_primary"
+                    android:textSize="13sp"
+                    app:cornerRadius="12dp"
+                    app:icon="@drawable/ic_assignment"
+                    app:iconGravity="textStart"
+                    app:iconTint="@color/color_primary"
+                    app:strokeColor="@color/color_primary"
+                    app:strokeWidth="1dp" />
+
             </LinearLayout>
 
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
-    <!-- BARRA DE NAVEGACIÓN INFERIOR (BOTTOM NAVIGATION 4 PESTAÑAS) -->
+    <!-- BARRA DE NAVEGACIÓN INFERIOR (BOTTOM NAVIGATION 5 PESTAÑAS) -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -838,8 +1470,10 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="58dp"
         android:background="@color/bg_header"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -938,17 +1572,45 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:clickable="true"
+            android:clipChildren="false"
+            android:clipToPadding="false"
             android:focusable="true"
             android:gravity="center"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/ivNavAvisos"
-                android:layout_width="20dp"
+            <FrameLayout
+                android:layout_width="42dp"
                 android:layout_height="20dp"
-                android:contentDescription="@null"
-                android:src="@drawable/ic_notifications"
-                app:tint="@color/text_muted" />
+                android:clipChildren="false"
+                android:clipToPadding="false">
+
+                <ImageView
+                    android:id="@+id/ivNavAvisos"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_notifications"
+                    app:tint="@color/text_muted" />
+
+                <TextView
+                    android:id="@+id/tvBadgeAvisosNav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="15dp"
+                    android:layout_gravity="top|end"
+                    android:background="@drawable/bg_badge_rounded"
+                    android:backgroundTint="@color/color_danger"
+                    android:gravity="center"
+                    android:minWidth="15dp"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:text="3"
+                    android:textColor="@color/white"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    android:translationX="-2dp"
+                    android:translationY="-5dp" />
+            </FrameLayout>
 
             <TextView
                 android:id="@+id/tvNavAvisos"
@@ -962,4 +1624,3 @@
     </LinearLayout>
 
 </LinearLayout>
-

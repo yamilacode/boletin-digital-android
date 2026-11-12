@@ -20,11 +20,26 @@ public class PreviasMesasActivity extends AppCompatActivity {
     private View tabNavAsistencia;
     private View tabNavAvisos;
 
-    private String dni = "48763736";
+    private String dni;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        String rol = getIntent().getStringExtra("rol");
+        dni = getIntent().getStringExtra("dni");
+        boolean rolNoEstudiante = rol != null && !rol.trim().isEmpty()
+                && !"estudiante".equalsIgnoreCase(rol.trim())
+                && !"tutor".equalsIgnoreCase(rol.trim())
+                && !"alumno".equalsIgnoreCase(rol.trim())
+                && !"padre".equalsIgnoreCase(rol.trim());
+
+        if (rolNoEstudiante || dni == null || dni.trim().isEmpty()) {
+            Toast.makeText(this, "Sección exclusiva para sesión de Estudiante o Tutor.", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+
         setContentView(R.layout.activity_previas_mesas);
 
         ivVolver = findViewById(R.id.ivVolver);
@@ -34,10 +49,6 @@ public class PreviasMesasActivity extends AppCompatActivity {
         tabNavBoletin = findViewById(R.id.tabNavBoletin);
         tabNavAsistencia = findViewById(R.id.tabNavAsistencia);
         tabNavAvisos = findViewById(R.id.tabNavAvisos);
-
-        if (getIntent().hasExtra("dni")) {
-            dni = getIntent().getStringExtra("dni");
-        }
 
         if (ivVolver != null) {
             ivVolver.setOnClickListener(v -> finish());
@@ -52,34 +63,27 @@ public class PreviasMesasActivity extends AppCompatActivity {
             btnInscribirMesa2.setOnClickListener(v -> mostrarDialogoInscripcion("Geografía (2° Año)"));
         }
 
-        // Navegación inferior
+        // Navegación inferior exclusiva de sesión estudiante validada
         if (tabNavBoletin != null) {
-            tabNavBoletin.setOnClickListener(v -> {
-                Intent intent = new Intent(this, BoletinAlumnoActivity.class);
-                intent.putExtra("dni", dni);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
-            });
+            tabNavBoletin.setOnClickListener(v -> abrirTabBoletin(1));
         }
 
         if (tabNavAsistencia != null) {
-            tabNavAsistencia.setOnClickListener(v -> {
-                Intent intent = new Intent(this, AsistenciaAvisosActivity.class);
-                intent.putExtra("dni", dni);
-                startActivity(intent);
-                finish();
-            });
+            tabNavAsistencia.setOnClickListener(v -> abrirTabBoletin(2));
         }
 
         if (tabNavAvisos != null) {
-            tabNavAvisos.setOnClickListener(v -> {
-                Intent intent = new Intent(this, AsistenciaAvisosActivity.class);
-                intent.putExtra("dni", dni);
-                startActivity(intent);
-                finish();
-            });
+            tabNavAvisos.setOnClickListener(v -> abrirTabBoletin(4));
         }
+    }
+
+    private void abrirTabBoletin(int tab) {
+        Intent intent = new Intent(this, BoletinAlumnoActivity.class);
+        intent.putExtra("dni", dni);
+        intent.putExtra("tab", tab);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
     }
 
     private void mostrarDialogoInscripcion(String materia) {

@@ -5,11 +5,22 @@
         <item name="colorOnPrimary">@color/bg_body</item>
         <item name="colorPrimaryContainer">@color/border_main</item>
         <item name="colorOnPrimaryContainer">@color/text_main</item>
+        <item name="colorSecondaryContainer">@color/color_badge_blue_bg</item>
+        <item name="colorOnSecondaryContainer">@color/color_primary</item>
 
         <item name="android:windowBackground">@color/bg_body</item>
         <item name="colorSurface">@color/bg_card</item>
         <item name="colorOnSurface">@color/text_main</item>
+        <item name="colorSurfaceVariant">@color/bg_elevated</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary</item>
+        <item name="colorSurfaceContainerLowest">@color/bg_card_dark</item>
+        <item name="colorSurfaceContainerLow">@color/bg_card_alt</item>
+        <item name="colorSurfaceContainer">@color/bg_header</item>
+        <item name="colorSurfaceContainerHigh">@color/bg_card</item>
+        <item name="colorSurfaceContainerHighest">@color/bg_elevated</item>
         <item name="colorOutline">@color/border_main</item>
+        <item name="colorBackgroundFloating">@color/bg_card_alt</item>
+        <item name="android:colorBackgroundFloating">@color/bg_card_alt</item>
 
         <!-- Status bar y barra de navegación integradas -->
         <item name="android:statusBarColor">@color/bg_body</item>
@@ -18,4 +29,15 @@
     </style>
 
     <style name="Theme.BoletinDigital" parent="Base.Theme.BoletinDigital" />
+
+    <!-- Estilo web institucional para desplegables (Spinners) de formularios -->
+    <style name="Widget.BoletinDigital.Spinner" parent="Widget.AppCompat.Spinner.DropDown">
+        <item name="android:background">@drawable/bg_spinner_web</item>
+        <item name="android:popupBackground">@drawable/bg_spinner_popup_web</item>
+        <item name="android:dropDownVerticalOffset">4dp</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+    </style>
 </resources>

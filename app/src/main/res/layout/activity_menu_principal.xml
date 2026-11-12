@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -35,7 +35,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:letterSpacing="0.06"
-                    android:text="SESIÃ“N ACTIVA"
+                    android:text="SESIÓN ACTIVA"
                     android:textColor="@color/color_primary"
                     android:textSize="11sp"
                     android:textStyle="bold" />
@@ -44,63 +44,53 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="GestiÃ³n del Sistema"
+                    android:text="Gestión del Sistema"
                     android:textColor="@color/text_main"
                     android:textSize="22sp"
                     android:textStyle="bold" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardSedeActivaMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/color_badge_blue_bg"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/color_primary"
+                    app:strokeWidth="1dp">
+
+                    <TextView
+                        android:id="@+id/tvSedeActivaMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="10dp"
+                        android:paddingTop="4dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="4dp"
+                        android:text="EPES N° 19 (Formosa) • Trimestral ›"
+                        android:textColor="@color/color_primary_light"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
 
-            <!-- BotÃ³n ConfiguraciÃ³n / Ajustes -->
+            <!-- Botón Configuración / Ajustes -->
             <ImageView
                 android:id="@+id/btnAjustes"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/bg_icon_circle"
-                android:contentDescription="ConfiguraciÃ³n"
+                android:contentDescription="Configuración"
                 android:padding="9dp"
                 android:src="@drawable/ic_settings"
                 app:tint="@color/text_secondary" />
         </LinearLayout>
-
-        <!-- Barra de BÃºsqueda -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardBuscador"
-            android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:layout_marginTop="16dp"
-            app:cardBackgroundColor="@color/bg_surface"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="0dp"
-            app:strokeColor="@color/border_main"
-            app:strokeWidth="1dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingStart="14dp"
-                android:paddingEnd="14dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Buscar por apellido o DNI..."
-                    android:textColor="@color/text_muted"
-                    android:textSize="13sp" />
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:contentDescription="@null"
-                    android:src="@drawable/ic_search"
-                    app:tint="@color/color_primary" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 
-    <!-- Contenido Scrollable con los MÃ³dulos -->
+    <!-- Contenido Scrollable con los Módulos -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -118,116 +108,79 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="14dp"
                 android:letterSpacing="0.06"
-                android:text="MÃ“DULOS DE GESTIÃ“N"
+                android:text="MÓDULOS DE GESTIÓN"
                 android:textColor="@color/color_primary"
                 android:textSize="11sp"
                 android:textStyle="bold" />
 
-            <!-- HERO CARD: CARGA DE CALIFICACIONES (DOCENTES / PRECEPTORES) -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardModuloCargaNotas"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="14dp"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardBackgroundColor="@color/bg_card"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:strokeColor="@color/color_primary"
-                app:strokeWidth="1.5dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="16dp">
-
-                    <FrameLayout
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_marginEnd="14dp"
-                        android:background="@drawable/bg_icon_circle"
-                        android:backgroundTint="@color/color_badge_blue_bg">
-
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_gravity="center"
-                            android:contentDescription="@null"
-                            android:src="@drawable/ic_edit"
-                            app:tint="@color/color_primary" />
-                    </FrameLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Carga de Calificaciones"
-                                android:textColor="@color/text_main"
-                                android:textSize="15sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:background="@drawable/bg_badge_rounded"
-                                android:backgroundTint="@color/color_tea_bg"
-                                android:paddingStart="6dp"
-                                android:paddingTop="2dp"
-                                android:paddingEnd="6dp"
-                                android:paddingBottom="2dp"
-                                android:text="R.I.T.E."
-                                android:textColor="@color/color_tea_text"
-                                android:textSize="10sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="Planilla escolar por curso, materia y perÃ­odo"
-                            android:textColor="@color/text_muted"
-                            android:textSize="11sp" />
-                    </LinearLayout>
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:contentDescription="@null"
-                        android:rotation="180"
-                        android:src="@drawable/ic_arrow_back"
-                        app:tint="@color/color_primary" />
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-                        <!-- Fila 1 de MÃ³dulos: Alumnos y Asistencia -->
+            <!-- Fila 1 de Módulos: Calificaciones y Alumnos -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="14dp"
                 android:orientation="horizontal">
 
-                <!-- MÃ³dulo 1: Alumnos -->
+                <!-- Módulo 1: Carga de Calificaciones -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardModuloCargaNotas"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_marginEnd="7dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/bg_card"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/color_primary"
+                    app:strokeWidth="1.5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="14dp">
+
+                        <FrameLayout
+                            android:layout_width="52dp"
+                            android:layout_height="52dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/bg_icon_circle"
+                            android:backgroundTint="@color/color_badge_blue_bg">
+
+                            <ImageView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_edit"
+                                app:tint="@color/color_primary" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Calificaciones"
+                            android:textColor="@color/text_main"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Notas por curso"
+                            android:textColor="@color/text_muted"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Módulo 2: Alumnos -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardModuloAlumnos"
                     android:layout_width="0dp"
                     android:layout_height="140dp"
-                    android:layout_marginEnd="7dp"
+                    android:layout_marginStart="7dp"
                     android:layout_weight="1"
                     android:clickable="true"
                     android:focusable="true"
@@ -270,18 +223,26 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="MatrÃ­cula y legajos"
+                            android:text="Matrícula y legajos"
                             android:textColor="@color/text_muted"
                             android:textSize="11sp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
 
-                <!-- MÃ³dulo 2: Asistencia -->
+            <!-- Fila 2 de Módulos: Asistencia y Mesas de Examen -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                android:orientation="horizontal">
+
+                <!-- Módulo 3: Asistencia -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardModuloAsistencia"
                     android:layout_width="0dp"
                     android:layout_height="140dp"
-                    android:layout_marginStart="7dp"
+                    android:layout_marginEnd="7dp"
                     android:layout_weight="1"
                     android:clickable="true"
                     android:focusable="true"
@@ -329,20 +290,13 @@
                             android:textSize="11sp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
-            </LinearLayout>
 
-            <!-- Fila 2 de MÃ³dulos: Mesas de Examen e InstituciÃ³n -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <!-- MÃ³dulo 3: Mesas de Examen -->
+                <!-- Módulo 4: Mesas de Examen -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardModuloMesas"
                     android:layout_width="0dp"
                     android:layout_height="140dp"
-                    android:layout_marginEnd="7dp"
+                    android:layout_marginStart="7dp"
                     android:layout_weight="1"
                     android:clickable="true"
                     android:focusable="true"
@@ -390,8 +344,69 @@
                             android:textSize="11sp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
 
-                <!-- MÃ³dulo 4: InstituciÃ³n -->
+            <!-- Fila 3 de Módulos: Previas e Institución -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Módulo 5: Previas -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardModuloPrevias"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    android:layout_marginEnd="7dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/bg_card"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/border_main"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="14dp">
+
+                        <FrameLayout
+                            android:layout_width="52dp"
+                            android:layout_height="52dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/bg_icon_circle">
+
+                            <ImageView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="@null"
+                                android:src="@drawable/ic_school"
+                                app:tint="@color/color_badge_purple_text" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Previas"
+                            android:textColor="@color/text_main"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Materias pendientes"
+                            android:textColor="@color/text_muted"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Módulo 6: Institución -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardModuloInstitucion"
                     android:layout_width="0dp"
@@ -431,7 +446,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="InstituciÃ³n"
+                            android:text="Institución"
                             android:textColor="@color/text_main"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -439,7 +454,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Cursos y sedes"
+                            android:text="Sede, cursos y DB"
                             android:textColor="@color/text_muted"
                             android:textSize="11sp" />
                     </LinearLayout>
@@ -449,7 +464,7 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- Barra Inferior de NavegaciÃ³n (Bottom Navigation) -->
+    <!-- Barra Inferior de Navegación (Bottom Navigation) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="64dp"

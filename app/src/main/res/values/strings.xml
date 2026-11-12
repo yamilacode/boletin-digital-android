@@ -12,9 +12,9 @@
     <string name="subtitulo_aviso_docente">Ingreso oficial para carga de notas y planillas.</string>
 
     <!-- Hints y Botones dinámicos según Rol -->
-    <string name="hint_usuario_alumno">Correo electrónico o DNI del alumno</string>
-    <string name="hint_usuario_docente">Usuario institucional / Legajo</string>
-    <string name="hint_password_alumno">Contraseña</string>
+    <string name="hint_usuario_alumno">DNI del alumno o correo de tutor</string>
+    <string name="hint_usuario_docente">Correo institucional (preceptor@escuela.edu.ar)</string>
+    <string name="hint_password_alumno">Clave provisoria (últimos 4 del DNI) / Contraseña</string>
     <string name="hint_password_docente">Contraseña institucional</string>
     <string name="btn_login_alumno">Iniciar Sesión</string>
     <string name="btn_login_docente">Acceder a Preceptoría</string>

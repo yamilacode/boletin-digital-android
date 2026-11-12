@@ -49,3 +49,6 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.ext.junit)
 }
+tasks.withType<JavaCompile> {
+    options.encoding = "UTF-8"
+}

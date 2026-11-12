@@ -55,6 +55,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/tvBadgeRolNotas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_badge_rounded"
@@ -63,7 +64,7 @@
             android:paddingTop="3dp"
             android:paddingEnd="8dp"
             android:paddingBottom="3dp"
-            android:text="Docente"
+            android:text="PRECEPTOR"
             android:textColor="@color/color_primary"
             android:textSize="11sp"
             android:textStyle="bold" />
@@ -125,13 +126,10 @@
 
                     <Spinner
                         android:id="@+id/spnCurso"
+                        style="@style/Widget.BoletinDigital.Spinner"
                         android:layout_width="match_parent"
                         android:layout_height="44dp"
-                        android:layout_marginBottom="12dp"
-                        android:background="@drawable/bg_badge_rounded"
-                        android:backgroundTint="@color/bg_surface"
-                        android:paddingStart="8dp"
-                        android:paddingEnd="8dp" />
+                        android:layout_marginBottom="12dp" />
 
                     <!-- Selector 2: Materia / Espacio Curricular -->
                     <TextView
@@ -144,13 +142,10 @@
 
                     <Spinner
                         android:id="@+id/spnMateria"
+                        style="@style/Widget.BoletinDigital.Spinner"
                         android:layout_width="match_parent"
                         android:layout_height="44dp"
-                        android:layout_marginBottom="12dp"
-                        android:background="@drawable/bg_badge_rounded"
-                        android:backgroundTint="@color/bg_surface"
-                        android:paddingStart="8dp"
-                        android:paddingEnd="8dp" />
+                        android:layout_marginBottom="12dp" />
 
                     <!-- Selector 3: Período -->
                     <TextView
@@ -163,12 +158,9 @@
 
                     <Spinner
                         android:id="@+id/spnPeriodo"
+                        style="@style/Widget.BoletinDigital.Spinner"
                         android:layout_width="match_parent"
-                        android:layout_height="44dp"
-                        android:background="@drawable/bg_badge_rounded"
-                        android:backgroundTint="@color/bg_surface"
-                        android:paddingStart="8dp"
-                        android:paddingEnd="8dp" />
+                        android:layout_height="44dp" />
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -224,6 +216,20 @@
                 android:layout_height="wrap_content"
                 android:nestedScrollingEnabled="false" />
 
+            <TextView
+                android:id="@+id/tvSinAlumnosPlanilla"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_badge_rounded"
+                android:backgroundTint="@color/bg_card"
+                android:gravity="center"
+                android:padding="20dp"
+                android:text="No hay alumnos inscriptos en este curso todavía."
+                android:textColor="@color/text_muted"
+                android:textSize="13sp"
+                android:visibility="gone" />
+
         </LinearLayout>
     </ScrollView>
 
@@ -255,6 +261,9 @@
             app:iconGravity="textStart"
             app:iconTint="@color/bg_body" />
     </LinearLayout>
+
+    <!-- BARRA DE NAVEGACIÓN INFERIOR -->
+    <include layout="@layout/layout_footer_docente" />
 
 </LinearLayout>
 

@@ -7,13 +7,17 @@
     <!-- Fondos y Superficies -->
     <color name="bg_body">#0C111D</color>
     <color name="bg_card">#182030</color>
+    <color name="bg_card_dark">#0B111E</color>
+    <color name="bg_card_alt">#0F172A</color>
     <color name="bg_header">#151B2A</color>
     <color name="bg_surface">#111827</color>
     <color name="bg_elevated">#1E293B</color>
+    <color name="bg_row_hover">#222D42</color>
 
     <!-- Bordes y Separadores -->
     <color name="border_main">#334155</color>
     <color name="border_subtle">#1E293B</color>
+    <color name="border_light">#475569</color>
 
     <!-- Acentos Institucionales (Celeste Moderno) -->
     <color name="color_primary">#38BDF8</color>

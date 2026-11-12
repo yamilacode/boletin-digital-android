@@ -85,13 +85,41 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Flecha Indicadora de Detalle -->
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_chevron_right"
-            app:tint="@color/text_dim" />
+        <!-- Botones de Acción: Editar (Lápiz) y Eliminar (Tachito) -->
+        <LinearLayout
+            android:id="@+id/llAccionesAlumno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/btnEditarAlumnoItem"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_badge_rounded"
+                android:backgroundTint="@color/color_badge_blue_bg"
+                android:clickable="true"
+                android:contentDescription="Editar alumno"
+                android:focusable="false"
+                android:padding="8dp"
+                android:src="@drawable/ic_edit"
+                app:tint="@color/color_primary" />
+
+            <ImageView
+                android:id="@+id/btnEliminarAlumnoItem"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/bg_badge_rounded"
+                android:backgroundTint="@color/color_danger_bg"
+                android:clickable="true"
+                android:contentDescription="Eliminar alumno"
+                android:focusable="false"
+                android:padding="8dp"
+                android:src="@drawable/ic_delete"
+                app:tint="@color/color_danger" />
+        </LinearLayout>
 
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -59,7 +59,7 @@ public class AsistenciaAvisosActivity extends AppCompatActivity {
             FirebaseMessaging.getInstance().subscribeToTopic("avisos_generales");
             FirebaseMessaging.getInstance().subscribeToTopic("mesas_examen");
             FirebaseMessaging.getInstance().subscribeToTopic("inasistencias");
-        } catch (Exception ignored) {
+        } catch (Throwable ignored) {
         }
 
         // Boton interactivo para probar la notificacion en el celular
@@ -94,7 +94,7 @@ public class AsistenciaAvisosActivity extends AppCompatActivity {
         String[] opciones = {
                 "Alerta de Inasistencias (17 de 20 faltas)",
                 "Mesas de Examen y Previas (Diciembre 2026)",
-                "Boletin y Calificaciones (1Â° Cuatrimestre)"
+                "Boletin y Calificaciones (1° Cuatrimestre)"
         };
 
         new AlertDialog.Builder(this)
@@ -143,11 +143,11 @@ public class AsistenciaAvisosActivity extends AppCompatActivity {
                     runOnUiThread(() -> {
                         if (isFinishing() || isDestroyed()) return;
                         tvBadgeTotalFaltas.setText("Total: " + inasistencias);
-                        tvResumenAsistencia.setText("Dias Habiles: " + totalClases + " â€¢ Asistencias: " + presentu + " â€¢ Inasistencias: " + inasistencias);
+                        tvResumenAsistencia.setText("Dias Habiles: " + totalClases + " • Asistencias: " + presentu + " • Inasistencias: " + inasistencias);
                         pbInasistencias.setProgress(inasistencias);
                     });
                 }
-            } catch (Exception ignored) {
+            } catch (Throwable ignored) {
                 // Mantiene los valores por defecto del wireframe
             }
         });

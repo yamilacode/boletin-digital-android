@@ -1,8 +1,10 @@
 package com.example.boletindigital;
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +23,12 @@ public class InstitucionActivity extends AppCompatActivity {
     private TextView btnSedePba;
     private TextView btnSedeFormosa;
 
+    private TextView tvEstadoActivaInst;
+    private TextView tvDbAlumnosCount;
+    private TextView tvDbMesasCount;
+    private TextView tvDbAvisosCount;
+    private TextView tvDbCursosResumen;
+
     private TextView tvNombreInstitucion;
     private TextView tvDistritoInstitucion;
     private TextView tvCueInstitucion;
@@ -38,7 +46,8 @@ public class InstitucionActivity extends AppCompatActivity {
 
     private String token;
     private String rol;
-    private String sedeActiva = "pba"; // "pba" o "formosa"
+    private String nombre;
+    private String sedeActiva = "formosa"; // "pba" o "formosa"
 
     private final ExecutorService executor = Executors.newSingleThreadExecutor();
 
@@ -52,19 +61,29 @@ public class InstitucionActivity extends AppCompatActivity {
 
         token = getIntent().getStringExtra("token");
         rol = getIntent().getStringExtra("rol");
+        nombre = getIntent().getStringExtra("nombre");
 
         vincularVistas();
+        DocenteUiHelper.configurarFooterDocente(this, token, rol, nombre);
 
         if (tvBadgeRolInstitucion != null && rol != null) {
             tvBadgeRolInstitucion.setText(rol.toUpperCase());
         }
 
         if (savedInstanceState != null) {
-            sedeActiva = savedInstanceState.getString("sede_activa", "pba");
+            sedeActiva = savedInstanceState.getString("sede_activa", InstitucionManager.getJurisdiccionActiva(this));
+        } else {
+            sedeActiva = InstitucionManager.getJurisdiccionActiva(this);
         }
 
         configurarListeners();
+        actualizarInterfaz();
         cargarDatosDesdeApi();
+        cargarResumenDbEnVivo(InstitucionManager.ID_PBA == getIdDeSedeActiva() ? InstitucionManager.ID_PBA : InstitucionManager.ID_FORMOSA);
+    }
+
+    private int getIdDeSedeActiva() {
+        return "pba".equals(sedeActiva) ? InstitucionManager.ID_PBA : InstitucionManager.ID_FORMOSA;
     }
 
     private void vincularVistas() {
@@ -72,6 +91,12 @@ public class InstitucionActivity extends AppCompatActivity {
         tvBadgeRolInstitucion = findViewById(R.id.tvBadgeRolInstitucion);
         btnSedePba = findViewById(R.id.btnSedePba);
         btnSedeFormosa = findViewById(R.id.btnSedeFormosa);
+
+        tvEstadoActivaInst = findViewById(R.id.tvEstadoActivaInst);
+        tvDbAlumnosCount = findViewById(R.id.tvDbAlumnosCount);
+        tvDbMesasCount = findViewById(R.id.tvDbMesasCount);
+        tvDbAvisosCount = findViewById(R.id.tvDbAvisosCount);
+        tvDbCursosResumen = findViewById(R.id.tvDbCursosResumen);
 
         tvNombreInstitucion = findViewById(R.id.tvNombreInstitucion);
         tvDistritoInstitucion = findViewById(R.id.tvDistritoInstitucion);
@@ -92,15 +117,25 @@ public class InstitucionActivity extends AppCompatActivity {
     private void configurarListeners() {
         ivVolver.setOnClickListener(v -> finish());
 
-        btnSedePba.setOnClickListener(v -> {
-            sedeActiva = "pba";
-            actualizarInterfaz();
-        });
+        btnSedePba.setOnClickListener(v -> seleccionarYPersistirSede("pba", InstitucionManager.ID_PBA, datosPba));
 
-        btnSedeFormosa.setOnClickListener(v -> {
-            sedeActiva = "formosa";
-            actualizarInterfaz();
-        });
+        btnSedeFormosa.setOnClickListener(v -> seleccionarYPersistirSede("formosa", InstitucionManager.ID_FORMOSA, datosFormosa));
+    }
+
+    private void seleccionarYPersistirSede(String juris, int idInst, JSONObject json) {
+        sedeActiva = juris;
+        if (json != null) {
+            InstitucionManager.setInstitucionActiva(this, json);
+        } else {
+            InstitucionManager.setInstitucionActiva(this, idInst);
+        }
+        Toast.makeText(
+                this,
+                "Institución activa: " + InstitucionManager.getNombreCorto(idInst),
+                Toast.LENGTH_SHORT
+        ).show();
+        actualizarInterfaz();
+        cargarResumenDbEnVivo(idInst);
     }
 
     private void cargarDatosDesdeApi() {
@@ -117,12 +152,55 @@ public class InstitucionActivity extends AppCompatActivity {
                     }
                 }
             } catch (Exception ignored) {
-                // Si la red falla, la UI se poblarÃ¡ con la informaciÃ³n local predeterminada
+                // Si la red falla, la UI se poblará con la información local predeterminada
             }
 
             runOnUiThread(() -> {
                 if (isFinishing() || isDestroyed()) return;
                 actualizarInterfaz();
+            });
+        });
+    }
+
+    private void cargarResumenDbEnVivo(int idInstSolicitado) {
+        if (tvDbAlumnosCount != null) tvDbAlumnosCount.setText("...");
+        if (tvDbMesasCount != null) tvDbMesasCount.setText("...");
+        if (tvDbAvisosCount != null) tvDbAvisosCount.setText("...");
+
+        executor.execute(() -> {
+            int countAlumnos = 0;
+            int countMesas = 0;
+            int countAvisos = 0;
+            boolean ok = true;
+
+            try {
+                JSONArray al = ApiClient.listarAlumnos(idInstSolicitado);
+                countAlumnos = al.length();
+            } catch (Exception e) {
+                ok = false;
+            }
+            try {
+                JSONArray ms = ApiClient.listarMesas(idInstSolicitado);
+                countMesas = ms.length();
+            } catch (Exception ignored) {
+            }
+            try {
+                JSONArray av = ApiClient.listarNotificaciones(idInstSolicitado, "");
+                countAvisos = av.length();
+            } catch (Exception ignored) {
+            }
+
+            final int fa = countAlumnos;
+            final int fm = countMesas;
+            final int fav = countAvisos;
+            final boolean fok = ok;
+
+            runOnUiThread(() -> {
+                if (isFinishing() || isDestroyed()) return;
+                if (getIdDeSedeActiva() != idInstSolicitado) return;
+                if (tvDbAlumnosCount != null) tvDbAlumnosCount.setText(fok ? String.valueOf(fa) : "-");
+                if (tvDbMesasCount != null) tvDbMesasCount.setText(String.valueOf(fm));
+                if (tvDbAvisosCount != null) tvDbAvisosCount.setText(String.valueOf(fav));
             });
         });
     }
@@ -133,7 +211,26 @@ public class InstitucionActivity extends AppCompatActivity {
         int colorInactivoBg = ContextCompat.getColor(this, R.color.bg_surface);
         int colorInactivoText = ContextCompat.getColor(this, R.color.text_muted);
 
+        int idInst = getIdDeSedeActiva();
+        JSONObject jsonActivo = "pba".equals(sedeActiva) ? datosPba : datosFormosa;
+        String[] cursosInst = InstitucionManager.extraerCursosFormateados(jsonActivo, idInst);
+        StringBuilder sbCursos = new StringBuilder();
+        int maxMostrar = Math.min(cursosInst.length, 6);
+        for (int i = 0; i < maxMostrar; i++) {
+            if (i > 0) sbCursos.append(" • ");
+            sbCursos.append(cursosInst[i]);
+        }
+        if (cursosInst.length > maxMostrar) {
+            sbCursos.append(" (+").append(cursosInst.length - maxMostrar).append(" más)");
+        }
+        if (tvDbCursosResumen != null) {
+            tvDbCursosResumen.setText("Cursos (" + cursosInst.length + "): " + sbCursos);
+        }
+
         if ("pba".equals(sedeActiva)) {
+            if (tvEstadoActivaInst != null) {
+                tvEstadoActivaInst.setText("Institución seleccionada: E.E.S. N° 5 (Buenos Aires)");
+            }
             // Estilos de los selectores superiores
             btnSedePba.getBackground().mutate().setTint(colorActivoBg);
             btnSedePba.setTextColor(colorActivoText);
@@ -141,26 +238,29 @@ public class InstitucionActivity extends AppCompatActivity {
             btnSedeFormosa.setTextColor(colorInactivoText);
 
             // Datos oficiales PBA
-            String nombre = datosPba != null ? datosPba.optString("nombre", "E.E.S. NÂ° 5") : "E.E.S. NÂ° 5";
+            String nombre = datosPba != null ? datosPba.optString("nombre", "E.E.S. N° 5") : "E.E.S. N° 5";
             String distrito = datosPba != null ? datosPba.optString("subtitulo", "Distrito PUAN | Secundaria") : "Distrito PUAN | Secundaria";
             String cue = datosPba != null ? datosPba.optString("cue", "0604123-00") : "0604123-00";
-            String nivel = datosPba != null ? datosPba.optString("nivel", "Secundario ComÃºn") : "Secundario ComÃºn";
+            String nivel = datosPba != null ? datosPba.optString("nivel", "Secundario Común") : "Secundario Común";
 
             tvNombreInstitucion.setText(nombre);
             tvDistritoInstitucion.setText(distrito);
             tvCueInstitucion.setText(cue);
             tvNivelInstitucion.setText(nivel);
-            tvRegimenInstitucion.setText("Provincia de Buenos Aires â€¢ RÃ©gimen R.I.T.E. (TEA / TEP / TED)");
+            tvRegimenInstitucion.setText("Provincia de Buenos Aires • Régimen R.I.T.E. (TEA / TEP / TED)");
 
-            tvDetalleCicloBasico.setText("1Â°, 2Â° y 3Â° AÃ±o â€¢ Divisiones 1Â° I, 2Â° I, 3Â° I â€¢ Turno MaÃ±ana");
-            tvDetalleCicloOrientado.setText("4Â°, 5Â° y 6Â° AÃ±o â€¢ Ciencias Sociales y Ciencias Naturales â€¢ Turno Tarde");
-            tvTituloCriterio.setText("RÃ©gimen Institucional de Trayectorias Educativas (R.I.T.E.)");
-            tvDetalleCriterio.setText("TEA (Avanzada 7 a 10) â€¢ TEP (En Proceso 4 a 6) â€¢ TED (Discontinua 1 a 3)");
+            tvDetalleCicloBasico.setText("1°, 2° y 3° Año • Divisiones 1° I, 2° I, 3° I • Turno Mañana");
+            tvDetalleCicloOrientado.setText("4°, 5° y 6° Año • Ciencias Sociales y Ciencias Naturales • Turno Tarde");
+            tvTituloCriterio.setText("Régimen Institucional de Trayectorias Educativas (R.I.T.E.)");
+            tvDetalleCriterio.setText("TEA (Avanzada 7 a 10) • TEP (En Proceso 4 a 6) • TED (Discontinua 1 a 3)");
 
-            tvDirectora.setText("Lic. Marcela BenÃ­tez");
-            tvVicedirector.setText("Prof. Gustavo MÃ©ndez");
-            tvSecretaria.setText("Prof. Claudia FernÃ¡ndez â€¢ Prof. DarÃ­o AlmirÃ³n");
+            tvDirectora.setText("Lic. Marcela Benítez");
+            tvVicedirector.setText("Prof. Gustavo Méndez");
+            tvSecretaria.setText("Prof. Claudia Fernández • Prof. Darío Almirón");
         } else {
+            if (tvEstadoActivaInst != null) {
+                tvEstadoActivaInst.setText("Institución seleccionada: EPES N° 19 (Formosa)");
+            }
             // Estilos de los selectores superiores
             btnSedeFormosa.getBackground().mutate().setTint(colorActivoBg);
             btnSedeFormosa.setTextColor(colorActivoText);
@@ -168,29 +268,29 @@ public class InstitucionActivity extends AppCompatActivity {
             btnSedePba.setTextColor(colorInactivoText);
 
             // Datos oficiales Formosa
-            String nombre = datosFormosa != null ? datosFormosa.optString("nombre", "EPES NÂ° 19 Vuelta de Obligado") : "EPES NÂ° 19 Vuelta de Obligado";
-            String distrito = datosFormosa != null ? datosFormosa.optString("subtitulo", "DelegaciÃ³n Zonal Pilcomayo | Laguna Naineck") : "DelegaciÃ³n Zonal Pilcomayo | Laguna Naineck";
+            String nombre = datosFormosa != null ? datosFormosa.optString("nombre", "EPES N° 19 Vuelta de Obligado") : "EPES N° 19 Vuelta de Obligado";
+            String distrito = datosFormosa != null ? datosFormosa.optString("subtitulo", "Delegación Zonal Pilcomayo | Laguna Naineck") : "Delegación Zonal Pilcomayo | Laguna Naineck";
             String cue = datosFormosa != null ? datosFormosa.optString("cue", "3400124-00") : "3400124-00";
-            String nivel = datosFormosa != null ? datosFormosa.optString("nivel", "Secundaria ComÃºn") : "Secundaria ComÃºn";
+            String nivel = datosFormosa != null ? datosFormosa.optString("nivel", "Secundaria Común") : "Secundaria Común";
 
             tvNombreInstitucion.setText(nombre);
             tvDistritoInstitucion.setText(distrito);
             tvCueInstitucion.setText(cue);
             tvNivelInstitucion.setText(nivel);
-            tvRegimenInstitucion.setText("Formosa â€¢ 3 Trimestres con PAIR y RecuperaciÃ³n Diciembre");
+            tvRegimenInstitucion.setText("Formosa • 3 Trimestres con PAIR y Recuperación Diciembre");
 
-            tvDetalleCicloBasico.setText("1Â° y 2Â° AÃ±o CBS â€¢ Divisiones 1Â° I, 2Â° I â€¢ Turno MaÃ±ana");
-            tvDetalleCicloOrientado.setText("3Â°, 4Â°, 5Â° y 6Â° AÃ±o â€¢ Bachiller en EconomÃ­a y AdministraciÃ³n");
-            tvTituloCriterio.setText("Sistema de CalificaciÃ³n Trimestral con PAIR");
-            tvDetalleCriterio.setText("AprobaciÃ³n con 6 o mÃ¡s â€¢ PAIR (PerÃ­odo de Apoyo e IntensificaciÃ³n)");
+            tvDetalleCicloBasico.setText("1° y 2° Año CBS • Divisiones 1° I, 2° I • Turno Mañana");
+            tvDetalleCicloOrientado.setText("3°, 4°, 5° y 6° Año • Bachiller en Economía y Administración");
+            tvTituloCriterio.setText("Sistema de Calificación Trimestral con PAIR");
+            tvDetalleCriterio.setText("Aprobación con 6 o más • PAIR (Período de Apoyo e Intensificación)");
 
             tvDirectora.setText("Prof. Nilda Coronel");
-            tvVicedirector.setText("Lic. HÃ©ctor GimÃ©nez");
-            tvSecretaria.setText("SecretarÃ­a Docente Formosa â€¢ PreceptorÃ­a General");
+            tvVicedirector.setText("Lic. Héctor Giménez");
+            tvSecretaria.setText("Secretaría Docente Formosa • Preceptoría General");
         }
     }
 
-    // Persistencia por rotaciÃ³n de pantalla (Requerimiento R6)
+    // Persistencia por rotación de pantalla (Requerimiento R6)
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);

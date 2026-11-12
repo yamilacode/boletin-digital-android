@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MenuPrincipalActivity extends AppCompatActivity {
@@ -13,6 +12,7 @@ public class MenuPrincipalActivity extends AppCompatActivity {
     private String token;
     private String rol;
     private String nombre;
+    private TextView tvSedeActivaMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,106 +23,74 @@ public class MenuPrincipalActivity extends AppCompatActivity {
         rol = getIntent().getStringExtra("rol");
         nombre = getIntent().getStringExtra("nombre");
 
-        TextView tvSaludoRol = findViewById(R.id.tvSaludoRol);
-        if (tvSaludoRol != null && rol != null) {
-            String etiqueta = (nombre != null ? nombre : "USUARIO") + " • ROL: " + rol.toUpperCase();
-            tvSaludoRol.setText(etiqueta);
-        }
+        actualizarSaludoRol();
 
-        // Hero Card: Carga de Calificaciones (Docente / Preceptor)
-        View cardModuloCargaNotas = findViewById(R.id.cardModuloCargaNotas);
-        if (cardModuloCargaNotas != null) {
-            cardModuloCargaNotas.setOnClickListener(v -> {
-                Intent intent = new Intent(this, CargarNotasActivity.class);
-                intent.putExtra("token", token);
-                intent.putExtra("rol", rol);
-                intent.putExtra("nombre", nombre);
-                startActivity(intent);
-            });
-        }
+        tvSedeActivaMenu = findViewById(R.id.tvSedeActivaMenu);
+        vincularModulo(R.id.cardSedeActivaMenu, InstitucionActivity.class);
 
-        // Módulo 1: Alumnos
-        View cardModuloAlumnos = findViewById(R.id.cardModuloAlumnos);
-        if (cardModuloAlumnos != null) {
-            cardModuloAlumnos.setOnClickListener(v -> abrirAlumnos());
-        }
+        // Módulo 1: Carga de Calificaciones (Docente / Preceptor)
+        vincularModulo(R.id.cardModuloCargaNotas, CargarNotasActivity.class);
 
-        // Barra de búsqueda directa hacia Alumnos
-        View cardBuscador = findViewById(R.id.cardBuscador);
-        if (cardBuscador != null) {
-            cardBuscador.setOnClickListener(v -> abrirAlumnos());
-        }
+        // Módulo 2: Alumnos
+        vincularModulo(R.id.cardModuloAlumnos, AlumnosActivity.class);
 
-        // Módulo 2: Asistencia
-        View cardModuloAsistencia = findViewById(R.id.cardModuloAsistencia);
-        if (cardModuloAsistencia != null) {
-            cardModuloAsistencia.setOnClickListener(v -> {
-                Intent intent = new Intent(this, AsistenciaAvisosActivity.class);
-                startActivity(intent);
-            });
-        }
+        // Módulo 3: Carga de Asistencia Escolar (Preceptor / Docente)
+        vincularModulo(R.id.cardModuloAsistencia, CargarAsistenciaActivity.class);
 
-        // Módulo 3: Mesas de Examen
-        View cardModuloMesas = findViewById(R.id.cardModuloMesas);
-        if (cardModuloMesas != null) {
-            cardModuloMesas.setOnClickListener(v -> {
-                Intent intent = new Intent(this, PreviasMesasActivity.class);
-                startActivity(intent);
-            });
-        }
+        // Módulo 4: Mesas de Examen (Preceptor / Docente)
+        vincularModulo(R.id.cardModuloMesas, GestionMesasActivity.class);
 
-        // Módulo 4: Institución Escolar (Sedes, autoridades y régimen)
-        View cardModuloInstitucion = findViewById(R.id.cardModuloInstitucion);
-        if (cardModuloInstitucion != null) {
-            cardModuloInstitucion.setOnClickListener(v -> {
-                Intent intent = new Intent(this, InstitucionActivity.class);
-                intent.putExtra("token", token);
-                intent.putExtra("rol", rol);
-                intent.putExtra("nombre", nombre);
-                startActivity(intent);
-            });
-        }
+        // Módulo 5: Materias Previas por Alumno (Preceptor / Docente)
+        vincularModulo(R.id.cardModuloPrevias, GestionPreviasActivity.class);
 
-        // Pestaña Avisos (Firebase Cloud)
-        View tabAvisos = findViewById(R.id.tabAvisos);
-        if (tabAvisos != null) {
-            tabAvisos.setOnClickListener(v -> {
-                Intent intent = new Intent(this, AsistenciaAvisosActivity.class);
-                startActivity(intent);
-            });
-        }
+        // Módulo 6: Institución Escolar (Sedes, autoridades y régimen)
+        vincularModulo(R.id.cardModuloInstitucion, InstitucionActivity.class);
+
+        // Pestaña Avisos: Gestión y Publicación de Comunicados (Preceptor / Docente)
+        vincularModulo(R.id.tabAvisos, GestionAvisosActivity.class);
 
         // Pestaña Perfil y Ajustes
-        View tabPerfil = findViewById(R.id.tabPerfil);
-        View btnAjustes = findViewById(R.id.btnAjustes);
+        vincularModulo(R.id.tabPerfil, PerfilDocenteActivity.class);
+        vincularModulo(R.id.btnAjustes, PerfilDocenteActivity.class);
 
-        View.OnClickListener perfilListener = v -> mostrarMenuPerfil();
-
-        if (tabPerfil != null) tabPerfil.setOnClickListener(perfilListener);
-        if (btnAjustes != null) btnAjustes.setOnClickListener(perfilListener);
+        actualizarBadgeSedeActiva();
     }
 
-    private void abrirAlumnos() {
-        Intent intent = new Intent(this, AlumnosActivity.class);
-        intent.putExtra("token", token);
-        intent.putExtra("rol", rol);
-        intent.putExtra("nombre", nombre);
-        startActivity(intent);
+    @Override
+    protected void onResume() {
+        super.onResume();
+        actualizarBadgeSedeActiva();
+        actualizarSaludoRol();
     }
 
-    private void mostrarMenuPerfil() {
-        new AlertDialog.Builder(this)
-                .setTitle("Sesión Activa")
-                .setMessage("Usuario: " + (nombre != null ? nombre : "Institucional")
-                        + "\nRol: " + (rol != null ? rol : "Sin definir")
-                        + "\nServidor: Railway Cloud API")
-                .setPositiveButton("Cerrar Sesión", (dialog, which) -> {
-                    Intent intent = new Intent(this, MainActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                    finish();
-                })
-                .setNegativeButton("Continuar", null)
-                .show();
+    private void actualizarSaludoRol() {
+        TextView tvSaludoRol = findViewById(R.id.tvSaludoRol);
+        if (tvSaludoRol != null && rol != null) {
+            String nombreActivo = PerfilDocenteActivity.obtenerNombreActivo(this, nombre);
+            String etiqueta = nombreActivo + " • ROL: " + rol.toUpperCase();
+            tvSaludoRol.setText(etiqueta);
+        }
+    }
+
+    private void actualizarBadgeSedeActiva() {
+        if (tvSedeActivaMenu != null) {
+            int idInst = InstitucionManager.getIdInstitucionActiva(this);
+            String texto = InstitucionManager.getNombreCorto(idInst) + " • "
+                    + InstitucionManager.getRegimenCorto(idInst) + " ›";
+            tvSedeActivaMenu.setText(texto);
+        }
+    }
+
+    private void vincularModulo(int viewId, Class<?> destino) {
+        View view = findViewById(viewId);
+        if (view != null) {
+            view.setOnClickListener(v -> {
+                Intent intent = new Intent(this, destino);
+                intent.putExtra("token", token);
+                intent.putExtra("rol", rol);
+                intent.putExtra("nombre", PerfilDocenteActivity.obtenerNombreActivo(this, nombre));
+                startActivity(intent);
+            });
+        }
     }
 }

@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_body"
+    android:orientation="vertical">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
     android:fillViewport="true">
 
     <LinearLayout
@@ -45,6 +50,7 @@
                 </FrameLayout>
 
                 <TextView
+                    android:id="@+id/tvTituloConfirmar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/confirmar_alumno"
@@ -115,3 +121,7 @@
 
     </LinearLayout>
 </ScrollView>
+
+    <include layout="@layout/layout_footer_docente" />
+
+</LinearLayout>

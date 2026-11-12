@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_body"
+    android:orientation="vertical">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
     android:fillViewport="true">
 
     <LinearLayout
@@ -54,6 +59,7 @@
                 android:layout_weight="1" />
 
             <TextView
+                android:id="@+id/tvTituloModoAlumno"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:letterSpacing="0.04"
@@ -292,6 +298,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
                     android:hint="@string/hint_tutor"
                     android:textColorHint="@color/text_muted"
                     app:boxBackgroundColor="@color/bg_surface"
@@ -307,6 +314,56 @@
                         android:inputType="textPersonName"
                         android:textColor="@color/text_main" />
                 </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Correo Gmail del tutor (opcional)"
+                    android:textColorHint="@color/text_muted"
+                    app:boxBackgroundColor="@color/bg_surface"
+                    app:boxStrokeColor="@color/color_primary"
+                    app:hintTextColor="@color/color_primary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEmailTutor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/text_main" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Clave provisoria alumno (opcional, últimos 4 del DNI)"
+                    android:textColorHint="@color/text_muted"
+                    app:boxBackgroundColor="@color/bg_surface"
+                    app:boxStrokeColor="@color/color_primary"
+                    app:hintTextColor="@color/color_primary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etClaveAlumno"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textVisiblePassword"
+                        android:textColor="@color/text_main" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tvPreviewCredenciales"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_badge_rounded"
+                    android:backgroundTint="@color/color_badge_blue_bg"
+                    android:padding="10dp"
+                    android:text="Acceso clásico del alumno: Usuario = DNI • Clave inicial = últimos 4 dígitos del DNI"
+                    android:textColor="@color/color_primary_light"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -326,3 +383,7 @@
 
     </LinearLayout>
 </ScrollView>
+
+    <include layout="@layout/layout_footer_docente" />
+
+</LinearLayout>

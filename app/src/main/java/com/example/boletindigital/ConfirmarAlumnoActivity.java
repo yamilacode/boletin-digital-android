@@ -16,6 +16,9 @@ public class ConfirmarAlumnoActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_confirmar_alumno);
 
+        TextView tvTituloConfirmar =
+                findViewById(R.id.tvTituloConfirmar);
+
         TextView tvConfirmacion =
                 findViewById(R.id.tvConfirmacion);
 
@@ -30,11 +33,26 @@ public class ConfirmarAlumnoActivity extends AppCompatActivity {
         String nombre = datos.getStringExtra("nombre");
         String apellido = datos.getStringExtra("apellido");
         String dni = datos.getStringExtra("dni");
+        String claveProvisoria = datos.getStringExtra("clave_provisoria");
+        boolean modoEdicion = datos.getBooleanExtra("modo_edicion", false);
 
-        tvConfirmacion.setText(
-                "¿Confirmás el registro?\n\n"
-                        + nombre + " " + apellido
-                        + "\nDNI: " + dni);
+        DocenteUiHelper.configurarFooterDocente(
+                this,
+                datos.getStringExtra("token"),
+                datos.getStringExtra("rol"),
+                datos.getStringExtra("nombre_usuario"));
+
+        if (modoEdicion && tvTituloConfirmar != null) {
+            tvTituloConfirmar.setText("Confirmar Cambios");
+        }
+
+        String resumen = (modoEdicion ? "¿Confirmás la actualización?\n\n" : "¿Confirmás el registro?\n\n")
+                + nombre + " " + apellido
+                + "\nDNI: " + dni;
+        if (!modoEdicion && claveProvisoria != null && !claveProvisoria.trim().isEmpty()) {
+            resumen += "\n\nAcceso al portal:\nUsuario: " + dni + "\nClave inicial provisoria: " + claveProvisoria;
+        }
+        tvConfirmacion.setText(resumen);
 
         btnConfirmar.setOnClickListener(v -> {
             setResult(RESULT_OK);

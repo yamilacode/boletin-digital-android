@@ -23,12 +23,15 @@ public class DetalleAlumnoActivity extends AppCompatActivity {
     private TextView tvJurisdiccion;
     private TextView tvInstitucion;
     private TextView tvTutor;
+    private TextView tvEmailTutor;
+    private TextView tvCredencialesAlumno;
     private TextView tvDetalle;
     private ProgressBar pbCargandoDetalle;
     private Button btnVerBoletin;
     private Button btnVolver;
 
     private String dniActual = "";
+    private int idInstitucionActual = 1;
 
     private final ExecutorService executor =
             Executors.newSingleThreadExecutor();
@@ -44,6 +47,8 @@ public class DetalleAlumnoActivity extends AppCompatActivity {
         tvJurisdiccion = findViewById(R.id.tvJurisdiccion);
         tvInstitucion = findViewById(R.id.tvInstitucion);
         tvTutor = findViewById(R.id.tvTutor);
+        tvEmailTutor = findViewById(R.id.tvEmailTutor);
+        tvCredencialesAlumno = findViewById(R.id.tvCredencialesAlumno);
         tvDetalle = findViewById(R.id.tvDetalle);
         pbCargandoDetalle = findViewById(R.id.pbCargandoDetalle);
         btnVerBoletin = findViewById(R.id.btnVerBoletin);
@@ -58,10 +63,18 @@ public class DetalleAlumnoActivity extends AppCompatActivity {
                 Intent intent = new Intent(this, BoletinAlumnoActivity.class);
                 if (!dniActual.isEmpty()) {
                     intent.putExtra("dni", dniActual);
+                    intent.putExtra("dni_explicito", true);
                 }
+                intent.putExtra("id_institucion", idInstitucionActual);
+                intent.putExtra("rol", "preceptor");
                 startActivity(intent);
             });
         }
+
+        String tokenFooter = getIntent().getStringExtra("token");
+        String rolFooter = getIntent().getStringExtra("rol");
+        String nombreFooter = getIntent().getStringExtra("nombre");
+        DocenteUiHelper.configurarFooterDocente(this, tokenFooter, rolFooter, nombreFooter);
 
         int idAlumno = getIntent().getIntExtra("id_alumno", -1);
 
@@ -95,11 +108,24 @@ public class DetalleAlumnoActivity extends AppCompatActivity {
 
                     tvNombreAlumno.setText(alumno.getNombreCompleto());
                     dniActual = alumno.getDni();
+                    idInstitucionActual = alumno.getIdInstitucion() > 0 ? alumno.getIdInstitucion() : 1;
                     tvDniAlumno.setText("DNI: " + dniActual);
                     tvCursoSeccion.setText(alumno.getCurso() + " " + alumno.getSeccion());
                     tvJurisdiccion.setText(alumno.getJurisdiccion());
                     tvInstitucion.setText(String.valueOf(alumno.getIdInstitucion()));
                     tvTutor.setText(alumno.getNombreTutor());
+                    if (tvEmailTutor != null) {
+                        if (!alumno.getEmailTutor().isEmpty()) {
+                            tvEmailTutor.setText("Correo Tutor: " + alumno.getEmailTutor());
+                            tvEmailTutor.setVisibility(View.VISIBLE);
+                        } else {
+                            tvEmailTutor.setVisibility(View.GONE);
+                        }
+                    }
+                    if (tvCredencialesAlumno != null) {
+                        tvCredencialesAlumno.setText(
+                                "Usuario: " + dniActual + " • Clave provisoria: " + alumno.getClaveProvisoriaEfectiva());
+                    }
                 });
 
             } catch (Exception e) {

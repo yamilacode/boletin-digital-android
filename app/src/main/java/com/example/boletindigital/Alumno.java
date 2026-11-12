@@ -14,6 +14,10 @@ public class Alumno {
     private String curso;
     private String seccion;
     private String nombreTutor;
+    private String claveAcceso;
+    private String emailEstudiante;
+    private String emailTutor;
+    private String dniTutor;
 
     public Alumno(JSONObject json) {
         id = json.optInt("id");
@@ -25,6 +29,10 @@ public class Alumno {
         curso = json.optString("curso");
         seccion = json.optString("seccion");
         nombreTutor = json.optString("nombre_tutor");
+        claveAcceso = json.optString("clave_acceso", "");
+        emailEstudiante = json.optString("email_estudiante", "");
+        emailTutor = json.optString("email_tutor", "");
+        dniTutor = json.optString("dni_tutor", "");
     }
 
     public int getId() {
@@ -61,6 +69,30 @@ public class Alumno {
 
     public String getNombreTutor() {
         return nombreTutor;
+    }
+
+    public String getClaveAcceso() {
+        return claveAcceso != null ? claveAcceso : "";
+    }
+
+    public String getEmailEstudiante() {
+        return emailEstudiante != null ? emailEstudiante : "";
+    }
+
+    public String getEmailTutor() {
+        return emailTutor != null ? emailTutor : "";
+    }
+
+    public String getDniTutor() {
+        return dniTutor != null ? dniTutor : "";
+    }
+
+    public String getClaveProvisoriaEfectiva() {
+        if (claveAcceso != null && !claveAcceso.trim().isEmpty()) {
+            return claveAcceso.trim();
+        }
+        String d = dni != null ? dni.trim() : "";
+        return d.length() >= 4 ? d.substring(d.length() - 4) : d;
     }
 
     public String getNombreCompleto() {

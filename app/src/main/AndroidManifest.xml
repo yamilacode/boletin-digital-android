@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BoletinDigital">
 
-        <!-- Pantalla principal: inicio de sesiÃ³n -->
+        <!-- Pantalla principal: inicio de sesión -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -28,7 +28,7 @@
 
         </activity>
 
-        <!-- Pantalla: Panel Central / Dashboard de GestiÃ³n -->
+        <!-- Pantalla: Panel Central / Dashboard de Gestión -->
         <activity
             android:name=".MenuPrincipalActivity"
             android:exported="false" />
@@ -60,11 +60,11 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
-        <!-- Pantalla: GestiÃ³n Institucional de Escuelas y Sedes -->
+        <!-- Pantalla: Gestión Institucional de Escuelas y Sedes -->
         <activity
             android:name=".InstitucionActivity"
             android:exported="false" />
-        <!-- Pantalla: Portal AcadÃ©mico del Estudiante y Tutor (BoletÃ­n, Asistencia, Previas) -->
+        <!-- Pantalla: Portal Académico del Estudiante y Tutor (Boletín, Asistencia, Previas) -->
         <activity
             android:name=".BoletinAlumnoActivity"
             android:exported="false" />
@@ -88,6 +88,36 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+    
+        <!-- Pantalla: Carga de Asistencia Escolar (Preceptor / Docente) -->
+        <activity
+            android:name=".CargarAsistenciaActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Pantalla: Gestión y Publicación de Avisos Institucionales (Preceptor / Docente) -->
+        <activity
+            android:name=".GestionAvisosActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Pantalla: Gestión de Mesas Evaluadoras (Preceptor / Docente) -->
+        <activity
+            android:name=".GestionMesasActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Pantalla: Gestión de Materias Previas por Alumno (Preceptor / Docente) -->
+        <activity
+            android:name=".GestionPreviasActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Pantalla: Perfil del Preceptor / Docente -->
+        <activity
+            android:name=".PerfilDocenteActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

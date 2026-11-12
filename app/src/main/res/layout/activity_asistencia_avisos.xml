@@ -402,7 +402,6 @@
             <!-- BOTON INTERACTIVO: PROBAR NOTIFICACION PUSH EN EL CELULAR (FCM - R4) -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnProbarNotificacion"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="16dp"
