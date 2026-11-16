@@ -42,7 +42,7 @@
     <string name="error_datos_invalidos">Datos inválidos</string>
     <string name="operacion_completada">Operación completada</string>
     <string name="error_api">API (%1$d): %2$s</string>
-    <string name="error_conexion">No hubo respuesta. Revisá tu conexión a Internet.</string>
+    <string name="error_conexion">No hay conexión a Internet. Revisá si el modo avión está activado o si tenés Wi-Fi / datos móviles.</string>
     <string name="error_respuesta">No se pudo procesar la respuesta del servidor.</string>
     <string name="bienvenido">Bienvenido, %1$s</string>
 

@@ -36,6 +36,16 @@ public class ApiClient {
         }
     }
 
+    // Se lanza cuando el dispositivo no tiene conexión a Internet
+    // (modo avión o sin señal), detectado antes de intentar la petición.
+    public static class SinConexionException extends IOException {
+
+        public SinConexionException() {
+            super("No hay conexión a Internet. Revisá si el modo avión "
+                    + "está activado o si tenés Wi-Fi / datos móviles.");
+        }
+    }
+
     // Metodo general para realizar peticiones HTTP
     private static String solicitar(
             String metodo,
@@ -43,6 +53,10 @@ public class ApiClient {
             Object datos,
             String token
     ) throws Exception {
+
+        if (!NetworkUtils.hayConexion()) {
+            throw new SinConexionException();
+        }
 
         HttpURLConnection conexion = null;
 
