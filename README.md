@@ -8,6 +8,9 @@
   <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white" alt="MySQL" />
   <img src="https://img.shields.io/badge/Railway-131415?style=flat-square&logo=railway&logoColor=white" alt="Railway" />
   <img src="https://img.shields.io/badge/Gradle-02303A?style=flat-square&logo=gradle&logoColor=white" alt="Gradle" />
+  <a href="https://boletin-digital-escolar-production.up.railway.app" target="_blank">
+    <img src="https://img.shields.io/badge/Demo%20Web-En%20Vivo-22c55e?style=flat-square&logo=google-chrome&logoColor=white" alt="Demo Web" />
+  </a>
 </p>
 
 ## 1. Presentación
@@ -23,9 +26,13 @@
 * Camila Mailen Rodriguez
 * Julieta Cuchan
 
-**URL de la API (backend del TP1):**
-`https://boletin-digital-escolar-production.up.railway.app/api/`
-Desplegada en **Railway**. Es la misma URL que consume el frontend web del TP1.
+**🌐 Demo Web en vivo (Portal del TP1):**  
+<https://boletin-digital-escolar-production.up.railway.app>  
+Permite acceder y probar el portal escolar desde el navegador para comparar la sincronización en vivo con la app Android.
+
+**🔌 URL de la API REST (Backend en Railway):**  
+`https://boletin-digital-escolar-production.up.railway.app/api/`  
+Desplegada en **Railway** (alojando la API PHP y la base de datos MySQL). Es el mismo backend que consumen tanto el portal web como esta app Android del TP2.
 
 ---
 
