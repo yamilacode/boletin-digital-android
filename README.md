@@ -41,9 +41,8 @@ flowchart LR
         Net --> Client
     end
 
-    subgraph GoogleCloud["Servicios Cloud (Google)"]
-        FAuth["Firebase Authentication"]
-        FCM["Firebase Cloud Messaging"]
+    subgraph GoogleCloud["Servicio Cloud (Google)"]
+        FAuth["Firebase Authentication (Google Sign-In)"]
     end
 
     subgraph Railway["Infraestructura Cloud (Railway PaaS)"]
@@ -62,12 +61,11 @@ flowchart LR
 
     UI -. Autenticación Google .-> FAuth
     Client -- HTTPS / JSON --> Router
-    FCM -. Notificaciones Push .-> UI
 ```
 
 **Flujo de comunicación entre componentes:**
 * **Capa Cliente (Android):** El usuario interactúa con las actividades nativas. Ante cada solicitud de datos, `NetworkUtils` comprueba la conectividad del dispositivo (Wi-Fi/datos móviles). Si hay red, `ApiClient` ejecuta peticiones asíncronas vía HTTPS enviando el token JWT.
-* **Capa Cloud (Google):** Firebase Authentication gestiona la validación de cuentas Google para tutores, y Firebase Cloud Messaging (FCM) gestiona la recepción de comunicados escolares.
+* **Capa Cloud (Google):** Firebase Authentication gestiona la validación y firma de cuentas Google para el inicio de sesión de tutores en la nube.
 * **Infraestructura Cloud (Railway):** Aloja en un mismo entorno PaaS tanto el **Servidor REST** (contenedor Docker con PHP 8.2 que valida tokens JWT y ejecuta la lógica según la jurisdicción) como la **Base de Datos MySQL administrada**, donde residen estudiantes, calificaciones, asistencias, materias previas y mesas de examen.
 
 ---
@@ -84,7 +82,7 @@ flowchart LR
    * Entrá a la [consola de Firebase](https://console.firebase.google.com/), creá (o usá) un proyecto y agregale una app Android con el `package name` `com.example.boletindigital`.
    * Cargá el **SHA-1** de tu keystore de debug (necesario para que funcione el inicio de sesión con Google) — se obtiene con `./gradlew signingReport`.
    * Descargá el `google-services.json` real que te da Firebase y copialo dentro de `app/` (reemplazando o junto a `app/google-services.json.example`, que es solo la plantilla sin datos reales — ver [R7 / Limitaciones](#8-limitaciones-conocidas) y el `.gitignore`).
-   * Habilitá en **Authentication** el proveedor **Google**, y en **Cloud Messaging** dejá el proyecto activo (no requiere configuración adicional para recibir notificaciones push).
+   * Habilitá en **Authentication** el proveedor **Google** (el SHA-1 de debug se requiere para validar las credenciales de Google Sign-In).
 3. **Sincronizar Gradle** (`File > Sync Project with Gradle Files`) y compilar (`Build > Make Project`).
 4. **Ejecutar** la app (`Run > Run 'app'`) en un emulador o dispositivo físico. La URL base de la API ya está fijada en el código (ver sección 7), no hace falta configurarla.
 5. **Generar el APK de depuración** para entregar: `Build > Build Bundle(s) / APK(s) > Build APK(s)`, o por terminal: `./gradlew assembleDebug`. El archivo queda en `app/build/outputs/apk/debug/app-debug.apk`.
@@ -115,7 +113,7 @@ flowchart LR
 | `PreviasMesasActivity` | Previas y mesas de examen desde la vista del Tutor/Alumno. |
 | `AsistenciaAvisosActivity` | Asistencia y avisos institucionales desde la vista del Tutor/Alumno. |
 | `CargarAsistenciaActivity` | Carga de asistencia escolar (Preceptor/Docente). |
-| `GestionAvisosActivity` | Publicación y gestión de avisos institucionales (Preceptor/Docente), dispara notificación push. |
+| `GestionAvisosActivity` | Publicación y gestión de avisos institucionales (Preceptor/Docente). |
 | `GestionMesasActivity` | Alta, edición, inscripción y baja de mesas de examen (Preceptor/Docente). |
 | `GestionPreviasActivity` | Gestión de materias previas por alumno (Preceptor/Docente). |
 | `PerfilDocenteActivity` | Perfil del usuario Preceptor/Docente logueado. |
@@ -152,9 +150,7 @@ Esto cubre de sobra el mínimo del R2 (listar, crear y una tercera operación): 
 
 **Firebase Authentication (Google Sign-In)** — el Tutor/Alumno puede iniciar sesión con su cuenta de Google desde `MainActivity`; si el correo de esa cuenta coincide con el `email_tutor` de un alumno en el padrón, se lo reconoce automáticamente como su Tutor. Las reglas de acceso institucional (Preceptor/Docente) están bloqueadas para el login por Google: ese rol exige correo y contraseña propios del backend (ver `api/auth.php`, regla `AUTH_GOOGLE_STAFF_BLOQUEADO`).
 
-**Firebase Cloud Messaging (FCM)** — complementa el servicio anterior: cuando un Preceptor publica un aviso institucional (`GestionAvisosActivity`), la app puede recibir una notificación push mostrada por `BoletinFirebaseMessagingService`, incluso con la app en segundo plano.
-
-No se usó Firestore ni Storage, por lo que no aplican reglas de seguridad de esos productos; las credenciales de Firebase (`google-services.json`) no viajan al repositorio (ver R8 / Limitaciones).
+No se utilizaron bases de datos NoSQL de pago ni servicios con costos de almacenamiento (como Firestore o Cloud Storage), cumpliendo con el requisito del TP a través de la autenticación cloud delegada y segura. Las credenciales de Firebase (`google-services.json`) no viajan al repositorio (ver R8 / Limitaciones).
 
 ---
 
@@ -170,7 +166,7 @@ No se usó Firestore ni Storage, por lo que no aplican reglas de seguridad de es
 
 ## 8. Limitaciones conocidas
 
-* No se usan Firestore ni Storage; el único servicio cloud "con reglas propias" es Firebase Authentication (Google Sign-In) + FCM.
+* No se usan Firestore ni Storage; el único servicio cloud utilizado es Firebase Authentication (Google Sign-In).
 * El login institucional de Preceptor/Docente está limitado a un único usuario de prueba (`preceptor@escuela.edu.ar`), definido en el backend.
 * `ApiClient.java` concentra todos los endpoints en una sola clase estática; no hay una capa de repositorio/DAO separada por entidad.
 * El control de red (R3) detecta si el dispositivo tiene una red activa con capacidad de Internet; no distingue si esa red tiene salida real a Internet sin validar contra un servidor (por ejemplo, un Wi-Fi sin salida a Internet puede reportarse como "conectado" y recién fallar al intentar la petición real, lo cual sigue mostrando un mensaje de error claro, sin cerrar la app).
