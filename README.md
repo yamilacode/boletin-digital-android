@@ -92,12 +92,14 @@ flowchart LR
 5. **Generar el APK de depuración** para entregar: `Build > Build Bundle(s) / APK(s) > Build APK(s)`, o por terminal: `./gradlew assembleDebug`. El archivo queda en `app/build/outputs/apk/debug/app-debug.apk`.
 
 ### Usuarios de prueba (datos reales del backend desplegado)
-| Rol | Usuario | Contraseña |
-|---|---|---|
-| Preceptor/Docente | `preceptor@escuela.edu.ar` | `admin123` |
-| Alumno (Mateo Gómez, Formosa) | DNI `34567890` | `7890` (últimos 4 dígitos del DNI) |
-| Tutor de ese alumno (Pedro Gómez) | `pedro@gmail.com` | `tutor123` |
-| Tutor con Google | Cualquier cuenta de Gmail | Inicio de sesión con Google (se reconoce como Tutor) |
+| Rol | Método de Ingreso | Usuario / Correo | Contraseña / Clave | Escuela / Lo que reconoce |
+|---|---|---|---|---|
+| **Alumno** | Solo DNI + Clave | `48763736` | `3736` | Uriel Luciano Pleininger (E.E.S. N° 5 - Buenos Aires / R.I.T.E.) |
+| **Alumno** | Solo DNI + Clave | `34567890` | `7890` | Mateo Gómez (EPES N° 19 - Formosa / Trimestral) |
+| **Tutor** | Correo + Clave | `pedro@gmail.com` | `tutor123` | Reconoce como hijo a Mateo Gómez (Formosa) |
+| **Tutor** | Correo + Clave | `cristian@gmail.com` | `tutor123` | Reconoce como hijo a Uriel Pleininger (PBA) |
+| **Tutor con Google** | Google Sign-In | Cualquier cuenta de Gmail | (Botón de Google) | Ingresa como Tutor familiar en la nube (**Firebase Auth**) |
+| **Preceptor / Docente** | Correo + Clave | `preceptor@escuela.edu.ar` | `admin123` | Panel general de gestión escolar completo |
 
 ---
 
