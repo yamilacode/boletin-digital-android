@@ -1,5 +1,15 @@
 ﻿# Boletín Digital Escolar - App Android (TP2)
 
+<p align="left">
+  <img src="https://img.shields.io/badge/Android-3DDC84?style=flat-square&logo=android&logoColor=white" alt="Android" />
+  <img src="https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white" alt="Java" />
+  <img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black" alt="Firebase" />
+  <img src="https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white" alt="PHP" />
+  <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white" alt="MySQL" />
+  <img src="https://img.shields.io/badge/Railway-131415?style=flat-square&logo=railway&logoColor=white" alt="Railway" />
+  <img src="https://img.shields.io/badge/Gradle-02303A?style=flat-square&logo=gradle&logoColor=white" alt="Gradle" />
+</p>
+
 ## 1. Presentación
 
 **App:** Boletín Digital Escolar (Android, Java).
@@ -19,7 +29,48 @@ Desplegada en **Railway**. Es la misma URL que consume el frontend web del TP1.
 
 ---
 
-## 2. Cómo correrla
+## 2. Arquitectura del Sistema
+
+```mermaid
+flowchart LR
+    subgraph Cliente["Cliente Android (Nativo)"]
+        UI["Actividades (Vistas XML)"]
+        Net["NetworkUtils (Validación de Red)"]
+        Client["ApiClient (HttpURLConnection)"]
+        UI --> Net
+        Net --> Client
+    end
+
+    subgraph Backend["Servidor REST (Railway)"]
+        Router["Endpoints PHP"]
+        AuthMiddle["Validación JWT y Roles"]
+        Router --> AuthMiddle
+    end
+
+    subgraph Cloud["Servicios Cloud (Google)"]
+        FAuth["Firebase Authentication"]
+        FCM["Firebase Cloud Messaging"]
+    end
+
+    subgraph BaseDatos["Persistencia"]
+        DB[("MySQL / MariaDB")]
+    end
+
+    UI -. Autenticación Google .-> FAuth
+    Client -- HTTPS / JSON --> Router
+    AuthMiddle --> DB
+    FCM -. Notificaciones Push .-> UI
+```
+
+**Flujo de comunicación entre componentes:**
+* **Capa Cliente (Android):** El usuario interactúa con las actividades nativas. Ante cada solicitud de datos, `NetworkUtils` comprueba la conectividad del dispositivo (Wi-Fi/datos móviles). Si hay red, `ApiClient` ejecuta peticiones asíncronas vía HTTPS enviando el token JWT.
+* **Capa Cloud:** Firebase Authentication gestiona la validación de cuentas Google para tutores, y Firebase Cloud Messaging (FCM) gestiona la recepción de comunicados escolares.
+* **Capa Servidor (Railway):** La API REST en PHP recibe los pedidos, valida el token Bearer y aplica la lógica de negocio según la jurisdicción educativa (Formosa o Buenos Aires).
+* **Capa de Persistencia:** Base de datos relacional MySQL donde se almacenan estudiantes, calificaciones, asistencias, materias previas y mesas de examen.
+
+---
+
+## 3. Cómo correrla
 
 ### Requisitos
 * Android Studio (Ladybug o superior) con un emulador o dispositivo con **Android 7.1 (API 25)** o superior, y conexión a Internet.
@@ -30,10 +81,10 @@ Desplegada en **Railway**. Es la misma URL que consume el frontend web del TP1.
 2. **Configurar Firebase:**
    * Entrá a la [consola de Firebase](https://console.firebase.google.com/), creá (o usá) un proyecto y agregale una app Android con el `package name` `com.example.boletindigital`.
    * Cargá el **SHA-1** de tu keystore de debug (necesario para que funcione el inicio de sesión con Google) — se obtiene con `./gradlew signingReport`.
-   * Descargá el `google-services.json` real que te da Firebase y copialo dentro de `app/` (reemplazando o junto a `app/google-services.json.example`, que es solo la plantilla sin datos reales — ver [R7](#7-limitaciones-conocidas) y el `.gitignore`).
+   * Descargá el `google-services.json` real que te da Firebase y copialo dentro de `app/` (reemplazando o junto a `app/google-services.json.example`, que es solo la plantilla sin datos reales — ver [R7 / Limitaciones](#8-limitaciones-conocidas) y el `.gitignore`).
    * Habilitá en **Authentication** el proveedor **Google**, y en **Cloud Messaging** dejá el proyecto activo (no requiere configuración adicional para recibir notificaciones push).
 3. **Sincronizar Gradle** (`File > Sync Project with Gradle Files`) y compilar (`Build > Make Project`).
-4. **Ejecutar** la app (`Run > Run 'app'`) en un emulador o dispositivo físico. La URL base de la API ya está fijada en el código (ver sección 6), no hace falta configurarla.
+4. **Ejecutar** la app (`Run > Run 'app'`) en un emulador o dispositivo físico. La URL base de la API ya está fijada en el código (ver sección 7), no hace falta configurarla.
 5. **Generar el APK de depuración** para entregar: `Build > Build Bundle(s) / APK(s) > Build APK(s)`, o por terminal: `./gradlew assembleDebug`. El archivo queda en `app/build/outputs/apk/debug/app-debug.apk`.
 
 ### Usuarios de prueba (datos reales del backend desplegado)
@@ -46,7 +97,7 @@ Desplegada en **Railway**. Es la misma URL que consume el frontend web del TP1.
 
 ---
 
-## 3. Pantallas de la app (R1)
+## 4. Pantallas de la app (R1)
 
 | Pantalla (Activity) | Qué hace |
 |---|---|
@@ -71,7 +122,7 @@ Navegación por `Intent` + `putExtra`/`getStringExtra` entre todas las pantallas
 
 ---
 
-## 4. Endpoints de la API que usa la app (R2)
+## 5. Endpoints de la API que usa la app (R2)
 
 Todos se consumen por HTTPS desde `ApiClient.java`, con `HttpURLConnection` fuera del hilo principal (`ExecutorService`).
 
@@ -95,17 +146,17 @@ Esto cubre de sobra el mínimo del R2 (listar, crear y una tercera operación): 
 
 ---
 
-## 5. Servicio cloud elegido (R4)
+## 6. Servicio cloud elegido (R4)
 
 **Firebase Authentication (Google Sign-In)** — el Tutor/Alumno puede iniciar sesión con su cuenta de Google desde `MainActivity`; si el correo de esa cuenta coincide con el `email_tutor` de un alumno en el padrón, se lo reconoce automáticamente como su Tutor. Las reglas de acceso institucional (Preceptor/Docente) están bloqueadas para el login por Google: ese rol exige correo y contraseña propios del backend (ver `api/auth.php`, regla `AUTH_GOOGLE_STAFF_BLOQUEADO`).
 
 **Firebase Cloud Messaging (FCM)** — complementa el servicio anterior: cuando un Preceptor publica un aviso institucional (`GestionAvisosActivity`), la app puede recibir una notificación push mostrada por `BoletinFirebaseMessagingService`, incluso con la app en segundo plano.
 
-No se usó Firestore ni Storage, por lo que no aplican reglas de seguridad de esos productos; las credenciales de Firebase (`google-services.json`) no viajan al repositorio (ver R7).
+No se usó Firestore ni Storage, por lo que no aplican reglas de seguridad de esos productos; las credenciales de Firebase (`google-services.json`) no viajan al repositorio (ver R8 / Limitaciones).
 
 ---
 
-## 6. Decisiones de diseño
+## 7. Decisiones de diseño
 
 * **HttpURLConnection en vez de Retrofit:** se eligió por ser nativo del SDK de Android (sin agregar una librería más al proyecto) y porque el volumen de llamadas HTTP no justificaba la capa adicional de Retrofit; todas las llamadas están centralizadas en una única clase (`ApiClient.java`), con un método privado `solicitar()` que arma la request, ejecuta y parsea la respuesta para cualquier endpoint, y las encapsula a todos desde un único punto de entrada.
 * **URL base en un solo lugar (R7):** la constante `BASE_URL` vive únicamente en `ApiClient.java`.
@@ -115,7 +166,7 @@ No se usó Firestore ni Storage, por lo que no aplican reglas de seguridad de es
 
 ---
 
-## 7. Limitaciones conocidas
+## 8. Limitaciones conocidas
 
 * No se usan Firestore ni Storage; el único servicio cloud "con reglas propias" es Firebase Authentication (Google Sign-In) + FCM.
 * El login institucional de Preceptor/Docente está limitado a un único usuario de prueba (`preceptor@escuela.edu.ar`), definido en el backend.
@@ -125,6 +176,6 @@ No se usó Firestore ni Storage, por lo que no aplican reglas de seguridad de es
 
 ---
 
-## 8. Evidencia de participación (R10)
+## 9. Evidencia de participación (R10)
 
 El grupo trabaja con GitHub (ramas por integrante y Pull Requests, por ejemplo `ale/ciclo-vida-validaciones`, `lucre/recursos-estilos`, `yamila/redisenio-ui-portal-estudiante`), por lo que la participación de cada integrante queda documentada en el historial de commits del repositorio y no hace falta una sección "Aportes" aparte.
