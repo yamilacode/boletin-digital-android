@@ -1,4 +1,4 @@
-﻿# Boletín Digital Escolar - App Android (TP2)
+# Boletín Digital Escolar - App Android (TP2)
 
 <p align="left">
   <img src="https://img.shields.io/badge/Android-3DDC84?style=flat-square&logo=android&logoColor=white" alt="Android" />
@@ -41,32 +41,34 @@ flowchart LR
         Net --> Client
     end
 
-    subgraph Backend["Servidor REST (Railway)"]
-        Router["Endpoints PHP"]
-        AuthMiddle["Validación JWT y Roles"]
-        Router --> AuthMiddle
-    end
-
-    subgraph Cloud["Servicios Cloud (Google)"]
+    subgraph GoogleCloud["Servicios Cloud (Google)"]
         FAuth["Firebase Authentication"]
         FCM["Firebase Cloud Messaging"]
     end
 
-    subgraph BaseDatos["Persistencia"]
-        DB[("MySQL / MariaDB")]
+    subgraph Railway["Infraestructura Cloud (Railway PaaS)"]
+        subgraph Backend["Servidor REST (PHP / Docker)"]
+            Router["Endpoints API"]
+            AuthMiddle["Validación JWT y Roles"]
+            Router --> AuthMiddle
+        end
+
+        subgraph BaseDatos["Persistencia"]
+            DB[("MySQL Administrado")]
+        end
+
+        AuthMiddle --> DB
     end
 
     UI -. Autenticación Google .-> FAuth
     Client -- HTTPS / JSON --> Router
-    AuthMiddle --> DB
     FCM -. Notificaciones Push .-> UI
 ```
 
 **Flujo de comunicación entre componentes:**
 * **Capa Cliente (Android):** El usuario interactúa con las actividades nativas. Ante cada solicitud de datos, `NetworkUtils` comprueba la conectividad del dispositivo (Wi-Fi/datos móviles). Si hay red, `ApiClient` ejecuta peticiones asíncronas vía HTTPS enviando el token JWT.
-* **Capa Cloud:** Firebase Authentication gestiona la validación de cuentas Google para tutores, y Firebase Cloud Messaging (FCM) gestiona la recepción de comunicados escolares.
-* **Capa Servidor (Railway):** La API REST en PHP recibe los pedidos, valida el token Bearer y aplica la lógica de negocio según la jurisdicción educativa (Formosa o Buenos Aires).
-* **Capa de Persistencia:** Base de datos relacional MySQL donde se almacenan estudiantes, calificaciones, asistencias, materias previas y mesas de examen.
+* **Capa Cloud (Google):** Firebase Authentication gestiona la validación de cuentas Google para tutores, y Firebase Cloud Messaging (FCM) gestiona la recepción de comunicados escolares.
+* **Infraestructura Cloud (Railway):** Aloja en un mismo entorno PaaS tanto el **Servidor REST** (contenedor Docker con PHP 8.2 que valida tokens JWT y ejecuta la lógica según la jurisdicción) como la **Base de Datos MySQL administrada**, donde residen estudiantes, calificaciones, asistencias, materias previas y mesas de examen.
 
 ---
 
