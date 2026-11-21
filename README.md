@@ -11,7 +11,7 @@
   <a href="https://boletin-digital-escolar-production.up.railway.app" target="_blank">
     <img src="https://img.shields.io/badge/Demo%20Web-En%20Vivo-22c55e?style=flat-square&logo=google-chrome&logoColor=white" alt="Demo Web" />
   </a>
-  <a href="https://www.youtube.com/watch?v=3QXGyhYkL5M" target="_blank">
+  <a href="https://www.youtube.com/watch?v=zpu7NInzzrs" target="_blank">
     <img src="https://img.shields.io/badge/Video%20Demo-YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white" alt="Video Demo YouTube" />
   </a>
 </p>
@@ -30,7 +30,7 @@
 * Julieta Cuchan
 
 **🎥 Video Demostración en YouTube:**  
-[Ver Video Demostrativo del Grupo 15](https://www.youtube.com/watch?v=3QXGyhYkL5M)  
+[Ver Video Demostrativo del Grupo 15](https://www.youtube.com/watch?v=zpu7NInzzrs)  
 Demostración completa en video de la app en funcionamiento real, recorriendo el portal de estudiantes y familias (Formosa y PBA) y la suite de gestión de preceptoría.
 
 **🌐 Demo Web en vivo (Portal del TP1):**  
