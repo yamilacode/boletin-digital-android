@@ -41,7 +41,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mi Perfil"
+                android:text="@string/lbl_mi_perfil"
                 android:textColor="@color/text_main"
                 android:textSize="17sp"
                 android:textStyle="bold" />
@@ -49,7 +49,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Preceptor / Docente • Datos Personales"
+                android:text="@string/lbl_preceptor_docente_datos_personales"
                 android:textColor="@color/text_muted"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -64,7 +64,7 @@
             android:paddingTop="4dp"
             android:paddingEnd="10dp"
             android:paddingBottom="4dp"
-            android:text="PRECEPTOR"
+            android:text="@string/lbl_preceptor_1"
             android:textColor="@color/color_primary"
             android:textSize="11sp"
             android:textStyle="bold" />
@@ -112,7 +112,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="VG"
+                            android:text="@string/lbl_vg"
                             android:textColor="@color/color_primary"
                             android:textSize="22sp"
                             android:textStyle="bold" />
@@ -123,7 +123,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Prof. Valeria Gómez"
+                        android:text="@string/lbl_prof_valeria_gómez"
                         android:textColor="@color/text_main"
                         android:textSize="19sp"
                         android:textStyle="bold" />
@@ -134,7 +134,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:gravity="center"
-                        android:text="Preceptor/a Titular • Nivel Secundario"
+                        android:text="@string/lbl_preceptora_titular_nivel_secundario"
                         android:textColor="@color/text_secondary"
                         android:textSize="13sp" />
 
@@ -149,7 +149,7 @@
                         android:paddingTop="4dp"
                         android:paddingEnd="12dp"
                         android:paddingBottom="4dp"
-                        android:text="EPES N° 19 Vuelta de Obligado"
+                        android:text="@string/lbl_epes_n_19_vuelta"
                         android:textColor="@color/color_primary"
                         android:textSize="11sp"
                         android:textStyle="bold" />
@@ -185,7 +185,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:letterSpacing="0.05"
-                            android:text="DATOS PERSONALES Y CARGO"
+                            android:text="@string/lbl_datos_personales_y_cargo"
                             android:textColor="@color/color_primary"
                             android:textSize="11sp"
                             android:textStyle="bold" />
@@ -228,7 +228,7 @@
                         <TextView
                             android:layout_width="115dp"
                             android:layout_height="wrap_content"
-                            android:text="Nombre:"
+                            android:text="@string/lbl_nombre"
                             android:textColor="@color/text_muted"
                             android:textSize="13sp" />
 
@@ -253,7 +253,7 @@
                         <TextView
                             android:layout_width="115dp"
                             android:layout_height="wrap_content"
-                            android:text="DNI:"
+                            android:text="@string/lbl_dni_1"
                             android:textColor="@color/text_muted"
                             android:textSize="13sp" />
 
@@ -278,7 +278,7 @@
                         <TextView
                             android:layout_width="115dp"
                             android:layout_height="wrap_content"
-                            android:text="Legajo:"
+                            android:text="@string/lbl_legajo"
                             android:textColor="@color/text_muted"
                             android:textSize="13sp" />
 
@@ -302,7 +302,7 @@
                         <TextView
                             android:layout_width="115dp"
                             android:layout_height="wrap_content"
-                            android:text="Cargo / Título:"
+                            android:text="@string/lbl_cargo_título"
                             android:textColor="@color/text_muted"
                             android:textSize="13sp" />
 
@@ -348,7 +348,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:letterSpacing="0.05"
-                            android:text="CONTACTO Y ASIGNACIÓN"
+                            android:text="@string/lbl_contacto_y_asignación"
                             android:textColor="@color/color_primary"
                             android:textSize="11sp"
                             android:textStyle="bold" />
@@ -391,7 +391,7 @@
                         <TextView
                             android:layout_width="115dp"
                             android:layout_height="wrap_content"
-                            android:text="Correo:"
+                            android:text="@string/lbl_correo"
                             android:textColor="@color/text_muted"
                             android:textSize="13sp" />
 
@@ -416,7 +416,7 @@
                         <TextView
                             android:layout_width="115dp"
                             android:layout_height="wrap_content"
-                            android:text="Teléfono:"
+                            android:text="@string/lbl_teléfono"
                             android:textColor="@color/text_muted"
                             android:textSize="13sp" />
 
@@ -441,7 +441,7 @@
                         <TextView
                             android:layout_width="115dp"
                             android:layout_height="wrap_content"
-                            android:text="Turno y Cursos:"
+                            android:text="@string/lbl_turno_y_cursos"
                             android:textColor="@color/text_muted"
                             android:textSize="13sp" />
 
@@ -465,7 +465,7 @@
                         <TextView
                             android:layout_width="115dp"
                             android:layout_height="wrap_content"
-                            android:text="Oficina / Área:"
+                            android:text="@string/lbl_oficina_área"
                             android:textColor="@color/text_muted"
                             android:textSize="13sp" />
 
@@ -504,7 +504,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="12dp"
                         android:letterSpacing="0.05"
-                        android:text="CUENTA Y SESIÓN"
+                        android:text="@string/lbl_cuenta_y_sesión"
                         android:textColor="@color/text_muted"
                         android:textSize="11sp"
                         android:textStyle="bold" />
@@ -516,7 +516,7 @@
                         android:layout_height="48dp"
                         android:layout_marginBottom="10dp"
                         android:backgroundTint="@color/bg_surface"
-                        android:text="CERRAR SESIÓN"
+                        android:text="@string/lbl_cerrar_sesión_1"
                         android:textColor="@color/color_primary"
                         android:textSize="13sp"
                         android:textStyle="bold"
@@ -529,7 +529,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
                         android:backgroundTint="@color/color_danger_bg"
-                        android:text="ELIMINAR CUENTA"
+                        android:text="@string/lbl_eliminar_cuenta"
                         android:textColor="@color/color_danger"
                         android:textSize="13sp"
                         android:textStyle="bold"

@@ -49,7 +49,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
-                    android:text="Volver"
+                    android:text="@string/lbl_volver"
                     android:textColor="@color/color_primary"
                     android:textSize="13sp"
                     android:textStyle="bold" />
@@ -65,7 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:letterSpacing="0.06"
-                android:text="SESIÓN ACTIVA"
+                android:text="@string/lbl_sesión_activa"
                 android:textColor="@color/color_primary"
                 android:textSize="11sp"
                 android:textStyle="bold" />
@@ -113,7 +113,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
-                    android:hint="Buscar por apellido, nombre o DNI..."
+                    android:hint="@string/hint_buscar_por_apellido_nombre"
                     android:imeOptions="actionSearch"
                     android:inputType="text"
                     android:maxLines="1"

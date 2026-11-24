@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="Materia de Examen"
+                android:text="@string/lbl_materia_de_examen"
                 android:textColor="@color/text_main"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -43,7 +43,7 @@
                 android:paddingTop="3dp"
                 android:paddingEnd="8dp"
                 android:paddingBottom="3dp"
-                android:text="Habilitada"
+                android:text="@string/lbl_habilitada"
                 android:textColor="@color/color_tea_text"
                 android:textSize="10sp"
                 android:textStyle="bold" />
@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="3° Año • Turno Diciembre 2026"
+            android:text="@string/lbl_3_año_turno_diciembre"
             android:textColor="@color/text_secondary"
             android:textSize="12sp" />
 
@@ -63,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Fecha: 14/12/2026 • 08:30 hs"
+            android:text="@string/lbl_fecha_14122026_0830_hs"
             android:textColor="@color/color_primary"
             android:textSize="12sp"
             android:textStyle="bold" />
@@ -73,7 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
-            android:text="Tribunal: Docentes asignados"
+            android:text="@string/lbl_tribunal_docentes_asignados"
             android:textColor="@color/text_muted"
             android:textSize="11sp" />
 
@@ -88,7 +88,7 @@
             android:paddingTop="6dp"
             android:paddingEnd="10dp"
             android:paddingBottom="6dp"
-            android:text="Ya te encontrás inscripto en esta mesa."
+            android:text="@string/lbl_ya_te_encontrás_inscripto"
             android:textColor="@color/color_primary"
             android:textSize="11sp"
             android:textStyle="bold"
@@ -100,7 +100,7 @@
             android:layout_width="match_parent"
             android:layout_height="42dp"
             android:layout_marginTop="10dp"
-            android:text="Inscribirme a esta Mesa"
+            android:text="@string/lbl_inscribirme_a_esta_mesa"
             android:textAllCaps="false"
             android:textColor="@color/color_primary"
             android:textSize="12sp"

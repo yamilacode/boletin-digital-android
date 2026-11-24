@@ -27,7 +27,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Previa • #1"
+                android:text="@string/lbl_previa_1"
                 android:textColor="@color/color_primary"
                 android:textSize="11sp"
                 android:textStyle="bold" />
@@ -42,7 +42,7 @@
                 android:paddingTop="2dp"
                 android:paddingEnd="8dp"
                 android:paddingBottom="2dp"
-                android:text="Pendiente"
+                android:text="@string/lbl_pendiente_1"
                 android:textColor="@color/color_tep_text"
                 android:textSize="10sp"
                 android:textStyle="bold" />
@@ -66,7 +66,7 @@
                     android:id="@+id/tvPreviaMateria"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Materia"
+                    android:text="@string/lbl_materia_1"
                     android:textColor="@color/text_main"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -76,7 +76,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
-                    android:text="Curso Origen: 3° Año"
+                    android:text="@string/lbl_curso_origen_3_año"
                     android:textColor="@color/text_muted"
                     android:textSize="11sp" />
             </LinearLayout>
@@ -90,7 +90,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Calif."
+                    android:text="@string/lbl_calif"
                     android:textColor="@color/text_muted"
                     android:textSize="10sp" />
 
@@ -98,7 +98,7 @@
                     android:id="@+id/tvPreviaNota"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="—"
+                    android:text="@string/lbl_texto_5"
                     android:textColor="@color/text_main"
                     android:textSize="16sp"
                     android:textStyle="bold" />

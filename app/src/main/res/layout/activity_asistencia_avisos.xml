@@ -35,7 +35,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Asistencia y Notificaciones"
+            android:text="@string/lbl_asistencia_y_notificaciones"
             android:textColor="@color/text_main"
             android:textSize="17sp"
             android:textStyle="bold" />
@@ -50,7 +50,7 @@
             android:paddingTop="4dp"
             android:paddingEnd="8dp"
             android:paddingBottom="4dp"
-            android:text="Total: 17"
+            android:text="@string/lbl_total_17"
             android:textColor="@color/color_warning"
             android:textSize="11sp"
             android:textStyle="bold" />
@@ -103,7 +103,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Estado de Presentismo"
+                            android:text="@string/lbl_estado_de_presentismo"
                             android:textColor="@color/text_main"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -117,7 +117,7 @@
                             android:paddingTop="3dp"
                             android:paddingEnd="8dp"
                             android:paddingBottom="3dp"
-                            android:text="Límite Inst.: 20"
+                            android:text="@string/lbl_límite_inst_20"
                             android:textColor="@color/color_warning"
                             android:textSize="11sp"
                             android:textStyle="bold" />
@@ -128,7 +128,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:text="Días Hábiles: 82 • Asistencias: 65 • Inasistencias: 17"
+                        android:text="@string/lbl_días_hábiles_82_asistencias"
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp" />
 
@@ -162,7 +162,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Atención: A 3 inasistencias del límite institucional (20)."
+                            android:text="@string/lbl_atención_a_3_inasistencias"
                             android:textColor="@color/color_warning"
                             android:textSize="11sp"
                             android:textStyle="bold" />
@@ -193,7 +193,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Notificaciones Recibidas"
+                    android:text="@string/lbl_notificaciones_recibidas"
                     android:textColor="@color/text_main"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -207,7 +207,7 @@
                     android:paddingTop="3dp"
                     android:paddingEnd="8dp"
                     android:paddingBottom="3dp"
-                    android:text="3 Nuevas"
+                    android:text="@string/lbl_3_nuevas"
                     android:textColor="@color/color_danger"
                     android:textSize="11sp"
                     android:textStyle="bold" />
@@ -250,7 +250,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Alerta de Inasistencias"
+                                android:text="@string/lbl_alerta_de_inasistencias"
                                 android:textColor="@color/color_warning"
                                 android:textSize="13sp"
                                 android:textStyle="bold" />
@@ -258,7 +258,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Hoy"
+                                android:text="@string/lbl_hoy"
                                 android:textColor="@color/text_dim"
                                 android:textSize="11sp" />
                         </LinearLayout>
@@ -268,7 +268,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
                             android:lineSpacingExtra="2dp"
-                            android:text="El estudiante registra 17 inasistencias sobre un límite institucional de 20."
+                            android:text="@string/lbl_el_estudiante_registra_17"
                             android:textColor="@color/text_secondary"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -312,7 +312,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Boletín 1° Cuatrimestre"
+                                android:text="@string/lbl_boletín_1_cuatrimestre"
                                 android:textColor="@color/color_primary"
                                 android:textSize="13sp"
                                 android:textStyle="bold" />
@@ -320,7 +320,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Ayer"
+                                android:text="@string/lbl_ayer"
                                 android:textColor="@color/text_dim"
                                 android:textSize="11sp" />
                         </LinearLayout>
@@ -330,7 +330,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
                             android:lineSpacingExtra="2dp"
-                            android:text="Ya están disponibles las valoraciones (TEA) y notas del 1° Cuatrimestre."
+                            android:text="@string/lbl_ya_están_disponibles_las"
                             android:textColor="@color/text_secondary"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -373,7 +373,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Materias Previas"
+                                android:text="@string/lbl_materias_previas"
                                 android:textColor="@color/color_badge_purple_text"
                                 android:textSize="13sp"
                                 android:textStyle="bold" />
@@ -381,7 +381,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="03/11"
+                                android:text="@string/lbl_0311"
                                 android:textColor="@color/text_dim"
                                 android:textSize="11sp" />
                         </LinearLayout>
@@ -391,7 +391,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
                             android:lineSpacingExtra="2dp"
-                            android:text="Recordatorio de intensificación para Físico-Química (3°) y Geografía (2°)."
+                            android:text="@string/lbl_recordatorio_de_intensificación_para"
                             android:textColor="@color/text_secondary"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -407,7 +407,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="12dp"
                 android:backgroundTint="@color/bg_surface"
-                android:text="PROBAR NOTIFICACION EN ESTE CELULAR"
+                android:text="@string/lbl_probar_notificacion_en_este"
                 android:textColor="@color/color_primary"
                 android:textSize="12sp"
                 android:textStyle="bold"
@@ -456,7 +456,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
-                android:text="Boletín"
+                android:text="@string/lbl_boletín"
                 android:textColor="@color/text_muted"
                 android:textSize="10sp" />
         </LinearLayout>
@@ -483,7 +483,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
-                android:text="Asistencia"
+                android:text="@string/lbl_asistencia"
                 android:textColor="@color/color_primary"
                 android:textSize="10sp"
                 android:textStyle="bold" />
@@ -511,7 +511,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
-                android:text="Previas"
+                android:text="@string/lbl_previas"
                 android:textColor="@color/text_muted"
                 android:textSize="10sp" />
         </LinearLayout>
@@ -538,7 +538,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
-                android:text="Avisos"
+                android:text="@string/lbl_avisos"
                 android:textColor="@color/text_muted"
                 android:textSize="10sp" />
         </LinearLayout>

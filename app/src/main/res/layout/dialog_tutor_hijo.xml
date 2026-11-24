@@ -11,7 +11,7 @@
         android:id="@+id/tvTutorBienvenida"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bienvenido/a"
+        android:text="@string/lbl_bienvenidoa"
         android:textColor="@color/text_main"
         android:textSize="17sp"
         android:textStyle="bold" />
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="14dp"
-        android:text="El sistema reconoció al estudiante vinculado a tu cuenta. Tocá su tarjeta para ingresar al boletín:"
+        android:text="@string/lbl_el_sistema_reconoció_al"
         android:textColor="@color/text_muted"
         android:textSize="12sp" />
 
@@ -66,7 +66,7 @@
                     android:id="@+id/tvHijoDialogNombre"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Mateo Gómez"
+                    android:text="@string/lbl_mateo_gómez"
                     android:textColor="@color/text_main"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -76,7 +76,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="DNI 34567890 • 2° III"
+                    android:text="@string/lbl_dni_34567890_2_iii"
                     android:textColor="@color/color_primary_light"
                     android:textSize="12sp" />
 
@@ -85,7 +85,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="EPES N° 19 Vuelta de Obligado"
+                    android:text="@string/lbl_epes_n_19_vuelta"
                     android:textColor="@color/text_muted"
                     android:textSize="11sp" />
             </LinearLayout>
@@ -93,7 +93,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="›"
+                android:text="@string/lbl_texto_2"
                 android:textColor="@color/color_primary"
                 android:textSize="22sp"
                 android:textStyle="bold" />
@@ -106,7 +106,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:backgroundTint="@color/color_primary"
-        android:text="INGRESAR AL BOLETÍN"
+        android:text="@string/lbl_ingresar_al_boletín"
         android:textColor="@color/bg_body"
         android:textSize="13sp"
         android:textStyle="bold"
@@ -119,7 +119,7 @@
         android:layout_width="match_parent"
         android:layout_height="42dp"
         android:layout_marginTop="8dp"
-        android:text="Cancelar"
+        android:text="@string/lbl_cancelar"
         android:textColor="@color/text_muted"
         android:textSize="12sp"
         app:cornerRadius="10dp"

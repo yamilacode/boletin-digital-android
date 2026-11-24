@@ -36,7 +36,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="P"
+                    android:text="@string/lbl_p"
                     android:textColor="@color/color_primary"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -53,7 +53,7 @@
                     android:id="@+id/tvNombreAlumno"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="PLEININGER, URIEL LUCIANO"
+                    android:text="@string/lbl_pleininger_uriel_luciano"
                     android:textColor="@color/text_main"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -63,7 +63,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
-                    android:text="DNI: 48763736"
+                    android:text="@string/lbl_dni_48763736"
                     android:textColor="@color/text_muted"
                     android:textSize="11sp" />
 
@@ -78,7 +78,7 @@
                     android:paddingTop="2dp"
                     android:paddingEnd="8dp"
                     android:paddingBottom="2dp"
-                    android:text="Sin calificación cargada"
+                    android:text="@string/lbl_sin_calificación_cargada"
                     android:textColor="@color/text_muted"
                     android:textSize="10sp"
                     android:textStyle="bold" />
@@ -140,7 +140,7 @@
                 android:layout_width="82dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
-                android:hint="Nota"
+                android:hint="@string/hint_nota"
                 android:textColorHint="@color/text_muted"
                 app:boxBackgroundColor="@color/bg_surface"
                 app:boxStrokeColor="@color/color_primary"
@@ -184,7 +184,7 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center"
-                        android:text="TEA"
+                        android:text="@string/lbl_tea"
                         android:textColor="@color/text_muted"
                         android:textSize="12sp"
                         android:textStyle="bold" />
@@ -200,7 +200,7 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center"
-                        android:text="TEP"
+                        android:text="@string/lbl_tep"
                         android:textColor="@color/text_muted"
                         android:textSize="12sp"
                         android:textStyle="bold" />
@@ -215,7 +215,7 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center"
-                        android:text="TED"
+                        android:text="@string/lbl_ted"
                         android:textColor="@color/text_muted"
                         android:textSize="12sp"
                         android:textStyle="bold" />
@@ -241,7 +241,7 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center"
-                        android:text="SO"
+                        android:text="@string/lbl_so"
                         android:textColor="@color/text_muted"
                         android:textSize="11sp"
                         android:textStyle="bold" />
@@ -257,7 +257,7 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center"
-                        android:text="MB"
+                        android:text="@string/lbl_mb"
                         android:textColor="@color/text_muted"
                         android:textSize="11sp"
                         android:textStyle="bold" />
@@ -273,7 +273,7 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center"
-                        android:text="B"
+                        android:text="@string/lbl_b"
                         android:textColor="@color/text_muted"
                         android:textSize="11sp"
                         android:textStyle="bold" />
@@ -289,7 +289,7 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center"
-                        android:text="R"
+                        android:text="@string/lbl_r"
                         android:textColor="@color/text_muted"
                         android:textSize="11sp"
                         android:textStyle="bold" />
@@ -304,7 +304,7 @@
                         android:clickable="true"
                         android:focusable="true"
                         android:gravity="center"
-                        android:text="I"
+                        android:text="@string/lbl_i"
                         android:textColor="@color/text_muted"
                         android:textSize="11sp"
                         android:textStyle="bold" />
@@ -318,7 +318,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Observación pedagógica (opcional)"
+            android:hint="@string/hint_observación_pedagógica_opcional"
             android:textColorHint="@color/text_muted"
             app:boxBackgroundColor="@color/bg_surface"
             app:boxStrokeColor="@color/border_main"

@@ -40,7 +40,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Carga de Calificaciones"
+                android:text="@string/lbl_carga_de_calificaciones"
                 android:textColor="@color/text_main"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -49,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
-                android:text="Planilla Escolar • Registro Oficial"
+                android:text="@string/lbl_planilla_escolar_registro_oficial"
                 android:textColor="@color/color_primary"
                 android:textSize="11sp" />
         </LinearLayout>
@@ -64,7 +64,7 @@
             android:paddingTop="3dp"
             android:paddingEnd="8dp"
             android:paddingBottom="3dp"
-            android:text="PRECEPTOR"
+            android:text="@string/lbl_preceptor_1"
             android:textColor="@color/color_primary"
             android:textSize="11sp"
             android:textStyle="bold" />
@@ -110,7 +110,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="12dp"
                         android:letterSpacing="0.04"
-                        android:text="PARÁMETROS DE LA PLANILLA"
+                        android:text="@string/lbl_parámetros_de_la_planilla"
                         android:textColor="@color/color_primary"
                         android:textSize="11sp"
                         android:textStyle="bold" />
@@ -120,7 +120,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
-                        android:text="Curso y División:"
+                        android:text="@string/lbl_curso_y_división"
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp" />
 
@@ -136,7 +136,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
-                        android:text="Materia / Espacio Curricular:"
+                        android:text="@string/lbl_materia_espacio_curricular"
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp" />
 
@@ -152,7 +152,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
-                        android:text="Período a Calificar:"
+                        android:text="@string/lbl_período_a_calificar"
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp" />
 
@@ -178,7 +178,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Planilla de Alumnos"
+                    android:text="@string/lbl_planilla_de_alumnos"
                     android:textColor="@color/text_main"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -193,7 +193,7 @@
                     android:paddingTop="3dp"
                     android:paddingEnd="8dp"
                     android:paddingBottom="3dp"
-                    android:text="Cargando..."
+                    android:text="@string/cargando"
                     android:textColor="@color/text_muted"
                     android:textSize="11sp" />
             </LinearLayout>
@@ -225,7 +225,7 @@
                 android:backgroundTint="@color/bg_card"
                 android:gravity="center"
                 android:padding="20dp"
-                android:text="No hay alumnos inscriptos en este curso todavía."
+                android:text="@string/lbl_no_hay_alumnos_inscriptos"
                 android:textColor="@color/text_muted"
                 android:textSize="13sp"
                 android:visibility="gone" />
@@ -251,7 +251,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:backgroundTint="@color/color_primary"
-            android:text="GUARDAR CALIFICACIONES DE LA MATERIA"
+            android:text="@string/lbl_guardar_calificaciones_de_la"
             android:textColor="@color/bg_body"
             android:textSize="13sp"
             android:textStyle="bold"

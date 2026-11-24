@@ -41,7 +41,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Previas de Alumnos"
+                android:text="@string/lbl_previas_de_alumnos"
                 android:textColor="@color/text_main"
                 android:textSize="17sp"
                 android:textStyle="bold" />
@@ -49,7 +49,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Carga y Acreditación • Preceptoría"
+                android:text="@string/lbl_carga_y_acreditación_preceptoría"
                 android:textColor="@color/text_muted"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -64,7 +64,7 @@
             android:paddingTop="4dp"
             android:paddingEnd="10dp"
             android:paddingBottom="4dp"
-            android:text="PRECEPTOR"
+            android:text="@string/lbl_preceptor_1"
             android:textColor="@color/color_badge_purple_text"
             android:textSize="11sp"
             android:textStyle="bold" />
@@ -111,7 +111,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
                         android:letterSpacing="0.04"
-                        android:text="SELECCIONAR ESTUDIANTE"
+                        android:text="@string/lbl_seleccionar_estudiante"
                         android:textColor="@color/color_primary"
                         android:textSize="11sp"
                         android:textStyle="bold" />
@@ -132,7 +132,7 @@
                             android:id="@+id/etBuscarAlumnoPrevia"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Filtrar alumno por apellido o DNI..."
+                            android:hint="@string/hint_filtrar_alumno_por_apellido"
                             android:maxLines="1"
                             android:padding="10dp"
                             android:textColor="@color/text_main"
@@ -151,7 +151,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Cargando padrón de estudiantes..."
+                        android:text="@string/lbl_cargando_padrón_de_estudiantes"
                         android:textColor="@color/color_primary_light"
                         android:textSize="11sp" />
                 </LinearLayout>
@@ -193,7 +193,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:letterSpacing="0.04"
-                            android:text="CARGAR MATERIA PREVIA"
+                            android:text="@string/lbl_cargar_materia_previa"
                             android:textColor="@color/color_badge_purple_text"
                             android:textSize="12sp"
                             android:textStyle="bold" />
@@ -204,7 +204,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:layout_marginBottom="12dp"
-                        android:text="Asigná materias pendientes o registrá su aprobación con calificación."
+                        android:text="@string/lbl_asigná_materias_pendientes_o"
                         android:textColor="@color/text_muted"
                         android:textSize="11sp" />
 
@@ -213,7 +213,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
-                        android:text="Materia / Espacio Curricular *"
+                        android:text="@string/lbl_materia_espacio_curricular_1"
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp"
                         android:textStyle="bold" />
@@ -234,7 +234,7 @@
                             android:id="@+id/etMateriaPrevia"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Ej: Físico-Química, Geografía, Matemática..."
+                            android:hint="@string/hint_ej_físicoquímica_geografía_matemáti"
                             android:maxLines="1"
                             android:padding="11dp"
                             android:textColor="@color/text_main"
@@ -261,7 +261,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="4dp"
-                                android:text="Curso de Origen"
+                                android:text="@string/lbl_curso_de_origen"
                                 android:textColor="@color/text_secondary"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -284,7 +284,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="4dp"
-                                android:text="Estado"
+                                android:text="@string/lbl_estado"
                                 android:textColor="@color/text_secondary"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -316,7 +316,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="4dp"
-                                android:text="Nota (Opcional)"
+                                android:text="@string/lbl_nota_opcional"
                                 android:textColor="@color/text_secondary"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -336,7 +336,7 @@
                                     android:id="@+id/etCalificacionPrevia"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="Ej: 7 o TEA"
+                                    android:hint="@string/hint_ej_7_o_tea"
                                     android:maxLines="1"
                                     android:padding="11dp"
                                     android:textColor="@color/text_main"
@@ -357,7 +357,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="4dp"
-                                android:text="Turno / Fecha"
+                                android:text="@string/lbl_turno_fecha"
                                 android:textColor="@color/text_secondary"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -377,7 +377,7 @@
                                     android:id="@+id/etFechaPrevia"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="Ej: Diciembre 2026"
+                                    android:hint="@string/hint_ej_diciembre_2026"
                                     android:maxLines="1"
                                     android:padding="11dp"
                                     android:textColor="@color/text_main"
@@ -393,7 +393,7 @@
                         android:layout_height="48dp"
                         android:backgroundTint="@color/color_primary"
                         android:letterSpacing="0.04"
-                        android:text="GUARDAR MATERIA PREVIA"
+                        android:text="@string/lbl_guardar_materia_previa"
                         android:textColor="@color/bg_body"
                         android:textSize="13sp"
                         android:textStyle="bold"
@@ -409,7 +409,7 @@
                         android:layout_height="42dp"
                         android:layout_marginTop="8dp"
                         android:backgroundTint="@color/bg_surface"
-                        android:text="Cancelar Edición"
+                        android:text="@string/lbl_cancelar_edición_1"
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp"
                         android:visibility="gone"
@@ -433,7 +433,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:letterSpacing="0.04"
-                    android:text="PREVIAS DEL ESTUDIANTE"
+                    android:text="@string/lbl_previas_del_estudiante"
                     android:textColor="@color/text_muted"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -448,7 +448,7 @@
                     android:paddingTop="2dp"
                     android:paddingEnd="8dp"
                     android:paddingBottom="2dp"
-                    android:text="0 Materias"
+                    android:text="@string/lbl_0_materias"
                     android:textColor="@color/text_secondary"
                     android:textSize="11sp" />
             </LinearLayout>
@@ -470,7 +470,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:gravity="center"
-                android:text="Este estudiante no registra materias previas cargadas."
+                android:text="@string/lbl_este_estudiante_no_registra"
                 android:textColor="@color/text_dim"
                 android:textSize="13sp"
                 android:visibility="gone" />

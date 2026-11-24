@@ -42,7 +42,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Portal Académico"
+                android:text="@string/lbl_portal_académico"
                 android:textColor="@color/text_main"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -51,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
-                android:text="Ciclo Lectivo 2026"
+                android:text="@string/lbl_ciclo_lectivo_2026"
                 android:textColor="@color/color_primary"
                 android:textSize="11sp" />
         </LinearLayout>
@@ -86,7 +86,7 @@
                 android:id="@+id/tvBadgeRol"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Alumno"
+                android:text="@string/lbl_alumno"
                 android:textColor="@color/color_tea_text"
                 android:textSize="11sp"
                 android:textStyle="bold" />
@@ -159,7 +159,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="E.E.S. N° 5"
+                            android:text="@string/lbl_ees_n_5"
                             android:textColor="@color/text_main"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -174,7 +174,7 @@
                             android:paddingTop="3dp"
                             android:paddingEnd="8dp"
                             android:paddingBottom="3dp"
-                            android:text="Cuatrimestral (R.I.T.E.)"
+                            android:text="@string/lbl_cuatrimestral_rite"
                             android:textColor="@color/color_primary"
                             android:textSize="10sp"
                             android:textStyle="bold" />
@@ -185,7 +185,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="Distrito: PUAN | Secundario | 4° Única"
+                        android:text="@string/lbl_distrito_puan_secundario_4"
                         android:textColor="@color/text_muted"
                         android:textSize="11sp" />
 
@@ -200,7 +200,7 @@
                         android:id="@+id/tvNombreEstudiante"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="PLEININGER, URIEL LUCIANO"
+                        android:text="@string/lbl_pleininger_uriel_luciano"
                         android:textColor="@color/text_main"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -210,7 +210,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
-                        android:text="DNI 48763736 • Tutor: PLEININGER, CRISTIAN"
+                        android:text="@string/lbl_dni_48763736_tutor_pleininger"
                         android:textColor="@color/color_primary"
                         android:textSize="11sp" />
                 </LinearLayout>
@@ -250,7 +250,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Calificaciones del Ciclo"
+                        android:text="@string/lbl_calificaciones_del_ciclo"
                         android:textColor="@color/text_main"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -258,7 +258,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tocar para expandir"
+                        android:text="@string/lbl_tocar_para_expandir"
                         android:textColor="@color/text_muted"
                         android:textSize="11sp" />
                 </LinearLayout>
@@ -298,7 +298,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Registro de Asistencia del Estudiante"
+                            android:text="@string/lbl_registro_de_asistencia_del"
                             android:textColor="@color/text_main"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -307,7 +307,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:text="Seguimiento pedagógico de presentismo y regularidad"
+                            android:text="@string/lbl_seguimiento_pedagógico_de_presentism"
                             android:textColor="@color/text_muted"
                             android:textSize="11sp" />
                     </LinearLayout>
@@ -322,7 +322,7 @@
                         android:paddingTop="3dp"
                         android:paddingEnd="8dp"
                         android:paddingBottom="3dp"
-                        android:text="Alerta Preventiva"
+                        android:text="@string/lbl_alerta_preventiva"
                         android:textColor="@color/color_warning"
                         android:textSize="10sp"
                         android:textStyle="bold" />
@@ -348,7 +348,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Feriados Nacionales y Días Sin Clases (2026)"
+                            android:text="@string/lbl_feriados_nacionales_y_días"
                             android:textColor="@color/color_primary"
                             android:textSize="12sp"
                             android:textStyle="bold" />
@@ -367,7 +367,7 @@
                                 android:background="@drawable/bg_badge_rounded"
                                 android:backgroundTint="@color/bg_surface"
                                 android:padding="6dp"
-                                android:text="09/11 • Visita Papal (Sin Clases)"
+                                android:text="@string/lbl_0911_visita_papal_sin"
                                 android:textColor="@color/text_secondary"
                                 android:textSize="10sp" />
 
@@ -379,7 +379,7 @@
                                 android:background="@drawable/bg_badge_rounded"
                                 android:backgroundTint="@color/bg_surface"
                                 android:padding="6dp"
-                                android:text="23/11 • Soberanía Nacional"
+                                android:text="@string/lbl_2311_soberanía_nacional"
                                 android:textColor="@color/text_secondary"
                                 android:textSize="10sp" />
                         </LinearLayout>
@@ -414,7 +414,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="DÍAS HÁBILES"
+                                android:text="@string/lbl_días_hábiles"
                                 android:textColor="@color/text_muted"
                                 android:textSize="10sp"
                                 android:textStyle="bold" />
@@ -424,7 +424,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="4dp"
-                                android:text="82 Días"
+                                android:text="@string/lbl_82_días"
                                 android:textColor="@color/text_main"
                                 android:textSize="17sp"
                                 android:textStyle="bold" />
@@ -452,7 +452,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="PRESENTES"
+                                android:text="@string/lbl_presentes"
                                 android:textColor="@color/text_muted"
                                 android:textSize="10sp"
                                 android:textStyle="bold" />
@@ -462,7 +462,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="4dp"
-                                android:text="65 Días"
+                                android:text="@string/lbl_65_días"
                                 android:textColor="@color/color_success"
                                 android:textSize="17sp"
                                 android:textStyle="bold" />
@@ -497,7 +497,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="JUSTIFICADAS"
+                                android:text="@string/lbl_justificadas"
                                 android:textColor="@color/text_muted"
                                 android:textSize="10sp"
                                 android:textStyle="bold" />
@@ -507,7 +507,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="4dp"
-                                android:text="0 Faltas"
+                                android:text="@string/lbl_0_faltas"
                                 android:textColor="@color/color_primary"
                                 android:textSize="17sp"
                                 android:textStyle="bold" />
@@ -535,7 +535,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="INJUSTIFICADAS"
+                                android:text="@string/lbl_injustificadas"
                                 android:textColor="@color/text_muted"
                                 android:textSize="10sp"
                                 android:textStyle="bold" />
@@ -545,7 +545,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="4dp"
-                                android:text="17 Faltas"
+                                android:text="@string/lbl_17_faltas"
                                 android:textColor="@color/color_danger"
                                 android:textSize="17sp"
                                 android:textStyle="bold" />
@@ -580,7 +580,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Porcentaje de Asistencia Acumulada"
+                                android:text="@string/lbl_porcentaje_de_asistencia_acumulada"
                                 android:textColor="@color/text_main"
                                 android:textSize="13sp"
                                 android:textStyle="bold" />
@@ -589,7 +589,7 @@
                                 android:id="@+id/tvSecAsisPorcentaje"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="79%"
+                                android:text="@string/lbl_79"
                                 android:textColor="@color/color_primary"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -615,7 +615,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="0%"
+                                android:text="@string/lbl_0"
                                 android:textColor="@color/text_muted"
                                 android:textSize="10sp" />
 
@@ -623,7 +623,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="14dp"
-                                android:text="● Límite (20)"
+                                android:text="@string/lbl_límite_20"
                                 android:textColor="@color/color_danger"
                                 android:textSize="10sp" />
 
@@ -631,14 +631,14 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="14dp"
-                                android:text="▲ Alerta (15)"
+                                android:text="@string/lbl_alerta_15"
                                 android:textColor="@color/color_warning"
                                 android:textSize="10sp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="100% Óptimo"
+                                android:text="@string/lbl_100_óptimo"
                                 android:textColor="@color/color_success"
                                 android:textSize="10sp" />
                         </LinearLayout>
@@ -678,7 +678,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="¡Atención! El estudiante acumula 17 faltas (zona de alerta). Restan 3 falta(s) antes del límite de reincorporación (20 faltas)."
+                            android:text="@string/lbl_atención_el_estudiante_acumula"
                             android:textColor="@color/color_warning"
                             android:textSize="12sp"
                             android:textStyle="bold" />
@@ -704,7 +704,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Pautas de Asistencia y Justificación"
+                            android:text="@string/lbl_pautas_de_asistencia_y"
                             android:textColor="@color/text_main"
                             android:textSize="13sp"
                             android:textStyle="bold" />
@@ -714,11 +714,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:lineSpacingExtra="3dp"
-                            android:text="• Plazo reglamentario: Los certificados médicos deben presentarse en la preceptoría dentro de las 48 horas hábiles de producida la inasistencia.
-
-• Límite preventivo de faltas: Al acumular 15 inasistencias se emite el primer informe preventivo a las familias.
-
-• Reincorporación: Con 20 inasistencias se requiere solicitud formal de reincorporación suscripta por el tutor ante la Dirección."
+                            android:text="@string/lbl_plazo_reglamentario_los_certificados"
                             android:textColor="@color/text_secondary"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -746,7 +742,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Pendientes de Acreditación"
+                        android:text="@string/lbl_pendientes_de_acreditación"
                         android:textColor="@color/text_main"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -761,7 +757,7 @@
                         android:paddingTop="3dp"
                         android:paddingEnd="8dp"
                         android:paddingBottom="3dp"
-                        android:text="0 Materias"
+                        android:text="@string/lbl_0_materias"
                         android:textColor="@color/color_badge_purple_text"
                         android:textSize="11sp"
                         android:textStyle="bold" />
@@ -775,7 +771,7 @@
                     android:background="@drawable/bg_badge_rounded"
                     android:backgroundTint="@color/bg_card"
                     android:padding="14dp"
-                    android:text="No registrás materias previas adeudadas."
+                    android:text="@string/lbl_no_registrás_materias_previas"
                     android:textColor="@color/text_muted"
                     android:textSize="12sp"
                     android:visibility="gone" />
@@ -799,7 +795,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Mesas Evaluadoras Disponibles"
+                        android:text="@string/lbl_mesas_evaluadoras_disponibles"
                         android:textColor="@color/text_main"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -814,7 +810,7 @@
                         android:paddingTop="3dp"
                         android:paddingEnd="8dp"
                         android:paddingBottom="3dp"
-                        android:text="0 Mesas"
+                        android:text="@string/lbl_0_mesas"
                         android:textColor="@color/color_primary"
                         android:textSize="11sp"
                         android:textStyle="bold" />
@@ -836,7 +832,7 @@
                     android:background="@drawable/bg_badge_rounded"
                     android:backgroundTint="@color/bg_card"
                     android:padding="14dp"
-                    android:text="No hay mesas de examen publicadas para tu escuela en este momento."
+                    android:text="@string/lbl_no_hay_mesas_de"
                     android:textColor="@color/text_muted"
                     android:textSize="12sp"
                     android:visibility="gone" />
@@ -875,7 +871,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Comunicaciones Oficiales para Familias"
+                            android:text="@string/lbl_comunicaciones_oficiales_para_famili"
                             android:textColor="@color/text_main"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -884,7 +880,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:text="Avisos institucionales, reuniones de tutores y comunicados"
+                            android:text="@string/lbl_avisos_institucionales_reuniones_de"
                             android:textColor="@color/text_muted"
                             android:textSize="11sp" />
                     </LinearLayout>
@@ -899,7 +895,7 @@
                         android:paddingTop="3dp"
                         android:paddingEnd="8dp"
                         android:paddingBottom="3dp"
-                        android:text="3 Avisos"
+                        android:text="@string/lbl_3_avisos"
                         android:textColor="@color/color_warning"
                         android:textSize="10sp"
                         android:textStyle="bold" />
@@ -913,7 +909,7 @@
                     android:layout_marginBottom="14dp"
                     android:backgroundTint="@color/bg_card"
                     android:letterSpacing="0.04"
-                    android:text="PROBAR NOTIFICACIÓN EN ESTE CELULAR"
+                    android:text="@string/lbl_probar_notificación_en_este"
                     android:textColor="@color/color_primary"
                     android:textSize="12sp"
                     android:textStyle="bold"
@@ -971,7 +967,7 @@
                                     android:paddingTop="2dp"
                                     android:paddingEnd="8dp"
                                     android:paddingBottom="2dp"
-                                    android:text="Atención y Preceptoría"
+                                    android:text="@string/lbl_atención_y_preceptoría"
                                     android:textColor="@color/color_primary"
                                     android:textSize="10sp"
                                     android:textStyle="bold" />
@@ -986,7 +982,7 @@
                                     android:paddingTop="2dp"
                                     android:paddingEnd="6dp"
                                     android:paddingBottom="2dp"
-                                    android:text="Sin leer"
+                                    android:text="@string/lbl_sin_leer"
                                     android:textColor="@color/color_warning"
                                     android:textSize="10sp"
                                     android:textStyle="bold" />
@@ -999,7 +995,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="12/10/2026 • Secretaría"
+                                    android:text="@string/lbl_12102026_secretaría"
                                     android:textColor="@color/text_muted"
                                     android:textSize="10sp" />
                             </LinearLayout>
@@ -1008,7 +1004,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
-                                android:text="Canales de Contacto y Horarios de Atención Institucional"
+                                android:text="@string/lbl_canales_de_contacto_y"
                                 android:textColor="@color/text_main"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
@@ -1018,7 +1014,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="4dp"
                                 android:lineSpacingExtra="2dp"
-                                android:text="Recordamos que el horario de atención para consultas y trámites de reincorporación es de 07:30 a 12:30 hs (Mañana) y 13:00 a 18:00 hs (Tarde)."
+                                android:text="@string/lbl_recordamos_que_el_horario"
                                 android:textColor="@color/text_secondary"
                                 android:textSize="12sp" />
 
@@ -1026,7 +1022,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
-                                android:text="• Dirigido a: Comunidad Educativa EPES N° 19"
+                                android:text="@string/lbl_dirigido_a_comunidad_educativa"
                                 android:textColor="@color/text_muted"
                                 android:textSize="11sp" />
                         </LinearLayout>
@@ -1064,7 +1060,7 @@
                                     android:paddingTop="2dp"
                                     android:paddingEnd="8dp"
                                     android:paddingBottom="2dp"
-                                    android:text="Reunión de Familias"
+                                    android:text="@string/lbl_reunión_de_familias"
                                     android:textColor="@color/color_tea_text"
                                     android:textSize="10sp"
                                     android:textStyle="bold" />
@@ -1079,7 +1075,7 @@
                                     android:paddingTop="2dp"
                                     android:paddingEnd="6dp"
                                     android:paddingBottom="2dp"
-                                    android:text="Importante"
+                                    android:text="@string/lbl_importante"
                                     android:textColor="@color/color_warning"
                                     android:textSize="10sp"
                                     android:textStyle="bold" />
@@ -1092,7 +1088,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="24/10/2026 • Preceptoría"
+                                    android:text="@string/lbl_24102026_preceptoría"
                                     android:textColor="@color/text_muted"
                                     android:textSize="10sp" />
                             </LinearLayout>
@@ -1101,7 +1097,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
-                                android:text="Convocatoria a Encuentro de Familias y Diálogo Pedagógico"
+                                android:text="@string/lbl_convocatoria_a_encuentro_de"
                                 android:textColor="@color/text_main"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
@@ -1111,7 +1107,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="4dp"
                                 android:lineSpacingExtra="2dp"
-                                android:text="Invitamos a las familias a la reunión presencial de seguimiento pedagógico en el SUM de la institución para tratar el cierre del período lectivo."
+                                android:text="@string/lbl_invitamos_a_las_familias"
                                 android:textColor="@color/text_secondary"
                                 android:textSize="12sp" />
 
@@ -1119,7 +1115,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
-                                android:text="• Dirigido a: Familias EPES N° 19 (Laguna Naineck)"
+                                android:text="@string/lbl_dirigido_a_familias_epes"
                                 android:textColor="@color/text_muted"
                                 android:textSize="11sp" />
                         </LinearLayout>
@@ -1157,7 +1153,7 @@
                                     android:paddingTop="2dp"
                                     android:paddingEnd="8dp"
                                     android:paddingBottom="2dp"
-                                    android:text="Boletines y Calificaciones"
+                                    android:text="@string/lbl_boletines_y_calificaciones"
                                     android:textColor="@color/color_primary"
                                     android:textSize="10sp"
                                     android:textStyle="bold" />
@@ -1170,7 +1166,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="20/10/2026 • Dirección"
+                                    android:text="@string/lbl_20102026_dirección"
                                     android:textColor="@color/text_muted"
                                     android:textSize="10sp" />
                             </LinearLayout>
@@ -1179,7 +1175,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
-                                android:text="Cierre de Calificaciones y Descarga del Reporte Digital"
+                                android:text="@string/lbl_cierre_de_calificaciones_y"
                                 android:textColor="@color/text_main"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
@@ -1189,7 +1185,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="4dp"
                                 android:lineSpacingExtra="2dp"
-                                android:text="Estimados tutores: Ya se encuentran registradas y visadas las calificaciones del presente período lectivo. Pueden acceder a la pestaña Boletín Oficial para consultar notas."
+                                android:text="@string/lbl_estimados_tutores_ya_se"
                                 android:textColor="@color/text_secondary"
                                 android:textSize="12sp" />
 
@@ -1197,7 +1193,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
-                                android:text="• Dirigido a: Ciclo Básico (1° a 3° Año)"
+                                android:text="@string/lbl_dirigido_a_ciclo_básico"
                                 android:textColor="@color/text_muted"
                                 android:textSize="11sp" />
                         </LinearLayout>
@@ -1259,7 +1255,7 @@
                             android:id="@+id/tvPerfilNombreUsuario"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Uriel Luciano Pleininger"
+                            android:text="@string/lbl_uriel_luciano_pleininger"
                             android:textColor="@color/text_main"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -1269,7 +1265,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:text="DNI: 48763736"
+                            android:text="@string/lbl_dni_48763736"
                             android:textColor="@color/text_muted"
                             android:textSize="13sp" />
 
@@ -1300,7 +1296,7 @@
                                 android:id="@+id/tvPerfilBadgeRolTexto"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="ALUMNO REGULAR"
+                                android:text="@string/lbl_alumno_regular"
                                 android:textColor="@color/color_tea_text"
                                 android:textSize="11sp"
                                 android:textStyle="bold" />
@@ -1328,7 +1324,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="EXPEDIENTE ESCOLAR OFICIAL"
+                            android:text="@string/lbl_expediente_escolar_oficial"
                             android:textColor="@color/color_primary"
                             android:textSize="12sp"
                             android:textStyle="bold" />
@@ -1344,7 +1340,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Alumno / Estudiante:"
+                            android:text="@string/lbl_alumno_estudiante"
                             android:textColor="@color/text_muted"
                             android:textSize="11sp" />
                         <TextView
@@ -1352,7 +1348,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
-                            android:text="Pleininger, Uriel Luciano (DNI 48763736)"
+                            android:text="@string/lbl_pleininger_uriel_luciano_dni"
                             android:textColor="@color/text_main"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -1361,7 +1357,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Institución Escolar:"
+                            android:text="@string/lbl_institución_escolar"
                             android:textColor="@color/text_muted"
                             android:textSize="11sp" />
                         <TextView
@@ -1369,7 +1365,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
-                            android:text="E.E.S. N° 5 (Buenos Aires)"
+                            android:text="@string/lbl_ees_n_5_buenos"
                             android:textColor="@color/text_main"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -1378,7 +1374,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Curso y División:"
+                            android:text="@string/lbl_curso_y_división"
                             android:textColor="@color/text_muted"
                             android:textSize="11sp" />
                         <TextView
@@ -1386,7 +1382,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
-                            android:text="4° Año • División Única"
+                            android:text="@string/lbl_4_año_división_única"
                             android:textColor="@color/text_main"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -1395,7 +1391,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Régimen de Acreditación:"
+                            android:text="@string/lbl_régimen_de_acreditación"
                             android:textColor="@color/text_muted"
                             android:textSize="11sp" />
                         <TextView
@@ -1403,7 +1399,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
-                            android:text="Secundaria Cuatrimestral (R.I.T.E.)"
+                            android:text="@string/lbl_secundaria_cuatrimestral_rite"
                             android:textColor="@color/text_main"
                             android:textSize="13sp" />
 
@@ -1411,14 +1407,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Tutor / Familiar Responsable:"
+                            android:text="@string/lbl_tutor_familiar_responsable"
                             android:textColor="@color/text_muted"
                             android:textSize="11sp" />
                         <TextView
                             android:id="@+id/tvPerfilDetalleTutor"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Pleininger Cristian"
+                            android:text="@string/lbl_pleininger_cristian"
                             android:textColor="@color/text_main"
                             android:textSize="13sp" />
                     </LinearLayout>
@@ -1431,7 +1427,7 @@
                     android:layout_height="52dp"
                     android:layout_marginBottom="10dp"
                     android:backgroundTint="@color/color_danger"
-                    android:text="Cerrar Sesión"
+                    android:text="@string/lbl_cerrar_sesión"
                     android:textColor="@color/white"
                     android:textSize="14sp"
                     android:textStyle="bold"
@@ -1447,7 +1443,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginBottom="24dp"
-                    android:text="Volver a Calificaciones"
+                    android:text="@string/lbl_volver_a_calificaciones"
                     android:textColor="@color/color_primary"
                     android:textSize="13sp"
                     app:cornerRadius="12dp"
@@ -1501,7 +1497,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
-                android:text="Boletín"
+                android:text="@string/lbl_boletín"
                 android:textColor="@color/color_primary"
                 android:textSize="10sp"
                 android:textStyle="bold" />
@@ -1531,7 +1527,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
-                android:text="Asistencia"
+                android:text="@string/lbl_asistencia"
                 android:textColor="@color/text_muted"
                 android:textSize="10sp" />
         </LinearLayout>
@@ -1560,7 +1556,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
-                android:text="Previas"
+                android:text="@string/lbl_previas"
                 android:textColor="@color/text_muted"
                 android:textSize="10sp" />
         </LinearLayout>
@@ -1604,7 +1600,7 @@
                     android:minWidth="15dp"
                     android:paddingStart="4dp"
                     android:paddingEnd="4dp"
-                    android:text="3"
+                    android:text="@string/lbl_3"
                     android:textColor="@color/white"
                     android:textSize="9sp"
                     android:textStyle="bold"
@@ -1617,7 +1613,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
-                android:text="Avisos"
+                android:text="@string/lbl_avisos"
                 android:textColor="@color/text_muted"
                 android:textSize="10sp" />
         </LinearLayout>

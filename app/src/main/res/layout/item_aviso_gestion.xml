@@ -40,7 +40,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Reunión General de Tutores"
+                    android:text="@string/lbl_reunión_general_de_tutores"
                     android:textColor="@color/color_primary"
                     android:textSize="13sp"
                     android:textStyle="bold" />
@@ -49,7 +49,7 @@
                     android:id="@+id/tvFechaItemAviso"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Hoy"
+                    android:text="@string/lbl_hoy"
                     android:textColor="@color/text_dim"
                     android:textSize="11sp" />
             </LinearLayout>
@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="Categoría: Atención y Preceptoría"
+                android:text="@string/lbl_categoría_atención_y_preceptoría"
                 android:textColor="@color/text_muted"
                 android:textSize="11sp" />
 
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:lineSpacingExtra="2dp"
-                android:text="Se convoca a los tutores de 4° año a la reunión informativa del día viernes a las 18:00 hs."
+                android:text="@string/lbl_se_convoca_a_los"
                 android:textColor="@color/text_secondary"
                 android:textSize="12sp" />
 

@@ -40,7 +40,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Matemática"
+                    android:text="@string/lbl_matemática"
                     android:textColor="@color/text_main"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -55,7 +55,7 @@
                     android:paddingTop="2dp"
                     android:paddingEnd="8dp"
                     android:paddingBottom="2dp"
-                    android:text="Abierta"
+                    android:text="@string/lbl_abierta"
                     android:textColor="@color/color_tea_text"
                     android:textSize="10sp"
                     android:textStyle="bold" />
@@ -79,7 +79,7 @@
                     android:paddingTop="2dp"
                     android:paddingEnd="7dp"
                     android:paddingBottom="2dp"
-                    android:text="Ciclo Básico"
+                    android:text="@string/lbl_ciclo_básico"
                     android:textColor="@color/color_badge_purple_text"
                     android:textSize="10sp"
                     android:textStyle="bold" />
@@ -95,7 +95,7 @@
                     android:paddingTop="2dp"
                     android:paddingEnd="7dp"
                     android:paddingBottom="2dp"
-                    android:text="EPES N° 19"
+                    android:text="@string/lbl_epes_n_19"
                     android:textColor="@color/text_muted"
                     android:textSize="10sp" />
             </LinearLayout>
@@ -105,7 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
-                android:text="Mesa de Diciembre • Turno Diciembre 2026"
+                android:text="@string/lbl_mesa_de_diciembre_turno"
                 android:textColor="@color/color_warning"
                 android:textSize="12sp"
                 android:textStyle="bold" />
@@ -115,7 +115,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
-                android:text="14/12/2026 • 08:00 hs"
+                android:text="@string/lbl_14122026_0800_hs"
                 android:textColor="@color/text_secondary"
                 android:textSize="12sp" />
 
@@ -124,7 +124,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="Tribunal: Prof. Ramírez, Prof. Gómez"
+                android:text="@string/lbl_tribunal_prof_ramírez_prof"
                 android:textColor="@color/text_muted"
                 android:textSize="11sp" />
 
@@ -154,7 +154,7 @@
                     android:paddingTop="5dp"
                     android:paddingEnd="10dp"
                     android:paddingBottom="5dp"
-                    android:text="Inscriptos (0)"
+                    android:text="@string/lbl_inscriptos_0"
                     android:textColor="@color/color_primary"
                     android:textSize="11sp"
                     android:textStyle="bold" />

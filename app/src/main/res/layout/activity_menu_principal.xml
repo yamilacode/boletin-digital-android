@@ -35,7 +35,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:letterSpacing="0.06"
-                    android:text="SESIÓN ACTIVA"
+                    android:text="@string/lbl_sesión_activa"
                     android:textColor="@color/color_primary"
                     android:textSize="11sp"
                     android:textStyle="bold" />
@@ -44,7 +44,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="Gestión del Sistema"
+                    android:text="@string/lbl_gestión_del_sistema"
                     android:textColor="@color/text_main"
                     android:textSize="22sp"
                     android:textStyle="bold" />
@@ -70,7 +70,7 @@
                         android:paddingTop="4dp"
                         android:paddingEnd="10dp"
                         android:paddingBottom="4dp"
-                        android:text="EPES N° 19 (Formosa) • Trimestral ›"
+                        android:text="@string/lbl_epes_n_19_formosa_1"
                         android:textColor="@color/color_primary_light"
                         android:textSize="11sp"
                         android:textStyle="bold" />
@@ -108,7 +108,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="14dp"
                 android:letterSpacing="0.06"
-                android:text="MÓDULOS DE GESTIÓN"
+                android:text="@string/lbl_módulos_de_gestión"
                 android:textColor="@color/color_primary"
                 android:textSize="11sp"
                 android:textStyle="bold" />
@@ -161,7 +161,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Calificaciones"
+                            android:text="@string/lbl_calificaciones"
                             android:textColor="@color/text_main"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -169,7 +169,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Notas por curso"
+                            android:text="@string/lbl_notas_por_curso"
                             android:textColor="@color/text_muted"
                             android:textSize="11sp" />
                     </LinearLayout>
@@ -215,7 +215,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Alumnos"
+                            android:text="@string/lbl_alumnos"
                             android:textColor="@color/text_main"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -223,7 +223,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Matrícula y legajos"
+                            android:text="@string/lbl_matrícula_y_legajos"
                             android:textColor="@color/text_muted"
                             android:textSize="11sp" />
                     </LinearLayout>
@@ -277,7 +277,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Asistencia"
+                            android:text="@string/lbl_asistencia"
                             android:textColor="@color/text_main"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -285,7 +285,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Presentismo diario"
+                            android:text="@string/lbl_presentismo_diario"
                             android:textColor="@color/text_muted"
                             android:textSize="11sp" />
                     </LinearLayout>
@@ -331,7 +331,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Mesas Examen"
+                            android:text="@string/lbl_mesas_examen"
                             android:textColor="@color/text_main"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -339,7 +339,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Actas y turnos"
+                            android:text="@string/lbl_actas_y_turnos"
                             android:textColor="@color/text_muted"
                             android:textSize="11sp" />
                     </LinearLayout>
@@ -392,7 +392,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Previas"
+                            android:text="@string/lbl_previas"
                             android:textColor="@color/text_main"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -400,7 +400,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Materias pendientes"
+                            android:text="@string/lbl_materias_pendientes"
                             android:textColor="@color/text_muted"
                             android:textSize="11sp" />
                     </LinearLayout>
@@ -446,7 +446,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Institución"
+                            android:text="@string/lbl_institución"
                             android:textColor="@color/text_main"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -454,7 +454,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Sede, cursos y DB"
+                            android:text="@string/lbl_sede_cursos_y_db"
                             android:textColor="@color/text_muted"
                             android:textSize="11sp" />
                     </LinearLayout>
@@ -494,7 +494,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="Panel"
+                android:text="@string/lbl_panel"
                 android:textColor="@color/color_primary"
                 android:textSize="11sp"
                 android:textStyle="bold" />
@@ -522,7 +522,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="Avisos"
+                android:text="@string/lbl_avisos"
                 android:textColor="@color/text_muted"
                 android:textSize="11sp" />
         </LinearLayout>
@@ -549,7 +549,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="Perfil"
+                android:text="@string/lbl_perfil"
                 android:textColor="@color/text_muted"
                 android:textSize="11sp" />
         </LinearLayout>

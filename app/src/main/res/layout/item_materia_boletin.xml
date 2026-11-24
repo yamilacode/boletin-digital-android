@@ -57,7 +57,7 @@
                     android:id="@+id/tvNombreMateria"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Matemática"
+                    android:text="@string/lbl_matemática"
                     android:textColor="@color/text_main"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -67,7 +67,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="4° Año • 1° Cuat."
+                    android:text="@string/lbl_4_año_1_cuat"
                     android:textColor="@color/text_muted"
                     android:textSize="11sp" />
             </LinearLayout>
@@ -91,7 +91,7 @@
                     android:paddingTop="2dp"
                     android:paddingEnd="6dp"
                     android:paddingBottom="2dp"
-                    android:text="TEA"
+                    android:text="@string/lbl_tea"
                     android:textColor="@color/color_tea_text"
                     android:textSize="11sp"
                     android:textStyle="bold" />
@@ -109,7 +109,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="8"
+                        android:text="@string/lbl_8"
                         android:textColor="@color/color_tea_text"
                         android:textSize="11sp"
                         android:textStyle="bold" />
@@ -127,7 +127,7 @@
                     android:paddingTop="2dp"
                     android:paddingEnd="6dp"
                     android:paddingBottom="2dp"
-                    android:text="En Curso"
+                    android:text="@string/lbl_en_curso"
                     android:textColor="@color/color_danger"
                     android:textSize="10sp" />
 
@@ -173,7 +173,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1° Cuatrimestre"
+                        android:text="@string/lbl_1_cuatrimestre"
                         android:textColor="@color/text_muted"
                         android:textSize="10sp" />
 
@@ -182,7 +182,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="TEA (8)"
+                        android:text="@string/lbl_tea_8"
                         android:textColor="@color/text_main"
                         android:textSize="12sp"
                         android:textStyle="bold" />
@@ -197,7 +197,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="2° Cuatrimestre"
+                        android:text="@string/lbl_2_cuatrimestre"
                         android:textColor="@color/text_muted"
                         android:textSize="10sp" />
 
@@ -206,7 +206,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="- / -"
+                        android:text="@string/lbl_texto_3"
                         android:textColor="@color/text_dim"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -220,7 +220,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Intensificación"
+                        android:text="@string/lbl_intensificación"
                         android:textColor="@color/text_muted"
                         android:textSize="10sp" />
 
@@ -229,7 +229,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="-"
+                        android:text="@string/lbl_texto_4"
                         android:textColor="@color/text_dim"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -241,7 +241,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Trayectoria pedagógica en curso según normativa R.I.T.E."
+                android:text="@string/lbl_trayectoria_pedagógica_en_curso"
                 android:textColor="@color/text_muted"
                 android:textSize="11sp"
                 android:textStyle="italic" />

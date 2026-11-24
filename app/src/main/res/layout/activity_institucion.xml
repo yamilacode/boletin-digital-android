@@ -40,7 +40,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Gestión Institucional"
+                android:text="@string/lbl_gestión_institucional"
                 android:textColor="@color/text_main"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -49,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
-                android:text="Información Oficial • Sedes y Régimen"
+                android:text="@string/lbl_información_oficial_sedes_y"
                 android:textColor="@color/color_primary"
                 android:textSize="11sp" />
         </LinearLayout>
@@ -64,7 +64,7 @@
             android:paddingTop="3dp"
             android:paddingEnd="8dp"
             android:paddingBottom="3dp"
-            android:text="Oficial"
+            android:text="@string/lbl_oficial"
             android:textColor="@color/color_primary"
             android:textSize="11sp"
             android:textStyle="bold" />
@@ -95,7 +95,7 @@
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
-            android:text="E.E.S. N° 5 (Buenos Aires)"
+            android:text="@string/lbl_ees_n_5_buenos"
             android:textColor="@color/color_primary"
             android:textSize="12sp"
             android:textStyle="bold" />
@@ -112,7 +112,7 @@
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
-            android:text="EPES N° 19 (Formosa)"
+            android:text="@string/lbl_epes_n_19_formosa"
             android:textColor="@color/text_muted"
             android:textSize="12sp"
             android:textStyle="bold" />
@@ -158,7 +158,7 @@
                         android:id="@+id/tvEstadoActivaInst"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Institución seleccionada: E.E.S. N° 5"
+                        android:text="@string/lbl_institución_seleccionada_ees_n"
                         android:textColor="@color/color_primary_light"
                         android:textSize="12sp"
                         android:textStyle="bold" />
@@ -167,7 +167,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="Sede de trabajo activa para toda la gestión y consulta estudiantil."
+                        android:text="@string/lbl_sede_de_trabajo_activa"
                         android:textColor="@color/text_secondary"
                         android:textSize="11sp" />
 
@@ -192,7 +192,7 @@
                                 android:id="@+id/tvDbAlumnosCount"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="..."
+                                android:text="@string/lbl_texto_1"
                                 android:textColor="@color/color_primary"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -200,7 +200,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Alumnos"
+                                android:text="@string/lbl_alumnos"
                                 android:textColor="@color/text_muted"
                                 android:textSize="10sp" />
                         </LinearLayout>
@@ -220,7 +220,7 @@
                                 android:id="@+id/tvDbMesasCount"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="..."
+                                android:text="@string/lbl_texto_1"
                                 android:textColor="@color/color_warning"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -228,7 +228,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Mesas"
+                                android:text="@string/lbl_mesas"
                                 android:textColor="@color/text_muted"
                                 android:textSize="10sp" />
                         </LinearLayout>
@@ -247,7 +247,7 @@
                                 android:id="@+id/tvDbAvisosCount"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="..."
+                                android:text="@string/lbl_texto_1"
                                 android:textColor="@color/color_success"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -255,7 +255,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Avisos"
+                                android:text="@string/lbl_avisos"
                                 android:textColor="@color/text_muted"
                                 android:textSize="10sp" />
                         </LinearLayout>
@@ -266,7 +266,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Cursos habilitados: cargando..."
+                        android:text="@string/lbl_cursos_habilitados_cargando"
                         android:textColor="@color/text_muted"
                         android:textSize="11sp" />
                 </LinearLayout>
@@ -321,7 +321,7 @@
                                 android:id="@+id/tvNombreInstitucion"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="E.E.S. N° 5"
+                                android:text="@string/lbl_ees_n_5"
                                 android:textColor="@color/text_main"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
@@ -331,7 +331,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
-                                android:text="Distrito PUAN | Secundaria"
+                                android:text="@string/lbl_distrito_puan_secundaria"
                                 android:textColor="@color/text_muted"
                                 android:textSize="12sp" />
                         </LinearLayout>
@@ -359,7 +359,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="CÓDIGO C.U.E."
+                                android:text="@string/lbl_código_cue"
                                 android:textColor="@color/text_dim"
                                 android:textSize="10sp"
                                 android:textStyle="bold" />
@@ -369,7 +369,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
-                                android:text="0604123-00"
+                                android:text="@string/lbl_060412300"
                                 android:textColor="@color/text_main"
                                 android:textSize="13sp"
                                 android:textStyle="bold" />
@@ -384,7 +384,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="NIVEL EDUCATIVO"
+                                android:text="@string/lbl_nivel_educativo"
                                 android:textColor="@color/text_dim"
                                 android:textSize="10sp"
                                 android:textStyle="bold" />
@@ -394,7 +394,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
-                                android:text="Secundario Común"
+                                android:text="@string/lbl_secundario_común"
                                 android:textColor="@color/text_main"
                                 android:textSize="13sp"
                                 android:textStyle="bold" />
@@ -406,7 +406,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="RÉGIMEN OFICIAL DE EVALUACIÓN"
+                        android:text="@string/lbl_régimen_oficial_de_evaluación"
                         android:textColor="@color/text_dim"
                         android:textSize="10sp"
                         android:textStyle="bold" />
@@ -422,7 +422,7 @@
                         android:paddingTop="6dp"
                         android:paddingEnd="10dp"
                         android:paddingBottom="6dp"
-                        android:text="Provincia de Buenos Aires • Régimen R.I.T.E. (TEA / TEP / TED)"
+                        android:text="@string/lbl_provincia_de_buenos_aires"
                         android:textColor="@color/color_primary"
                         android:textSize="12sp"
                         android:textStyle="bold" />
@@ -452,7 +452,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="12dp"
                         android:letterSpacing="0.04"
-                        android:text="ESTRUCTURA CURRICULAR Y CICLOS"
+                        android:text="@string/lbl_estructura_curricular_y_ciclos"
                         android:textColor="@color/color_primary"
                         android:textSize="11sp"
                         android:textStyle="bold" />
@@ -481,7 +481,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Ciclo Básico Secundario"
+                                android:text="@string/lbl_ciclo_básico_secundario"
                                 android:textColor="@color/text_main"
                                 android:textSize="13sp"
                                 android:textStyle="bold" />
@@ -490,7 +490,7 @@
                                 android:id="@+id/tvDetalleCicloBasico"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="1°, 2° y 3° Año • Turno Mañana"
+                                android:text="@string/lbl_1_2_y_3"
                                 android:textColor="@color/text_muted"
                                 android:textSize="11sp" />
                         </LinearLayout>
@@ -527,7 +527,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Ciclo Superior Orientado"
+                                android:text="@string/lbl_ciclo_superior_orientado"
                                 android:textColor="@color/text_main"
                                 android:textSize="13sp"
                                 android:textStyle="bold" />
@@ -536,7 +536,7 @@
                                 android:id="@+id/tvDetalleCicloOrientado"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="4°, 5° y 6° Año • Ciencias Sociales / Naturales • Turno Tarde"
+                                android:text="@string/lbl_4_5_y_6"
                                 android:textColor="@color/text_muted"
                                 android:textSize="11sp" />
                         </LinearLayout>
@@ -574,7 +574,7 @@
                                 android:id="@+id/tvTituloCriterio"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Escala de Calificación Institucional"
+                                android:text="@string/lbl_escala_de_calificación_institucional"
                                 android:textColor="@color/text_main"
                                 android:textSize="13sp"
                                 android:textStyle="bold" />
@@ -583,7 +583,7 @@
                                 android:id="@+id/tvDetalleCriterio"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="TEA (Avanzada 7-10) • TEP (En Proceso 4-6) • TED (Discontinua 1-3)"
+                                android:text="@string/lbl_tea_avanzada_710_tep"
                                 android:textColor="@color/text_muted"
                                 android:textSize="11sp" />
                         </LinearLayout>
@@ -614,7 +614,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="12dp"
                         android:letterSpacing="0.04"
-                        android:text="AUTORIDADES Y EQUIPO DE GESTIÓN"
+                        android:text="@string/lbl_autoridades_y_equipo_de"
                         android:textColor="@color/color_primary"
                         android:textSize="11sp"
                         android:textStyle="bold" />
@@ -623,7 +623,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Dirección Institucional"
+                        android:text="@string/lbl_dirección_institucional"
                         android:textColor="@color/text_dim"
                         android:textSize="10sp"
                         android:textStyle="bold" />
@@ -632,7 +632,7 @@
                         android:id="@+id/tvDirectora"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Lic. Marcela Benítez"
+                        android:text="@string/lbl_lic_marcela_benítez"
                         android:textColor="@color/text_main"
                         android:textSize="13sp"
                         android:textStyle="bold" />
@@ -642,7 +642,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Vicedirección / Regencia"
+                        android:text="@string/lbl_vicedirección_regencia"
                         android:textColor="@color/text_dim"
                         android:textSize="10sp"
                         android:textStyle="bold" />
@@ -651,7 +651,7 @@
                         android:id="@+id/tvVicedirector"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Prof. Gustavo Méndez"
+                        android:text="@string/lbl_prof_gustavo_méndez"
                         android:textColor="@color/text_main"
                         android:textSize="13sp"
                         android:textStyle="bold" />
@@ -661,7 +661,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Secretaría y Jefatura de Preceptores"
+                        android:text="@string/lbl_secretaría_y_jefatura_de"
                         android:textColor="@color/text_dim"
                         android:textSize="10sp"
                         android:textStyle="bold" />
@@ -670,7 +670,7 @@
                         android:id="@+id/tvSecretaria"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Prof. Claudia Fernández • Prof. Darío Almirón"
+                        android:text="@string/lbl_prof_claudia_fernández_prof"
                         android:textColor="@color/text_main"
                         android:textSize="13sp"
                         android:textStyle="bold" />
@@ -700,7 +700,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
                         android:letterSpacing="0.04"
-                        android:text="ATENCIÓN Y CONTACTO"
+                        android:text="@string/lbl_atención_y_contacto"
                         android:textColor="@color/color_primary"
                         android:textSize="11sp"
                         android:textStyle="bold" />
@@ -708,7 +708,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Horario de Atención: Lunes a Viernes de 07:30 a 18:30 hs."
+                        android:text="@string/lbl_horario_de_atención_lunes"
                         android:textColor="@color/text_muted"
                         android:textSize="12sp" />
 

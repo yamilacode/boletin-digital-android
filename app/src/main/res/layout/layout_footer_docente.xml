@@ -43,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="Panel"
+                android:text="@string/lbl_panel"
                 android:textColor="@color/color_primary"
                 android:textSize="11sp"
                 android:textStyle="bold" />
@@ -74,7 +74,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="Avisos"
+                android:text="@string/lbl_avisos"
                 android:textColor="@color/text_muted"
                 android:textSize="11sp" />
         </LinearLayout>
@@ -104,7 +104,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="Perfil"
+                android:text="@string/lbl_perfil"
                 android:textColor="@color/text_muted"
                 android:textSize="11sp" />
         </LinearLayout>

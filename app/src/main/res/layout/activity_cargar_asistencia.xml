@@ -40,7 +40,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Registro de Asistencias"
+                android:text="@string/lbl_registro_de_asistencias"
                 android:textColor="@color/text_main"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -49,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
-                android:text="Presentismo Escolar • Control por Curso"
+                android:text="@string/lbl_presentismo_escolar_control_por"
                 android:textColor="@color/color_success"
                 android:textSize="11sp" />
         </LinearLayout>
@@ -64,7 +64,7 @@
             android:paddingTop="3dp"
             android:paddingEnd="8dp"
             android:paddingBottom="3dp"
-            android:text="Preceptor"
+            android:text="@string/lbl_preceptor"
             android:textColor="@color/color_primary"
             android:textSize="11sp"
             android:textStyle="bold" />
@@ -110,7 +110,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="12dp"
                         android:letterSpacing="0.04"
-                        android:text="PARÁMETROS DEL CURSO"
+                        android:text="@string/lbl_parámetros_del_curso"
                         android:textColor="@color/color_success"
                         android:textSize="11sp"
                         android:textStyle="bold" />
@@ -120,7 +120,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
-                        android:text="Curso y División:"
+                        android:text="@string/lbl_curso_y_división"
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp" />
 
@@ -136,7 +136,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
-                        android:text="Período Escolar:"
+                        android:text="@string/lbl_período_escolar"
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp" />
 
@@ -159,7 +159,7 @@
                             android:layout_width="120dp"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="10dp"
-                            android:hint="Días Hábiles"
+                            android:hint="@string/hint_días_hábiles"
                             android:textColorHint="@color/text_muted"
                             app:boxBackgroundColor="@color/bg_surface"
                             app:boxStrokeColor="@color/border_main"
@@ -173,7 +173,7 @@
                                 android:gravity="center"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="96"
+                                android:text="@string/lbl_96"
                                 android:textColor="@color/text_main"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
@@ -186,7 +186,7 @@
                             android:layout_height="52dp"
                             android:layout_weight="1"
                             android:backgroundTint="@color/bg_surface"
-                            android:text="APLICAR A TODOS"
+                            android:text="@string/lbl_aplicar_a_todos"
                             android:textColor="@color/color_primary"
                             android:textSize="11sp"
                             android:textStyle="bold"
@@ -211,7 +211,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Planilla de Presentismo"
+                    android:text="@string/lbl_planilla_de_presentismo"
                     android:textColor="@color/text_main"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -226,7 +226,7 @@
                     android:paddingTop="3dp"
                     android:paddingEnd="8dp"
                     android:paddingBottom="3dp"
-                    android:text="Cargando..."
+                    android:text="@string/cargando"
                     android:textColor="@color/text_muted"
                     android:textSize="11sp" />
             </LinearLayout>
@@ -270,7 +270,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:backgroundTint="@color/color_success"
-            android:text="GUARDAR ASISTENCIAS DEL CURSO"
+            android:text="@string/lbl_guardar_asistencias_del_curso"
             android:textColor="@color/bg_body"
             android:textSize="13sp"
             android:textStyle="bold"
