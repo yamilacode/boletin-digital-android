@@ -174,7 +174,7 @@ public class InstitucionActivity extends AppCompatActivity {
             boolean ok = true;
 
             try {
-                JSONArray al = ApiClient.listarAlumnos(idInstSolicitado);
+                JSONArray al = ApiClient.listarAlumnos(idInstSolicitado, token);
                 countAlumnos = al.length();
             } catch (Exception e) {
                 ok = false;

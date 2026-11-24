@@ -299,7 +299,7 @@ public class CargarNotasActivity extends AppCompatActivity {
                 } catch (Exception ignored) {
                 }
 
-                JSONArray resAlum = ApiClient.listarAlumnos(instConsulta);
+                JSONArray resAlum = ApiClient.listarAlumnos(instConsulta, token);
                 for (int i = 0; i < resAlum.length(); i++) {
                     JSONObject obj = resAlum.optJSONObject(i);
                     if (obj != null) alumnosApi.add(obj);

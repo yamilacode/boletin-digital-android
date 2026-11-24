@@ -32,6 +32,7 @@ public class DetalleAlumnoActivity extends AppCompatActivity {
 
     private String dniActual = "";
     private int idInstitucionActual = 1;
+    private String token;
 
     private final ExecutorService executor =
             Executors.newSingleThreadExecutor();
@@ -40,6 +41,8 @@ public class DetalleAlumnoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_alumno);
+
+        token = getIntent().getStringExtra("token");
 
         tvNombreAlumno = findViewById(R.id.tvNombreAlumno);
         tvDniAlumno = findViewById(R.id.tvDniAlumno);
@@ -67,14 +70,16 @@ public class DetalleAlumnoActivity extends AppCompatActivity {
                 }
                 intent.putExtra("id_institucion", idInstitucionActual);
                 intent.putExtra("rol", "preceptor");
+                if (token != null && !token.isEmpty()) {
+                    intent.putExtra("token", token);
+                }
                 startActivity(intent);
             });
         }
 
-        String tokenFooter = getIntent().getStringExtra("token");
         String rolFooter = getIntent().getStringExtra("rol");
         String nombreFooter = getIntent().getStringExtra("nombre");
-        DocenteUiHelper.configurarFooterDocente(this, tokenFooter, rolFooter, nombreFooter);
+        DocenteUiHelper.configurarFooterDocente(this, token, rolFooter, nombreFooter);
 
         int idAlumno = getIntent().getIntExtra("id_alumno", -1);
 
@@ -96,7 +101,7 @@ public class DetalleAlumnoActivity extends AppCompatActivity {
         executor.execute(() -> {
 
             try {
-                JSONObject respuesta = ApiClient.obtenerAlumno(id);
+                JSONObject respuesta = ApiClient.obtenerAlumno(id, token);
                 Alumno alumno = new Alumno(respuesta);
 
                 runOnUiThread(() -> {

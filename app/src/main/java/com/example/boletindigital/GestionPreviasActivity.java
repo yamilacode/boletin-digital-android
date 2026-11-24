@@ -237,7 +237,7 @@ public class GestionPreviasActivity extends AppCompatActivity {
         final int idInstActiva = InstitucionManager.getIdInstitucionActiva(this);
         executor.execute(() -> {
             try {
-                JSONArray res = ApiClient.listarAlumnos(idInstActiva);
+                JSONArray res = ApiClient.listarAlumnos(idInstActiva, token);
                 List<AlumnoOpcion> parsed = new ArrayList<>();
                 for (int i = 0; i < res.length(); i++) {
                     JSONObject obj = res.getJSONObject(i);

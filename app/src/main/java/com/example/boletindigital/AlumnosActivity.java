@@ -284,7 +284,7 @@ public class AlumnosActivity extends AppCompatActivity {
 
         executor.execute(() -> {
             try {
-                JSONArray respuesta = ApiClient.listarAlumnos(InstitucionManager.getIdInstitucionActiva(this));
+                JSONArray respuesta = ApiClient.listarAlumnos(InstitucionManager.getIdInstitucionActiva(this), token);
                 ArrayList<Alumno> nuevos = new ArrayList<>();
 
                 for (int i = 0; i < respuesta.length(); i++) {

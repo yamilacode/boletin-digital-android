@@ -199,7 +199,7 @@ public class CargarAsistenciaActivity extends AppCompatActivity {
                     }
                 } catch (Exception ignored) {}
 
-                JSONArray res = ApiClient.listarAlumnos(idInstActiva);
+                JSONArray res = ApiClient.listarAlumnos(idInstActiva, token);
                 List<AlumnoItemAsistencia> parsed = new ArrayList<>();
 
                 for (int i = 0; i < res.length(); i++) {

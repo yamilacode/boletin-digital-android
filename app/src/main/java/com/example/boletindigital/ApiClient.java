@@ -205,13 +205,13 @@ public class ApiClient {
         return iniciarSesion(email, "", "google", nombre);
     }
 
-    // GET: listar todos los alumnos
-    public static JSONArray listarAlumnos() throws Exception {
-        return listarAlumnos(0);
+    // GET: listar todos los alumnos con token JWT
+    public static JSONArray listarAlumnos(String token) throws Exception {
+        return listarAlumnos(0, token);
     }
 
-    // GET: listar alumnos filtrados por institución (o todos si idInstitucion <= 0)
-    public static JSONArray listarAlumnos(int idInstitucion) throws Exception {
+    // GET: listar alumnos filtrados por institución con token JWT
+    public static JSONArray listarAlumnos(int idInstitucion, String token) throws Exception {
         String ruta = idInstitucion > 0
                 ? "alumnos.php?id_institucion=" + idInstitucion
                 : "alumnos.php";
@@ -220,25 +220,42 @@ public class ApiClient {
                 "GET",
                 ruta,
                 null,
-                null
+                token
         );
 
         return new JSONArray(respuesta);
     }
 
-    // GET: consultar un alumno por ID
+    // Sobrecargas de compatibilidad sin token
+    public static JSONArray listarAlumnos() throws Exception {
+        return listarAlumnos(0, null);
+    }
+
+    public static JSONArray listarAlumnos(int idInstitucion) throws Exception {
+        return listarAlumnos(idInstitucion, null);
+    }
+
+    // GET: consultar un alumno por ID con token JWT
     public static JSONObject obtenerAlumno(
-            int id
+            int id,
+            String token
     ) throws Exception {
 
         String respuesta = solicitar(
                 "GET",
                 "alumnos.php?id=" + id,
                 null,
-                null
+                token
         );
 
         return new JSONObject(respuesta);
+    }
+
+    // Sobrecarga de compatibilidad sin token
+    public static JSONObject obtenerAlumno(
+            int id
+    ) throws Exception {
+        return obtenerAlumno(id, null);
     }
 
     // POST: registrar un nuevo alumno
