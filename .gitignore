@@ -27,4 +27,6 @@ signing.properties
 
 # Archivos compilados
 *.apk
+!BoletinDigital-Grupo15.apk
 *.aab
+/build

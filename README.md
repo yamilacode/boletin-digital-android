@@ -11,6 +11,9 @@
   <a href="https://boletin-digital-escolar-production.up.railway.app" target="_blank">
     <img src="https://img.shields.io/badge/Demo%20Web-En%20Vivo-22c55e?style=flat-square&logo=google-chrome&logoColor=white" alt="Demo Web" />
   </a>
+  <a href="https://github.com/yamilacode/boletin-digital-android/raw/main/BoletinDigital-Grupo15.apk" target="_blank">
+    <img src="https://img.shields.io/badge/Descargar%20APK-Android-blue?style=flat-square&logo=android&logoColor=white" alt="Descargar APK" />
+  </a>
 </p>
 
 ## 1. Presentación
@@ -25,6 +28,10 @@
 * Peña Yamila Gisele
 * Camila Mailen Rodriguez
 * Julieta Cuchan
+
+**📱 Descarga directa del APK:**  
+[Descargar BoletinDigital-Grupo15.apk](https://github.com/yamilacode/boletin-digital-android/raw/main/BoletinDigital-Grupo15.apk)  
+Instalador listo para instalar en cualquier teléfono o emulador Android (minSdkVersion 25).
 
 **🎥 Video Demostración en Google Drive:**  
 [Ver Video Demostrativo del Grupo 15](https://drive.google.com/file/d/1Qm6OX5YIiT-4JFNP7DGDwsKH_K96lMIi/view?usp=sharing)  
